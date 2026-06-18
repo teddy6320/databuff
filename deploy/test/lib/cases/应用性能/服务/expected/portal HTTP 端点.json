@@ -1,0 +1,26 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": [
+    {
+      "serviceId": "9bf61532d56eb7b5",
+      "service": "service-a",
+      "url": "/demo/checkout",
+      "httpMethod": "GET",
+      "httpCode": "200",
+      "requestCount": 10,
+      "errorCount": 0,
+      "avgDuration": 240.0
+    },
+    {
+      "serviceId": "9bf61532d56eb7b5",
+      "service": "service-a",
+      "url": "/api/risk/check",
+      "httpMethod": "GET",
+      "httpCode": "200",
+      "requestCount": 10,
+      "errorCount": 0,
+      "avgDuration": 7.0
+    }
+  ]
+}

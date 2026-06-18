@@ -1,0 +1,62 @@
+/* 全局CSS变量 */
+:root[data-theme=dark] {
+  --color-primary: #3D71FF;
+  --color-success: #08BE7E;
+  --color-warning: #F78A1B;
+  --color-danger: #E42828;
+  --color-info: #45474A;
+  --color-text-primary: #EBEBED;
+  --color-text-regular: #B5B7BB;
+  --color-text-secondary: #8B8E93;
+  --color-text-placeholder: #4C4D4F;
+  --border-color-base: #39393A;
+  --border-color-light: #303031;
+  --border-color-lighter: #272727;
+  --border-color-extra-light: #1E1E1E;
+  --color-white: #1B1B1B;
+  --color-black: #FFFFFF;
+  --background-color-base: #242424;
+
+  --color-text-link: #3D71FF;
+  --bg-color-base: #121212;
+  --bg-color: #1B1B1B;
+  --bg-color02: #2F2F2F;
+  --bg-color03: #2F2F2F;
+  --bg-color04: #2F2F2F;
+  --shadow-color: #000000;
+  --shadow-color02: #000000;
+  --table-hover-color: #2F2F2F;
+  --tooltip-bg-color: #2F2F2F;
+  --tooltip-shadow-color: #141414;
+}
+
+:root[data-theme=light] {
+  --color-primary: #2962FF;
+  --color-success: #08BE7E;
+  --color-warning: #F79532;
+  --color-danger: #E12828;
+  --color-info: #B5B7BB;
+  --color-text-primary: #121317;
+  --color-text-regular: #45474A;
+  --color-text-secondary: #777A7E;
+  --color-text-placeholder: #B5B7BB;
+  --border-color-base: #DFE0E2;
+  --border-color-light: #E7E8EB;
+  --border-color-lighter: #EEEFF1;
+  --border-color-extra-light: #F6F7F9;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --background-color-base: #F5F6F7;
+
+  --color-text-link: #2962FF;
+  --bg-color-base: #EEEFF1;
+  --bg-color: #FFFFFF;
+  --bg-color02: #F7F7F7;
+  --bg-color03: #F5F6F7;
+  --bg-color04: #FAFAFA;
+  --shadow-color: rgba(10,42,97,0.2);
+  --shadow-color02: rgba(200,201,204,0.5);
+  --table-hover-color: #F5F5F5;
+  --tooltip-bg-color: #FFFFFF;
+  --tooltip-shadow-color: #ACACAC;
+}

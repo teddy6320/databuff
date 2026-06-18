@@ -1,0 +1,19 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": {
+    "histogram": {
+      "50000000": 10,
+      "500000000": 10
+    },
+    "p50Latency": 50000000,
+    "p75Latency": 500000000,
+    "p90Latency": 500000000,
+    "p95Latency": 500000000,
+    "p99Latency": 500000000,
+    "p100Latency": 500000000,
+    "maxPercentile": 500000000,
+    "serviceId": "9bf61532d56eb7b5",
+    "numBuckets": 100
+  }
+}

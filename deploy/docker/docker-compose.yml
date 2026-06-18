@@ -1,0 +1,130 @@
+# DataBuff APM Docker 本地部署
+# 启动: ./start.sh（首次会初始化 Doris）或 docker compose up -d
+# 停止: ./stop.sh 或 docker compose down
+
+services:
+  ai-apm-doris-fe:
+    image: apache/doris:fe-4.1.1
+    container_name: ai-apm-doris-fe
+    hostname: ai-apm-doris-fe
+    restart: unless-stopped
+    cpus: 1
+    mem_limit: 2g
+    working_dir: /opt/apache-doris
+    environment:
+      FE_SERVERS: fe1:172.20.80.2:9010
+      FE_ID: "1"
+    entrypoint: ["/bin/bash", "-ec"]
+    command:
+      - |
+        sed -i 's/-Xmx8192m/-Xmx1200m/g' /opt/apache-doris/fe/conf/fe.conf
+        sed -i 's/-Xms8192m/-Xms1200m/g' /opt/apache-doris/fe/conf/fe.conf
+        exec bash init_fe.sh
+    volumes:
+      - ./data/fe-meta:/opt/apache-doris/fe/doris-meta
+    ports:
+      - "8030:8030"
+      - "9030:9030"
+    networks:
+      apm:
+        ipv4_address: 172.20.80.2
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/9030' && curl -sf http://127.0.0.1:8030/api/bootstrap"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 120s
+
+  ai-apm-doris-be:
+    image: apache/doris:be-4.1.1
+    container_name: ai-apm-doris-be
+    hostname: ai-apm-doris-be
+    restart: unless-stopped
+    cpus: 2
+    mem_limit: 6g
+    working_dir: /opt/apache-doris
+    environment:
+      FE_SERVERS: fe1:172.20.80.2:9010
+      BE_ADDR: 172.20.80.5:9050
+    depends_on:
+      ai-apm-doris-fe:
+        condition: service_healthy
+    volumes:
+      - ./data/be-storage:/opt/apache-doris/be/storage
+    ports:
+      - "8040:8040"
+    networks:
+      apm:
+        ipv4_address: 172.20.80.5
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://127.0.0.1:8040/api/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 120s
+
+  ai-apm-ingest:
+    image: ${APM_INGEST_IMAGE}
+    container_name: ai-apm-ingest
+    hostname: ai-apm-ingest
+    restart: unless-stopped
+    cpus: 2
+    mem_limit: 5g
+    environment:
+      TZ: Asia/Shanghai
+      JAVA_TOOL_OPTIONS: -Xms1g -Xmx4g -Duser.timezone=Asia/Shanghai
+      DORIS_FE_HOST: ai-apm-doris-fe
+      DORIS_BE_HTTP_HOST: ai-apm-doris-be
+    ports:
+      - "4317:4317"
+      - "4318:4318"
+    depends_on:
+      ai-apm-doris-fe:
+        condition: service_healthy
+      ai-apm-doris-be:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/4318'"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 60s
+    networks:
+      apm:
+        ipv4_address: 172.20.80.3
+
+  ai-apm-web:
+    image: ${APM_WEB_IMAGE}
+    container_name: ai-apm-web
+    hostname: ai-apm-web
+    restart: unless-stopped
+    cpus: 1
+    mem_limit: 2g
+    environment:
+      TZ: Asia/Shanghai
+      JAVA_TOOL_OPTIONS: -Xms512m -Xmx1536m -Duser.timezone=Asia/Shanghai
+      DORIS_FE_HOST: ai-apm-doris-fe
+    ports:
+      - "27403:27403"
+    depends_on:
+      ai-apm-doris-fe:
+        condition: service_healthy
+      ai-apm-doris-be:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/27403'"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 90s
+    networks:
+      apm:
+        ipv4_address: 172.20.80.4
+
+networks:
+  apm:
+    name: databuff-ai-apm
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.80.0/24

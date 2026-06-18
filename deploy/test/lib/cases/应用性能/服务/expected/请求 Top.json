@@ -1,0 +1,26 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": [
+    {
+      "resource": "/demo/checkout",
+      "componentType": "service.http",
+      "serviceId": "9bf61532d56eb7b5",
+      "serviceName": "service-a",
+      "callCnt": 10,
+      "errCnt": 0,
+      "errRate": 0.0,
+      "avgLatency": 240000000
+    },
+    {
+      "resource": "/api/risk/check",
+      "componentType": "service.http",
+      "serviceId": "9bf61532d56eb7b5",
+      "serviceName": "service-a",
+      "callCnt": 10,
+      "errCnt": 0,
+      "errRate": 0.0,
+      "avgLatency": 7000000
+    }
+  ]
+}

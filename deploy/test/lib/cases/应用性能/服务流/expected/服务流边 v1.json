@@ -1,0 +1,20 @@
+[
+  {
+    "srcService": "service-a",
+    "dstService": "service-b",
+    "callCount": 20,
+    "errorCount": 0,
+    "avgDuration": 70.0,
+    "srcServiceId": "9bf61532d56eb7b5",
+    "dstServiceId": "service-b"
+  },
+  {
+    "srcService": "",
+    "dstService": "service-a",
+    "callCount": 10,
+    "errorCount": 0,
+    "avgDuration": 240.0,
+    "srcServiceId": "",
+    "dstServiceId": "service-a"
+  }
+]

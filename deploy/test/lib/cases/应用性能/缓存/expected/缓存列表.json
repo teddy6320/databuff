@@ -1,0 +1,33 @@
+{
+  "data": [
+    {
+      "serviceId": "94d612e1c2166206",
+      "name": "[redis]redis:6379",
+      "service": "[redis]redis:6379",
+      "callCnt": 20,
+      "errCnt": 0,
+      "slowCnt": 0,
+      "errRate": 0.0,
+      "slowPercent": 0.0,
+      "avgLatency": 13000000.0,
+      "reqRate": 0.06666666666666667,
+      "lastMinReqRate": 4.0,
+      "service_type": "cache",
+      "type": "SET order:10001",
+      "datasource": "OTLP",
+      "virtual_service": true,
+      "alarmCount": 0,
+      "alarmPendingCount": 0,
+      "alarmMetric": {
+        "unprocessed": 0,
+        "onprocess": 0,
+        "total": 0
+      }
+    }
+  ],
+  "status": 200,
+  "message": "SUCCESS",
+  "total": 1,
+  "size": 1,
+  "offset": 1
+}

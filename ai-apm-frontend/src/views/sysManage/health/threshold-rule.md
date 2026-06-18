@@ -1,0 +1,19 @@
+| 指标名称                     | thresholdMin | thresholdMax | accMode |
+| ---------------------------- | ------------ | ------------ | ------- |
+| system.mem.usage             | 0            | 90           | desc    |
+| system.cpu.usage             | 20           | 70           | desc    |
+| business.service.avgDuration | 0            | 200          | desc    |
+| business.service.error.pct   | 0            | 5            | desc    |
+| service.avgDuration          | 0            | 200          | desc    |
+| service.error.pct            | 0            | 5            | desc    |
+| service.db.slow.pct          | 0            | 15           | desc    |
+| service.db.error.pct         | 0            | 5            | desc    |
+| service.mq.slow.pct          | 0            | 15           | desc    |
+| service.mq.error.pct         | 0            | 5            | desc    |
+| service.redis.slow.pct       | 0            | 15           | desc    |
+| service.redis.error.pct      | 0            | 5            | desc    |
+| service.remote.avgDuration   | 0            | 200          | desc    |
+| service.remote.error.pct     | 0            | 5            | desc    |
+| service.http.avgDuration     | 0            | 200          | desc    |
+| service.http.error.pct       | 0            | 5            | desc    |
+

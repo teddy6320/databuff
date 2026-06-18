@@ -1,0 +1,20 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": {
+    "status": {
+      "0": 10,
+      "1": 0
+    },
+    "service": {
+      "service-a": "9bf61532d56eb7b5"
+    },
+    "resource": {
+      "GET /demo/checkout": 10
+    },
+    "duration": {
+      "max": 240000000,
+      "min": 240000000
+    }
+  }
+}

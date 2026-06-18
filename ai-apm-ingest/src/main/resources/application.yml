@@ -1,0 +1,55 @@
+server:
+  port: 4318
+
+spring:
+  application:
+    name: ai-apm-ingest
+
+management:
+  server:
+    port: 8081
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+ingest:
+  pipeline:
+    trace-tasks: ${INGEST_TRACE_TASKS:2}
+    metric-tasks: ${INGEST_METRIC_TASKS:2}
+    aggregate-tasks: ${INGEST_AGGREGATE_TASKS:2}
+    trace-buffer-size: ${INGEST_TRACE_BUFFER_SIZE:1024}
+    metric-buffer-size: ${INGEST_METRIC_BUFFER_SIZE:1024}
+    aggregate-buffer-size: ${INGEST_AGGREGATE_BUFFER_SIZE:1024}
+  trace:
+    assembly-check-interval-ms: 2000
+  metric:
+    trace-minute-late-flush-grace-ms: 20000
+  node-id: ingest-1
+  cluster:
+    enabled: false
+    grpc-port: 18112
+  zookeeper:
+    connect-string: ${ZK_CONNECT_STRING:}
+  otlp:
+    grpc-port: 4317
+  meta-service:
+    sync-interval-ms: 60000
+  remote:
+    enable: true
+    first-protect-time-ms: 3600000
+    merge-services: []
+  doris:
+    fe-host: ${DORIS_FE_HOST:127.0.0.1}
+    fe-http-port: ${DORIS_FE_HTTP_PORT:8030}
+    fe-query-port: ${DORIS_FE_QUERY_PORT:9030}
+    be-http-host: ${DORIS_BE_HTTP_HOST:}
+    be-http-port: ${DORIS_BE_HTTP_PORT:8040}
+    metric-database: databuff
+    metric-table: service
+    trace-database: databuff
+    trace-table: trace_dc_span
+    flush-interval-ms: 5000
+    flush-timeout-ms: 45000
+    username: ${DORIS_USER:root}
+    password: ${DORIS_PASSWORD:}

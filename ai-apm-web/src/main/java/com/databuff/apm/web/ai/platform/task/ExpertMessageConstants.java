@@ -1,0 +1,41 @@
+package com.databuff.apm.web.ai.platform.task;
+
+public final class ExpertMessageConstants {
+
+    public static final String META_SESSION_ID = "sessionId";
+    public static final String META_ROUND_INDEX = "roundIndex";
+    public static final String META_TASK_ID = "taskId";
+    public static final String META_SOURCE_EXPERT_ID = "sourceExpertId";
+    public static final String META_TRIGGER_SOURCE = "triggerSource";
+    public static final String META_RUNTIME_SESSION_ID = "runtimeSessionId";
+    public static final String META_IS_EXPERT_DELIVERABLE = "isExpertDeliverable";
+    public static final String META_IS_ROUND_FINAL = "isRoundFinal";
+
+    public static final String TRIGGER_USER = "user";
+    public static final String TRIGGER_EXPERT_DISPATCH = "expert_dispatch";
+    public static final String TRIGGER_EXPERT_RESULT = "expert_result";
+    public static final String TRIGGER_BRAIN_CONTINUE = "brain_continue";
+
+    public static final String CONTEXT_SESSION_PREFIX = "[Context: sessionId=";
+    public static final String CONTEXT_ROUND_PREFIX = "[Context: roundIndex=";
+    public static final String CONTEXT_TASK_PREFIX = "[Context: taskId=";
+    public static final String CONTEXT_SOURCE_EXPERT_PREFIX = "[Context: sourceExpertId=";
+
+    private ExpertMessageConstants() {
+    }
+
+    public static String asyncWaitMessage(String taskId, String targetExpertId) {
+        return "异步任务已受理，taskId=" + taskId
+                + ", targetExpertId=" + targetExpertId
+                + "。请静静等待，完成后将通过内部通道回传结果。";
+    }
+
+    public static String expertResultContinueHint(boolean failure) {
+        if (failure) {
+            return "\n---\n[系统] 异步子任务失败。请说明原因并在可行时调整方案，继续完成整体任务。"
+                    + "若仍有未完成的异步 task，勿输出最终 TEXT。\n";
+        }
+        return "\n---\n[系统] 以上为异步子任务返回。请继续推进用户请求；"
+                + "若仍有未完成的异步 task，勿输出最终 TEXT。\n";
+    }
+}

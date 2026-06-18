@@ -1,0 +1,195 @@
+package com.databuff.apm.web.ai.platform.runtime;
+
+import com.databuff.apm.web.ai.platform.expert.AiExpertDefinition;
+import com.databuff.apm.web.ai.platform.task.ExpertMessageConstants;
+import io.agentscope.core.ReActAgent;
+import io.agentscope.core.agent.RuntimeContext;
+import io.agentscope.core.event.AgentEvent;
+import io.agentscope.core.message.Msg;
+import io.agentscope.core.message.MsgRole;
+import io.agentscope.core.tool.mcp.McpClientWrapper;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
+import java.time.Duration;
+import java.time.Instant;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+public class AgentScopeExpertRuntime implements ExpertRuntime {
+
+    private final AiExpertDefinition expert;
+    private final ReActAgent agent;
+    private final RuntimeCacheKey cacheKey;
+    private final Instant loadedAt;
+    private final AgentScopeSessionHook sessionHook;
+    private final List<McpClientWrapper> mcpClients;
+
+    public AgentScopeExpertRuntime(
+            AiExpertDefinition expert,
+            ReActAgent agent,
+            RuntimeCacheKey cacheKey,
+            Instant loadedAt,
+            AgentScopeSessionHook sessionHook,
+            List<McpClientWrapper> mcpClients) {
+        this.expert = expert;
+        this.agent = agent;
+        this.cacheKey = cacheKey;
+        this.loadedAt = loadedAt;
+        this.sessionHook = sessionHook;
+        this.mcpClients = mcpClients == null ? List.of() : List.copyOf(mcpClients);
+    }
+
+    @Override
+    public String expertId() {
+        return expert.expertId();
+    }
+
+    @Override
+    public long version() {
+        return expert.version();
+    }
+
+    @Override
+    public Mono<ExpertChatResult> chat(ExpertChatInput input) {
+        if (input == null || input.message() == null || input.message().isBlank()) {
+            return Mono.just(ExpertChatResult.failed("message is empty"));
+        }
+        int timeoutSeconds = expert.options().timeoutSeconds();
+        ExpertChatContext.State context = toContext(input);
+        return Mono.fromCallable(() -> ExpertChatContext.run(context, () -> {
+                    RuntimeContext runtimeContext = buildRuntimeContext(input);
+                    Msg response = agent.call(
+                                    List.of(AgentScopeToolConfirmSupport.attachAutoConfirmIfNeeded(
+                                            agent, buildUserMessage(input))),
+                                    runtimeContext)
+                            .block(Duration.ofSeconds(timeoutSeconds));
+                    if (response == null
+                            || response.getTextContent() == null
+                            || response.getTextContent().isBlank()) {
+                        return ExpertChatResult.failed("empty AgentScope response");
+                    }
+                    return ExpertChatResult.ok(response.getTextContent());
+                }))
+                .onErrorResume(error -> Mono.just(ExpertChatResult.failed(
+                        error.getMessage() == null ? "AgentScope chat failed" : error.getMessage())));
+    }
+
+    @Override
+    public Flux<ExpertRuntimeEvent> stream(ExpertChatInput input) {
+        if (input == null || input.message() == null || input.message().isBlank()) {
+            return Flux.just(ExpertRuntimeEvent.error("message is empty"));
+        }
+        int timeoutSeconds = expert.options().timeoutSeconds();
+        ExpertChatContext.State context = toContext(input);
+        RuntimeContext runtimeContext = buildRuntimeContext(input);
+        Msg userMessage = AgentScopeToolConfirmSupport.attachAutoConfirmIfNeeded(agent, buildUserMessage(input));
+        AgentScopeSessionHook.TraceRecorder recorder = sessionHook.newTraceRecorder(context);
+        return Flux.defer(() -> {
+            ExpertChatScopeRegistry.register(context);
+            Flux<AgentEvent> agentEvents = agent.streamEvents(userMessage, runtimeContext);
+            if (context.taskId() == null || context.taskId().isBlank()) {
+                agentEvents = agentEvents.timeout(Duration.ofSeconds(timeoutSeconds));
+            }
+            return agentEvents
+                    .flatMap(recorder::record)
+                    .doFinally(signal -> {
+                        recorder.finish();
+                        ExpertChatScopeRegistry.unregister(context.sessionId());
+                    });
+        }).onErrorResume(error -> Flux.just(ExpertRuntimeEvent.error(
+                error.getMessage() == null ? "AgentScope stream failed" : error.getMessage())));
+    }
+
+    @Override
+    public ExpertRuntimeStatus status() {
+        return ExpertRuntimeStatus.loaded(
+                expert.expertId(),
+                expert.version(),
+                cacheKey.fingerprint(),
+                loadedAt);
+    }
+
+    @Override
+    public void close() {
+        for (McpClientWrapper client : mcpClients) {
+            try {
+                client.close();
+            } catch (Exception ignored) {
+                // Best-effort cleanup for remote MCP sessions.
+            }
+        }
+    }
+
+    ReActAgent agent() {
+        return agent;
+    }
+
+    RuntimeCacheKey cacheKey() {
+        return cacheKey;
+    }
+
+    private ExpertChatContext.State toContext(ExpertChatInput input) {
+        String taskId = stringMetadata(input.context(), ExpertMessageConstants.META_TASK_ID);
+        boolean exposeToolEvents = expert.options().exposeToolEvents();
+        if (taskId != null && !taskId.isBlank()) {
+            exposeToolEvents = true;
+        }
+        return new ExpertChatContext.State(
+                input.sessionId(),
+                input.userName(),
+                expert.expertId(),
+                input.assistantMessageId(),
+                exposeToolEvents,
+                null,
+                taskId);
+    }
+
+    private RuntimeContext buildRuntimeContext(ExpertChatInput input) {
+        RuntimeContext.Builder builder = RuntimeContext.builder();
+        Object runtimeSessionId = input.context().get(ExpertMessageConstants.META_RUNTIME_SESSION_ID);
+        if (runtimeSessionId != null && !String.valueOf(runtimeSessionId).isBlank()) {
+            builder.sessionId(String.valueOf(runtimeSessionId).trim());
+        } else if (input.sessionId() != null && !input.sessionId().isBlank()) {
+            builder.sessionId(input.sessionId());
+        }
+        if (input.userName() != null && !input.userName().isBlank()) {
+            builder.userId(input.userName());
+            builder.put("userName", input.userName());
+        }
+        if (input.assistantMessageId() != null && !input.assistantMessageId().isBlank()) {
+            builder.put("assistantMessageId", input.assistantMessageId());
+        }
+        builder.putAll(input.mergedContext());
+        return builder.build();
+    }
+
+    private Msg buildUserMessage(ExpertChatInput input) {
+        Map<String, Object> metadata = new LinkedHashMap<>();
+        if (input.sessionId() != null && !input.sessionId().isBlank()) {
+            metadata.put("sessionId", input.sessionId());
+        }
+        if (input.userName() != null && !input.userName().isBlank()) {
+            metadata.put("userName", input.userName());
+        }
+        if (input.assistantMessageId() != null && !input.assistantMessageId().isBlank()) {
+            metadata.put("assistantMessageId", input.assistantMessageId());
+        }
+        metadata.putAll(input.context());
+        return Msg.builder()
+                .role(MsgRole.USER)
+                .name(input.userName() == null || input.userName().isBlank() ? "user" : input.userName())
+                .textContent(input.message().trim())
+                .metadata(metadata)
+                .build();
+    }
+
+    private static String stringMetadata(Map<String, Object> metadata, String key) {
+        if (metadata == null || key == null) {
+            return null;
+        }
+        Object value = metadata.get(key);
+        return value == null ? null : String.valueOf(value);
+    }
+}

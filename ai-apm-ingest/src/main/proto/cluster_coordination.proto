@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.databuff.apm.cluster.v1";
+option java_outer_classname = "ClusterCoordinationProto";
+
+package databuff.apm.cluster.v1;
+
+service ClusterCoordinationService {
+  rpc ForwardPartial(AggregationPartialRequest) returns (AggregationPartialResponse);
+  rpc ReplicateCache(ReplicateCacheRequest) returns (ReplicateCacheResponse);
+  rpc InvalidateCache(InvalidateCacheRequest) returns (InvalidateCacheResponse);
+  rpc GetCache(GetCacheRequest) returns (GetCacheResponse);
+}
+
+message AggregationPartialRequest {
+  string stream = 1;
+  string partition_key = 2;
+  int64 window_start = 3;
+  int64 window_end = 4;
+  repeated bytes partials = 5;
+  string origin_node_id = 6;
+}
+
+message AggregationPartialResponse {
+  bool accepted = 1;
+}
+
+message ReplicateCacheRequest {
+  string region = 1;
+  string key = 2;
+  bytes value = 3;
+  string origin_node_id = 4;
+}
+
+message ReplicateCacheResponse {
+  bool accepted = 1;
+}
+
+message InvalidateCacheRequest {
+  string region = 1;
+  string key = 2;
+  string origin_node_id = 3;
+}
+
+message InvalidateCacheResponse {
+  bool accepted = 1;
+}
+
+message GetCacheRequest {
+  string region = 1;
+  string key = 2;
+  string origin_node_id = 3;
+}
+
+message GetCacheResponse {
+  bool found = 1;
+  bytes value = 2;
+}

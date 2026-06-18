@@ -1,0 +1,108 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": {
+    "reqCnt": 0.0,
+    "upflowServiceStats": [],
+    "downflowServiceStats": [
+      {
+        "serviceId": "5457a0119281bb98",
+        "reqInCnt": 10,
+        "reqInErrCnt": 0,
+        "reqInTime": 800000000.0,
+        "reqOutCnt": 10,
+        "reqOutErrCnt": 0,
+        "reqOutTime": 1000000000.0,
+        "componentType": "service.http"
+      },
+      {
+        "serviceId": "5457a0119281bb98",
+        "reqInCnt": 10,
+        "reqInErrCnt": 0,
+        "reqInTime": 600000000.0,
+        "reqOutCnt": 10,
+        "reqOutErrCnt": 0,
+        "reqOutTime": 800000000.0,
+        "componentType": "service.rpc"
+      },
+      {
+        "serviceId": "c89bb188ecff78ec",
+        "reqInCnt": 10,
+        "reqInErrCnt": 0,
+        "reqInTime": 180000000.0,
+        "reqOutCnt": 10,
+        "reqOutErrCnt": 0,
+        "reqOutTime": 180000000.0,
+        "componentType": "service.db"
+      },
+      {
+        "serviceId": "c72cc83a8831e407",
+        "reqInCnt": 10,
+        "reqInErrCnt": 0,
+        "reqInTime": 200000000.0,
+        "reqOutCnt": 10,
+        "reqOutErrCnt": 0,
+        "reqOutTime": 200000000.0,
+        "componentType": "service.db"
+      },
+      {
+        "serviceId": "94d612e1c2166206",
+        "reqInCnt": 10,
+        "reqInErrCnt": 0,
+        "reqInTime": 130000000.0,
+        "reqOutCnt": 10,
+        "reqOutErrCnt": 0,
+        "reqOutTime": 130000000.0,
+        "componentType": "service.redis"
+      },
+      {
+        "serviceId": "c1fbe6792ea65d41",
+        "reqInCnt": 10,
+        "reqInErrCnt": 0,
+        "reqInTime": 80000000.0,
+        "reqOutCnt": 10,
+        "reqOutErrCnt": 0,
+        "reqOutTime": 80000000.0,
+        "componentType": "service.mq"
+      }
+    ],
+    "serviceId2Name": [
+      {
+        "serviceId": "5457a0119281bb98",
+        "serviceName": "service-b",
+        "serviceType": "web",
+        "alarmCount": 0
+      },
+      {
+        "serviceId": "c89bb188ecff78ec",
+        "serviceName": "[elasticsearch]es:9200",
+        "serviceType": "db",
+        "alarmCount": 0
+      },
+      {
+        "serviceId": "c72cc83a8831e407",
+        "serviceName": "[mysql]demo_apm",
+        "serviceType": "db",
+        "alarmCount": 0
+      },
+      {
+        "serviceId": "94d612e1c2166206",
+        "serviceName": "[redis]redis:6379",
+        "serviceType": "cache",
+        "alarmCount": 0
+      },
+      {
+        "serviceId": "c1fbe6792ea65d41",
+        "serviceName": "[kafka]order-events",
+        "serviceType": "mq",
+        "alarmCount": 0
+      },
+      {
+        "serviceId": "9bf61532d56eb7b5",
+        "serviceName": "service-a",
+        "serviceType": "web",
+        "alarmCount": 0
+      }
+    ]
+  }
+}

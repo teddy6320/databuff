@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+TEST_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+export TEST_BASE_URL="${TEST_BASE_URL:-http://127.0.0.1:${WEB_HTTP_PORT:-27403}}"
+export TEST_WARMUP_SECONDS="${TEST_WARMUP_SECONDS:-240}"
+export TEST_QUERY_WINDOW_MS="${TEST_QUERY_WINDOW_MS:-300000}"
+export TEST_DEMO_SERVICE="${TEST_DEMO_SERVICE:-service-a}"
+
+TEST_LIB_DIR="${TEST_DIR}/lib"
+REPORT_DIR="${TEST_LIB_DIR}/reports"
+
+echo "[run-tests] base=${TEST_BASE_URL}"
+python3 "${TEST_LIB_DIR}/run_tests.py" --report-dir "${REPORT_DIR}" "$@"
+status=$?
+
+if [ -f "${REPORT_DIR}/report-latest.html" ]; then
+  echo "[run-tests] report: ${REPORT_DIR}/report-latest.html"
+fi
+
+exit "${status}"

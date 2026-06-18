@@ -1,0 +1,2577 @@
+{
+  "id": "4744753",
+  "name": "Databuff",
+  "font_family": "db-icon",
+  "css_prefix_text": "db-icon-",
+  "description": "DataBuff AI APM",
+  "glyphs": [
+    {
+      "icon_id": "18446819",
+      "name": "无穷大",
+      "alias": ["infinity"],
+      "font_class": "infinity",
+      "unicode": "e70f",
+      "unicode_decimal": 59151
+    },
+    {
+      "icon_id": "3876577",
+      "name": "rust",
+      "alias": ["rust"],
+      "font_class": "rust",
+      "unicode": "e70d",
+      "unicode_decimal": 59149
+    },
+    {
+      "icon_id": "46456212",
+      "name": "dashboard",
+      "alias": ["dashboard"],
+      "font_class": "dashboard",
+      "unicode": "e6e4",
+      "unicode_decimal": 59108
+    },
+    {
+      "icon_id": "46456211",
+      "name": "folder",
+      "alias": ["folder"],
+      "font_class": "folder",
+      "unicode": "e6e5",
+      "unicode_decimal": 59109
+    },
+    {
+      "icon_id": "46277471",
+      "name": "LineStepBefore",
+      "alias": ["line-step-before"],
+      "font_class": "line-step-before",
+      "unicode": "e6df",
+      "unicode_decimal": 59103
+    },
+    {
+      "icon_id": "46277470",
+      "name": "LineStepAfter",
+      "alias": ["line-step-after"],
+      "font_class": "line-step-after",
+      "unicode": "e6e0",
+      "unicode_decimal": 59104
+    },
+    {
+      "icon_id": "46277469",
+      "name": "LineSmooth",
+      "alias": ["line-smooth"],
+      "font_class": "line-smooth",
+      "unicode": "e6e2",
+      "unicode_decimal": 59106
+    },
+    {
+      "icon_id": "46277464",
+      "name": "LineLinear",
+      "alias": ["line-linear"],
+      "font_class": "line-linear",
+      "unicode": "e6e3",
+      "unicode_decimal": 59107
+    },
+    {
+      "icon_id": "45982205",
+      "name": "unlock",
+      "alias": ["unlock"],
+      "font_class": "unlock",
+      "unicode": "e6de",
+      "unicode_decimal": 59102
+    },
+    {
+      "icon_id": "45980192",
+      "name": "download-image",
+      "alias": ["download-image"],
+      "font_class": "download-image",
+      "unicode": "e6dd",
+      "unicode_decimal": 59101
+    },
+    {
+      "icon_id": "45823693",
+      "name": "大屏",
+      "alias": ["screen"],
+      "font_class": "screen",
+      "unicode": "e6dc",
+      "unicode_decimal": 59100
+    },
+    {
+      "icon_id": "44554721",
+      "name": "alarm-fill",
+      "alias": ["alarm-fill"],
+      "font_class": "alarm-fill",
+      "unicode": "e89d",
+      "unicode_decimal": 59549
+    },
+    {
+      "icon_id": "1199328",
+      "name": "face-sad",
+      "alias": ["face-sad"],
+      "font_class": "face-sad",
+      "unicode": "e6d6",
+      "unicode_decimal": 59094
+    },
+    {
+      "icon_id": "1199336",
+      "name": "face-normal",
+      "alias": ["face-normal"],
+      "font_class": "face-normal",
+      "unicode": "e6d7",
+      "unicode_decimal": 59095
+    },
+    {
+      "icon_id": "1199338",
+      "name": "face-smile",
+      "alias": ["face-smile"],
+      "font_class": "face-smile",
+      "unicode": "e6db",
+      "unicode_decimal": 59099
+    },
+    {
+      "icon_id": "45683573",
+      "name": "宝兰德BES AppServer",
+      "alias": ["bes-app", "bes_appserver", "bes-appserver"],
+      "font_class": "bes-app",
+      "unicode": "e6d9",
+      "unicode_decimal": 59097
+    },
+    {
+      "icon_id": "45683574",
+      "name": "宝兰德BES WebServer",
+      "alias": ["bes-web", "bes_webserver", "bes-webserver"],
+      "font_class": "bes-web",
+      "unicode": "e6da",
+      "unicode_decimal": 59098
+    },
+    {
+      "icon_id": "43448432",
+      "name": "arrow",
+      "alias": ["arrow"],
+      "font_class": "arrow",
+      "unicode": "e6d5",
+      "unicode_decimal": 59093
+    },
+    {
+      "icon_id": "45161729",
+      "name": "comp-pie",
+      "alias": ["comp-pie"],
+      "font_class": "comp-pie",
+      "unicode": "e6cc",
+      "unicode_decimal": 59084
+    },
+    {
+      "icon_id": "45161730",
+      "name": "comp-text",
+      "alias": ["comp-text"],
+      "font_class": "comp-text",
+      "unicode": "e6cf",
+      "unicode_decimal": 59087
+    },
+    {
+      "icon_id": "45161728",
+      "name": "comp-suggest",
+      "alias": ["comp-suggest"],
+      "font_class": "comp-suggest",
+      "unicode": "e6d0",
+      "unicode_decimal": 59088
+    },
+    {
+      "icon_id": "45161726",
+      "name": "comp-error",
+      "alias": ["comp-error"],
+      "font_class": "comp-error",
+      "unicode": "e6d1",
+      "unicode_decimal": 59089
+    },
+    {
+      "icon_id": "45161725",
+      "name": "comp-line",
+      "alias": ["comp-line"],
+      "font_class": "comp-line",
+      "unicode": "e6d2",
+      "unicode_decimal": 59090
+    },
+    {
+      "icon_id": "45161727",
+      "name": "comp-title",
+      "alias": ["comp-title"],
+      "font_class": "comp-title",
+      "unicode": "e6d3",
+      "unicode_decimal": 59091
+    },
+    {
+      "icon_id": "45161724",
+      "name": "comp-bar",
+      "alias": ["comp-bar"],
+      "font_class": "comp-bar",
+      "unicode": "e6d4",
+      "unicode_decimal": 59092
+    },
+    {
+      "icon_id": "4936967",
+      "name": "Apple-o",
+      "alias": ["apple-o"],
+      "font_class": "apple-o",
+      "unicode": "e87e",
+      "unicode_decimal": 59518
+    },
+    {
+      "icon_id": "14765654",
+      "name": "Android-o",
+      "alias": ["android-o"],
+      "font_class": "android-o",
+      "unicode": "e6ce",
+      "unicode_decimal": 59086
+    },
+    {
+      "icon_id": "39011909",
+      "name": "Javascript-o",
+      "alias": ["javascript-o"],
+      "font_class": "javascript-o",
+      "unicode": "e716",
+      "unicode_decimal": 59158
+    },
+    {
+      "icon_id": "16067500",
+      "name": "table",
+      "alias": ["table"],
+      "font_class": "table",
+      "unicode": "e6cd",
+      "unicode_decimal": 59085
+    },
+    {
+      "icon_id": "1444812",
+      "name": "cpp",
+      "alias": ["cpp"],
+      "font_class": "cpp",
+      "unicode": "e7c7",
+      "unicode_decimal": 59335
+    },
+    {
+      "icon_id": "3978436",
+      "name": "映射Remapping",
+      "alias": ["remapping", "metricnameremapping"],
+      "font_class": "remapping",
+      "unicode": "e6c9",
+      "unicode_decimal": 59081
+    },
+    {
+      "icon_id": "10937697",
+      "name": "赞",
+      "alias": ["like"],
+      "font_class": "like",
+      "unicode": "e6c8",
+      "unicode_decimal": 59080
+    },
+    {
+      "icon_id": "24638241",
+      "name": "thinkphp",
+      "alias": ["thinkphp"],
+      "font_class": "thinkphp",
+      "unicode": "e6c7",
+      "unicode_decimal": 59079
+    },
+    {
+      "icon_id": "3876094",
+      "name": "cakephp",
+      "alias": ["cakephp"],
+      "font_class": "cakephp",
+      "unicode": "e6c5",
+      "unicode_decimal": 59077
+    },
+    {
+      "icon_id": "3876172",
+      "name": "codeigniter",
+      "alias": ["codeigniter"],
+      "font_class": "codeigniter",
+      "unicode": "e6c6",
+      "unicode_decimal": 59078
+    },
+    {
+      "icon_id": "10687244",
+      "name": "yii",
+      "alias": ["yii"],
+      "font_class": "yii",
+      "unicode": "ecd1",
+      "unicode_decimal": 60625
+    },
+    {
+      "icon_id": "10687265",
+      "name": "symfony",
+      "alias": ["symfony"],
+      "font_class": "symfony",
+      "unicode": "ecd4",
+      "unicode_decimal": 60628
+    },
+    {
+      "icon_id": "15378530",
+      "name": "laravel",
+      "alias": ["laravel"],
+      "font_class": "laravel",
+      "unicode": "ebef",
+      "unicode_decimal": 60399
+    },
+    {
+      "icon_id": "44613958",
+      "name": "phalcon",
+      "alias": ["phalcon"],
+      "font_class": "phalcon",
+      "unicode": "ee4a",
+      "unicode_decimal": 61002
+    },
+    {
+      "icon_id": "19190435",
+      "name": "转换translate",
+      "alias": ["translate", "transform"],
+      "font_class": "translate",
+      "unicode": "e6c4",
+      "unicode_decimal": 59076
+    },
+    {
+      "icon_id": "44291424",
+      "name": "对Right",
+      "alias": ["right-o"],
+      "font_class": "right-o",
+      "unicode": "e6be",
+      "unicode_decimal": 59070
+    },
+    {
+      "icon_id": "44291426",
+      "name": "上传Upload",
+      "alias": ["upload2"],
+      "font_class": "upload2",
+      "unicode": "e6bf",
+      "unicode_decimal": 59071
+    },
+    {
+      "icon_id": "44291427",
+      "name": "附件Attachment",
+      "alias": ["attachment"],
+      "font_class": "attachment",
+      "unicode": "e6c1",
+      "unicode_decimal": 59073
+    },
+    {
+      "icon_id": "44291435",
+      "name": "管道Pipeline",
+      "alias": ["pipeline"],
+      "font_class": "pipeline",
+      "unicode": "e6c2",
+      "unicode_decimal": 59074
+    },
+    {
+      "icon_id": "44291439",
+      "name": "模版Template",
+      "alias": ["template"],
+      "font_class": "template",
+      "unicode": "e6c3",
+      "unicode_decimal": 59075
+    },
+    {
+      "icon_id": "44291425",
+      "name": "星星Star-s",
+      "alias": ["star-s"],
+      "font_class": "star-s",
+      "unicode": "e6bc",
+      "unicode_decimal": 59068
+    },
+    {
+      "icon_id": "44291430",
+      "name": "星星Star",
+      "alias": ["star"],
+      "font_class": "star",
+      "unicode": "e6bd",
+      "unicode_decimal": 59069
+    },
+    {
+      "icon_id": "44291428",
+      "name": "批量Batch",
+      "alias": ["batch"],
+      "font_class": "batch",
+      "unicode": "e6ba",
+      "unicode_decimal": 59066
+    },
+    {
+      "icon_id": "44291433",
+      "name": "指标扩展MetricExp",
+      "alias": ["metric-exp", "metricsgeneration"],
+      "font_class": "metric-exp",
+      "unicode": "e6bb",
+      "unicode_decimal": 59067
+    },
+    {
+      "icon_id": "44291431",
+      "name": "添加Add",
+      "alias": ["add2", "insert"],
+      "font_class": "add2",
+      "unicode": "e6b2",
+      "unicode_decimal": 59058
+    },
+    {
+      "icon_id": "44291432",
+      "name": "合并Merge",
+      "alias": ["merge", "upsert"],
+      "font_class": "merge",
+      "unicode": "e6b3",
+      "unicode_decimal": 59059
+    },
+    {
+      "icon_id": "44291434",
+      "name": "类型转换Convert",
+      "alias": ["convert"],
+      "font_class": "convert",
+      "unicode": "e6b4",
+      "unicode_decimal": 59060
+    },
+    {
+      "icon_id": "44291436",
+      "name": "提取Extract",
+      "alias": ["extract"],
+      "font_class": "extract",
+      "unicode": "e6b5",
+      "unicode_decimal": 59061
+    },
+    {
+      "icon_id": "44291437",
+      "name": "更新Update",
+      "alias": ["update"],
+      "font_class": "update",
+      "unicode": "e6b7",
+      "unicode_decimal": 59063
+    },
+    {
+      "icon_id": "44291438",
+      "name": "删除Delete",
+      "alias": ["delete2"],
+      "font_class": "delete2",
+      "unicode": "e6b8",
+      "unicode_decimal": 59064
+    },
+    {
+      "icon_id": "44291440",
+      "name": "哈希Hash",
+      "alias": ["hash"],
+      "font_class": "hash",
+      "unicode": "e6b9",
+      "unicode_decimal": 59065
+    },
+    {
+      "icon_id": "44291429",
+      "name": "Databuff",
+      "alias": ["databuff", "databuffhttp"],
+      "font_class": "databuff",
+      "unicode": "e6aa",
+      "unicode_decimal": 59050
+    },
+    {
+      "icon_id": "44273811",
+      "name": "智能Intelligence",
+      "alias": ["intelligence"],
+      "font_class": "intelligence",
+      "unicode": "e6a6",
+      "unicode_decimal": 59046
+    },
+    {
+      "icon_id": "44273812",
+      "name": "AI",
+      "alias": ["ai"],
+      "font_class": "ai",
+      "unicode": "e6a7",
+      "unicode_decimal": 59047
+    },
+    {
+      "icon_id": "44273813",
+      "name": "链接Link2",
+      "alias": ["link2"],
+      "font_class": "link2",
+      "unicode": "e6a9",
+      "unicode_decimal": 59049
+    },
+    {
+      "icon_id": "11349008",
+      "name": "过滤Filter",
+      "alias": ["filter", "filter-line"],
+      "font_class": "filter",
+      "unicode": "e6a5",
+      "unicode_decimal": 59045
+    },
+    {
+      "icon_id": "44184717",
+      "name": "表达式",
+      "font_class": "expression",
+      "alias": ["expression"],
+      "unicode": "e6b0",
+      "unicode_decimal": 59056
+    },
+    {
+      "icon_id": "44182733",
+      "name": "面积图",
+      "alias": ["chart-area"],
+      "font_class": "chart-area",
+      "unicode": "e6ac",
+      "unicode_decimal": 59052
+    },
+    {
+      "icon_id": "44182734",
+      "name": "折线图",
+      "alias": ["chart-line"],
+      "font_class": "chart-line",
+      "unicode": "e6ae",
+      "unicode_decimal": 59054
+    },
+    {
+      "icon_id": "44182735",
+      "name": "柱形图",
+      "alias": ["chart-bar"],
+      "font_class": "chart-bar",
+      "unicode": "e6af",
+      "unicode_decimal": 59055
+    },
+    {
+      "icon_id": "42999120",
+      "name": "remote-service",
+      "alias": ["remote", "remote-service", "外部调用", "service.remote"],
+      "font_class": "remote-service",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "6148381",
+      "name": "decrease",
+      "alias": ["decrease"],
+      "font_class": "decrease",
+      "unicode": "e6ab",
+      "unicode_decimal": 59051
+    },
+    {
+      "icon_id": "681195",
+      "name": "increase",
+      "alias": ["increase"],
+      "font_class": "increase",
+      "unicode": "e750",
+      "unicode_decimal": 59216
+    },
+    {
+      "icon_id": "43972052",
+      "name": "更多More",
+      "alias": ["more"],
+      "font_class": "more",
+      "unicode": "e6a4",
+      "unicode_decimal": 59044
+    },
+    {
+      "icon_id": "43761181",
+      "name": "锁",
+      "alias": ["lock"],
+      "font_class": "lock",
+      "unicode": "e6a3",
+      "unicode_decimal": 59043
+    },
+    {
+      "icon_id": "33385450",
+      "name": "application",
+      "alias": ["application"],
+      "font_class": "application",
+      "unicode": "e6a2",
+      "unicode_decimal": 59042
+    },
+    {
+      "icon_id": "43681314",
+      "name": "减",
+      "alias": ["minus"],
+      "font_class": "minus",
+      "unicode": "e6a1",
+      "unicode_decimal": 59041
+    },
+    {
+      "icon_id": "43641513",
+      "name": "提示",
+      "alias": ["info"],
+      "font_class": "info",
+      "unicode": "e6a0",
+      "unicode_decimal": 59040
+    },
+    {
+      "icon_id": "43532944",
+      "name": "lab-system",
+      "alias": ["lab-system"],
+      "font_class": "lab-system",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "2285753",
+      "name": "save",
+      "alias": ["save"],
+      "font_class": "save",
+      "unicode": "e6ee",
+      "unicode_decimal": 59118
+    },
+    {
+      "icon_id": "40493411",
+      "name": "Oracle",
+      "alias": ["oracle"],
+      "font_class": "oracle",
+      "unicode": "e7c9",
+      "unicode_decimal": 59337
+    },
+    {
+      "icon_id": "19457216",
+      "name": "lab-home",
+      "alias": ["lab-home"],
+      "font_class": "lab-home",
+      "unicode": "e6ad",
+      "unicode_decimal": 59053
+    },
+    {
+      "icon_id": "43377431",
+      "name": "lab-analysis",
+      "alias": ["lab-analysis"],
+      "font_class": "lab-analysis",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "43377523",
+      "name": "lab-library",
+      "alias": ["lab-library"],
+      "font_class": "lab-library",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "43377522",
+      "name": "lab-history",
+      "alias": ["lab-history"],
+      "font_class": "lab-history",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "43377521",
+      "name": "lab-insert",
+      "alias": ["event"],
+      "font_class": "lab-insert",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "43165430",
+      "name": "事件",
+      "alias": ["event"],
+      "font_class": "event",
+      "unicode": "e69f",
+      "unicode_decimal": 59039
+    },
+    {
+      "icon_id": "43159532",
+      "name": "编辑edit",
+      "font_class": "edit3",
+      "alias": ["edit3"],
+      "unicode": "e69d",
+      "unicode_decimal": 59037
+    },
+    {
+      "icon_id": "43159580",
+      "name": "铃铛",
+      "font_class": "bell",
+      "alias": ["bell"],
+      "unicode": "e69e",
+      "unicode_decimal": 59038
+    },
+    {
+      "icon_id": "43134157",
+      "name": "openGauss",
+      "font_class": "opengauss",
+      "alias": ["opengauss"],
+      "unicode": "e69c",
+      "unicode_decimal": 59036
+    },
+    {
+      "icon_id": "42551654",
+      "name": "图表",
+      "font_class": "chart",
+      "alias": ["chart"],
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "43076039",
+      "name": "日期",
+      "font_class": "date",
+      "alias": ["date"],
+      "unicode": "e699",
+      "unicode_decimal": 59033
+    },
+    {
+      "icon_id": "43076077",
+      "name": "图表Chart",
+      "font_class": "chart1",
+      "alias": ["chart1"],
+      "unicode": "e69a",
+      "unicode_decimal": 59034
+    },
+    {
+      "icon_id": "43076140",
+      "name": "表格设置",
+      "font_class": "table-setting",
+      "alias": ["table-setting"],
+      "unicode": "e69b",
+      "unicode_decimal": 59035
+    },
+    {
+      "icon_id": "43062611",
+      "name": "Webhook",
+      "font_class": "webhook",
+      "alias": ["webhook", "webhookevent"],
+      "unicode": "e698",
+      "unicode_decimal": 59032
+    },
+    {
+      "icon_id": "43061109",
+      "name": "短信",
+      "font_class": "sms",
+      "alias": ["sms"],
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "43061108",
+      "name": "Socket",
+      "font_class": "socket",
+      "alias": ["socket"],
+      "unicode": "e630",
+      "unicode_decimal": 58928
+    },
+    {
+      "icon_id": "43061107",
+      "name": "企业微信",
+      "font_class": "wechat",
+      "alias": ["wechat"],
+      "unicode": "e695",
+      "unicode_decimal": 59029
+    },
+    {
+      "icon_id": "43061106",
+      "name": "邮件",
+      "font_class": "email",
+      "alias": ["email", "mail"],
+      "unicode": "e696",
+      "unicode_decimal": 59030
+    },
+    {
+      "icon_id": "43061105",
+      "name": "钉钉",
+      "font_class": "dingtalk",
+      "alias": ["dingtalk"],
+      "unicode": "e697",
+      "unicode_decimal": 59031
+    },
+    {
+      "icon_id": "43032240",
+      "name": "根因分析",
+      "font_class": "rootcause",
+      "alias": ["rootcause"],
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "43004197",
+      "name": "返回",
+      "font_class": "back",
+      "alias": ["back"],
+      "unicode": "e694",
+      "unicode_decimal": 59028
+    },
+    {
+      "icon_id": "42983363",
+      "name": "CPU-o",
+      "font_class": "cpu-o",
+      "alias": ["cpu-o"],
+      "unicode": "e68d",
+      "unicode_decimal": 59021
+    },
+    {
+      "icon_id": "42983364",
+      "name": "基本信息-o",
+      "font_class": "baseinfo-o",
+      "alias": ["baseinfo-o"],
+      "unicode": "e68e",
+      "unicode_decimal": 59022
+    },
+    {
+      "icon_id": "42983365",
+      "name": "网卡-o",
+      "font_class": "networkcard-o",
+      "alias": ["networkcard-o"],
+      "unicode": "e68f",
+      "unicode_decimal": 59023
+    },
+    {
+      "icon_id": "42983366",
+      "name": "内存Memory-o",
+      "font_class": "memory-o",
+      "alias": ["memory-o"],
+      "unicode": "e690",
+      "unicode_decimal": 59024
+    },
+    {
+      "icon_id": "42983367",
+      "name": "磁盘Disk-o",
+      "font_class": "disk-o",
+      "alias": ["disk-o"],
+      "unicode": "e693",
+      "unicode_decimal": 59027
+    },
+    {
+      "icon_id": "42955299",
+      "name": "系统Disk",
+      "font_class": "system-disk",
+      "alias": ["system-disk", "disk"],
+      "unicode": "e688",
+      "unicode_decimal": 59016
+    },
+    {
+      "icon_id": "42955297",
+      "name": "系统Swap",
+      "font_class": "system-swap",
+      "alias": ["system-swap"],
+      "unicode": "e689",
+      "unicode_decimal": 59017
+    },
+    {
+      "icon_id": "42955295",
+      "name": "系统Network",
+      "font_class": "system-network",
+      "alias": ["system-network"],
+      "unicode": "e68a",
+      "unicode_decimal": 59018
+    },
+    {
+      "icon_id": "42955294",
+      "name": "系统Uptime",
+      "font_class": "system-uptime",
+      "alias": ["system-uptime"],
+      "unicode": "e68b",
+      "unicode_decimal": 59019
+    },
+    {
+      "icon_id": "42955293",
+      "name": "系统Core",
+      "font_class": "system-core",
+      "alias": ["system-core"],
+      "unicode": "e68c",
+      "unicode_decimal": 59020
+    },
+    {
+      "icon_id": "42955303",
+      "name": "系统Memory",
+      "font_class": "system-memory",
+      "alias": ["system-memory", "memory"],
+      "unicode": "e628",
+      "unicode_decimal": 58920
+    },
+    {
+      "icon_id": "42955301",
+      "name": "系统DiskIO",
+      "font_class": "system-diskio",
+      "alias": ["system-diskio"],
+      "unicode": "e683",
+      "unicode_decimal": 59011
+    },
+    {
+      "icon_id": "42955302",
+      "name": "系统Load",
+      "font_class": "system-load",
+      "alias": ["system-load"],
+      "unicode": "e684",
+      "unicode_decimal": 59012
+    },
+    {
+      "icon_id": "42955300",
+      "name": "系统CPU",
+      "font_class": "system-cpu",
+      "alias": ["system-cpu", "cpu"],
+      "unicode": "e685",
+      "unicode_decimal": 59013
+    },
+    {
+      "icon_id": "42955298",
+      "name": "系统Process",
+      "font_class": "system-process",
+      "alias": ["system-process"],
+      "unicode": "e686",
+      "unicode_decimal": 59014
+    },
+    {
+      "icon_id": "42955296",
+      "name": "系统DatabuffAgent",
+      "font_class": "databuff-agent",
+      "alias": ["databuff-agent", "system-databuff-agent", "system-databuff_agent"],
+      "unicode": "e687",
+      "unicode_decimal": 59015
+    },
+    {
+      "icon_id": "42949232",
+      "name": "列表",
+      "font_class": "list",
+      "alias": ["list"],
+      "unicode": "e682",
+      "unicode_decimal": 59010
+    },
+    {
+      "icon_id": "42939143",
+      "name": "SNMP",
+      "font_class": "snmp",
+      "alias": ["snmp"],
+      "unicode": "e680",
+      "unicode_decimal": 59008
+    },
+    {
+      "icon_id": "42936926",
+      "name": "Graphite",
+      "font_class": "graphite",
+      "alias": ["graphite"],
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    },
+    {
+      "icon_id": "42938428",
+      "name": "天旦",
+      "font_class": "tiandan",
+      "alias": ["tiandan", "netis"],
+      "unicode": "e658",
+      "unicode_decimal": 58968
+    },
+    {
+      "icon_id": "42938430",
+      "name": "IBM WebSphere",
+      "font_class": "ibmws",
+      "alias": ["ibmws"],
+      "unicode": "e681",
+      "unicode_decimal": 59009
+    },
+    {
+      "icon_id": "11673573",
+      "name": "编辑edit",
+      "font_class": "edit2",
+      "alias": ["edit2"],
+      "unicode": "e67f",
+      "unicode_decimal": 59007
+    },
+    {
+      "icon_id": "2266183",
+      "name": "More圆形",
+      "font_class": "more-pie",
+      "alias": ["more-pie"],
+      "unicode": "e67d",
+      "unicode_decimal": 59005
+    },
+    {
+      "icon_id": "1288626",
+      "name": "Error圆形",
+      "font_class": "error-pie",
+      "alias": ["error-pie", "health-error"],
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "12843789",
+      "name": "处理中",
+      "font_class": "dealing",
+      "alias": ["dealing"],
+      "unicode": "e91f",
+      "unicode_decimal": 59679
+    },
+    {
+      "icon_id": "42927622",
+      "name": "Spark",
+      "font_class": "spark",
+      "alias": ["spark"],
+      "unicode": "e674",
+      "unicode_decimal": 58996
+    },
+    {
+      "icon_id": "3676544",
+      "name": "Container",
+      "font_class": "container",
+      "alias": ["container"],
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "4840848",
+      "name": "Process",
+      "font_class": "process",
+      "alias": ["process"],
+      "unicode": "e6d8",
+      "unicode_decimal": 59096
+    },
+    {
+      "icon_id": "42926808",
+      "name": "设置setting",
+      "font_class": "setting",
+      "alias": ["setting"],
+      "unicode": "e67e",
+      "unicode_decimal": 59006
+    },
+    {
+      "icon_id": "42903469",
+      "name": "Yarn",
+      "font_class": "yarn",
+      "alias": ["yarn"],
+      "unicode": "e67b",
+      "unicode_decimal": 59003
+    },
+    {
+      "icon_id": "42903470",
+      "name": "Hbase",
+      "font_class": "hbase",
+      "alias": ["hbase"],
+      "unicode": "e67c",
+      "unicode_decimal": 59004
+    },
+    {
+      "icon_id": "37429855",
+      "name": "OpenTelemetry",
+      "font_class": "opentelemetry",
+      "alias": ["opentelemetry", "otlp"],
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "42878873",
+      "name": "OceanBase",
+      "font_class": "oceanbase",
+      "alias": ["oceanbase"],
+      "unicode": "e67a",
+      "unicode_decimal": 59002
+    },
+    {
+      "icon_id": "32221501",
+      "name": "Skywalking",
+      "font_class": "skywalking",
+      "alias": ["skywalking"],
+      "unicode": "e6b1",
+      "unicode_decimal": 59057
+    },
+    {
+      "icon_id": "7204913",
+      "name": "Web",
+      "font_class": "web",
+      "alias": ["web", "browser", "service.browser", "web请求"],
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "431554",
+      "name": "SQL",
+      "font_class": "sql",
+      "alias": ["sql"],
+      "unicode": "e70e",
+      "unicode_decimal": 59150
+    },
+    {
+      "icon_id": "24668585",
+      "name": "RPC",
+      "font_class": "rpc",
+      "alias": ["rpc"],
+      "unicode": "e6a8",
+      "unicode_decimal": 59048
+    },
+    {
+      "icon_id": "42815800",
+      "name": "Trace",
+      "font_class": "trace",
+      "alias": ["trace"],
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "42679519",
+      "name": "Namespace",
+      "font_class": "namespace",
+      "alias": ["namespace"],
+      "unicode": "e661",
+      "unicode_decimal": 58977
+    },
+    {
+      "icon_id": "42679520",
+      "name": "Node",
+      "font_class": "node",
+      "alias": ["node"],
+      "unicode": "e670",
+      "unicode_decimal": 58992
+    },
+    {
+      "icon_id": "42679521",
+      "name": "Pod",
+      "font_class": "pod2",
+      "alias": ["pod2"],
+      "unicode": "e671",
+      "unicode_decimal": 58993
+    },
+    {
+      "icon_id": "42679522",
+      "name": "Service",
+      "font_class": "service",
+      "alias": ["service"],
+      "unicode": "e678",
+      "unicode_decimal": 59000
+    },
+    {
+      "icon_id": "42679523",
+      "name": "Workload",
+      "font_class": "workload",
+      "alias": ["workload"],
+      "unicode": "e679",
+      "unicode_decimal": 59001
+    },
+    {
+      "icon_id": "42675264",
+      "name": "复制",
+      "font_class": "copy",
+      "alias": ["copy"],
+      "unicode": "e672",
+      "unicode_decimal": 58994
+    },
+    {
+      "icon_id": "42675468",
+      "name": "编辑edit",
+      "font_class": "edit",
+      "alias": ["edit"],
+      "unicode": "e673",
+      "unicode_decimal": 58995
+    },
+    {
+      "icon_id": "42675470",
+      "name": "添加add",
+      "font_class": "add",
+      "alias": ["add"],
+      "unicode": "e675",
+      "unicode_decimal": 58997
+    },
+    {
+      "icon_id": "42675471",
+      "name": "删除delete",
+      "font_class": "delete",
+      "alias": ["delete"],
+      "unicode": "e677",
+      "unicode_decimal": 58999
+    },
+    {
+      "icon_id": "42644231",
+      "name": "搜索",
+      "font_class": "search",
+      "alias": ["search"],
+      "unicode": "e65c",
+      "unicode_decimal": 58972
+    },
+    {
+      "icon_id": "42640642",
+      "name": "静默",
+      "font_class": "silence",
+      "alias": ["silence"],
+      "unicode": "e659",
+      "unicode_decimal": 58969
+    },
+    {
+      "icon_id": "32298650",
+      "name": "Golang",
+      "font_class": "go",
+      "alias": ["go", "golang"],
+      "unicode": "e63d",
+      "unicode_decimal": 58941
+    },
+    {
+      "icon_id": "18522232",
+      "name": "静音",
+      "font_class": "mute",
+      "alias": ["mute"],
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "38658471",
+      "name": "UOS",
+      "font_class": "uos",
+      "alias": ["uos"],
+      "unicode": "e6c0",
+      "unicode_decimal": 59072
+    },
+    {
+      "icon_id": "36044360",
+      "name": "H2",
+      "font_class": "h2",
+      "alias": ["h2", "db-h2"],
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "27239217",
+      "name": "InfluxDB",
+      "font_class": "influxdb",
+      "alias": ["influxdb", "influx"],
+      "unicode": "e6cb",
+      "unicode_decimal": 59083
+    },
+    {
+      "icon_id": "10099461",
+      "name": "SQLite",
+      "font_class": "sqlite",
+      "alias": ["sqlite", "sqlite3"],
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "23929635",
+      "name": "人大金仓KingBase",
+      "font_class": "kingbase",
+      "alias": ["kingbase"],
+      "unicode": "e96b",
+      "unicode_decimal": 59755
+    },
+    {
+      "icon_id": "39303294",
+      "name": "GBase",
+      "font_class": "gbase",
+      "alias": ["gbase"],
+      "unicode": "e99a",
+      "unicode_decimal": 59802
+    },
+    {
+      "icon_id": "28452799",
+      "name": "GRPC",
+      "font_class": "grpc",
+      "alias": ["grpc", "grpc-client", "grpc-server"],
+      "unicode": "e66f",
+      "unicode_decimal": 58991
+    },
+    {
+      "icon_id": "38291377",
+      "name": "插件",
+      "font_class": "plugin",
+      "alias": ["plugin"],
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "42601156",
+      "name": "Redis",
+      "font_class": "redis-fill",
+      "alias": ["redis-fill", "redis-client-fill", "redis-command-fill", "cache-fill"],
+      "unicode": "e669",
+      "unicode_decimal": 58985
+    },
+    {
+      "icon_id": "42601155",
+      "name": "消息队列MQ",
+      "font_class": "mq-fill",
+      "alias": ["mq-fill"],
+      "unicode": "e66a",
+      "unicode_decimal": 58986
+    },
+    {
+      "icon_id": "42601154",
+      "name": "容器",
+      "font_class": "container-fill",
+      "alias": ["container-fill"],
+      "unicode": "e66b",
+      "unicode_decimal": 58987
+    },
+    {
+      "icon_id": "42601153",
+      "name": "服务",
+      "font_class": "service-fill",
+      "alias": ["service-fill"],
+      "unicode": "e66c",
+      "unicode_decimal": 58988
+    },
+    {
+      "icon_id": "42601152",
+      "name": "主机",
+      "font_class": "host-fill",
+      "alias": ["host-fill"],
+      "unicode": "e66d",
+      "unicode_decimal": 58989
+    },
+    {
+      "icon_id": "42601151",
+      "name": "数据库",
+      "font_class": "database-fill",
+      "alias": ["database-fill", "db-fill"],
+      "unicode": "e66e",
+      "unicode_decimal": 58990
+    },
+    {
+      "icon_id": "586729",
+      "name": "分析",
+      "font_class": "analysis",
+      "alias": ["analysis"],
+      "unicode": "e691",
+      "unicode_decimal": 59025
+    },
+    {
+      "icon_id": "4937000",
+      "name": "Github",
+      "font_class": "github",
+      "alias": ["github"],
+      "unicode": "e885",
+      "unicode_decimal": 59525
+    },
+    {
+      "icon_id": "40486568",
+      "name": "VMware",
+      "font_class": "vmware",
+      "alias": ["vmware", "vmwarevsphere"],
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "24346854",
+      "name": "DotNET",
+      "font_class": "dotnet",
+      "alias": ["dotnet", "net"],
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "42579869",
+      "name": "华为云Redis",
+      "font_class": "hw-redis",
+      "alias": ["hw-redis", "huawei_cloud_redis"],
+      "unicode": "e65d",
+      "unicode_decimal": 58973
+    },
+    {
+      "icon_id": "42579870",
+      "name": "华为云GDB Mysql",
+      "font_class": "hw-gdb-mysql",
+      "alias": ["hw-gdb-mysql", "hw_gdb_mysql"],
+      "unicode": "e65e",
+      "unicode_decimal": 58974
+    },
+    {
+      "icon_id": "42579871",
+      "name": "华为云GDB Mongo",
+      "font_class": "hw-gdb-mongo",
+      "alias": ["hw-gdb-mongo", "hw_gdb_mongo"],
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    },
+    {
+      "icon_id": "42579878",
+      "name": "华为云RDS Postgresql",
+      "font_class": "hw-rds-postgresql",
+      "alias": ["hw-rds-postgresql", "huawei_cloud_rds_postgresql"],
+      "unicode": "e660",
+      "unicode_decimal": 58976
+    },
+    {
+      "icon_id": "42579882",
+      "name": "华为云GDB Influx",
+      "font_class": "hw-gdb-influx",
+      "alias": ["hw-gdb-influx", "hw_gdb_influx"],
+      "unicode": "e662",
+      "unicode_decimal": 58978
+    },
+    {
+      "icon_id": "42579894",
+      "name": "华为云RDS Sqlserver",
+      "font_class": "hw-rds-sqlserver",
+      "alias": ["hw-rds-sqlserver", "huawei_cloud_rds_sqlserver"],
+      "unicode": "e663",
+      "unicode_decimal": 58979
+    },
+    {
+      "icon_id": "42579897",
+      "name": "华为云GDB Redis",
+      "font_class": "hw-gdb-redis",
+      "alias": ["hw-gdb-redis", "hw_gdb_redis"],
+      "unicode": "e665",
+      "unicode_decimal": 58981
+    },
+    {
+      "icon_id": "42579902",
+      "name": "华为云GDB Opengauss",
+      "font_class": "hw-gdb-opengauss",
+      "alias": ["hw-gdb-opengauss", "hw_gdb_opengauss", "gaussdb"],
+      "unicode": "e666",
+      "unicode_decimal": 58982
+    },
+    {
+      "icon_id": "42579904",
+      "name": "华为云RDS Mysql",
+      "font_class": "hw-rds-mysql",
+      "alias": ["hw-rds-mysql", "huawei_cloud_rds_for_mysql"],
+      "unicode": "e667",
+      "unicode_decimal": 58983
+    },
+    {
+      "icon_id": "42579905",
+      "name": "华为云DDM",
+      "font_class": "hw-ddm",
+      "alias": ["hw-ddm", "hw_ddm"],
+      "unicode": "e668",
+      "unicode_decimal": 58984
+    },
+    {
+      "icon_id": "1312382",
+      "name": "Etcd",
+      "font_class": "etcd",
+      "alias": ["etcd"],
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "1312432",
+      "name": "OpenStack",
+      "font_class": "openstack",
+      "alias": ["openstack"],
+      "unicode": "e656",
+      "unicode_decimal": 58966
+    },
+    {
+      "icon_id": "6001489",
+      "name": "Ruby",
+      "font_class": "ruby",
+      "alias": ["ruby"],
+      "unicode": "ec8e",
+      "unicode_decimal": 60558
+    },
+    {
+      "icon_id": "8840766",
+      "name": "Memcached",
+      "font_class": "memcached",
+      "alias": ["memcached"],
+      "unicode": "e676",
+      "unicode_decimal": 58998
+    },
+    {
+      "icon_id": "24347079",
+      "name": "harbor",
+      "font_class": "harbor",
+      "alias": ["harbor"],
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "24952842",
+      "name": "kvm",
+      "font_class": "kvm",
+      "alias": ["kvm"],
+      "unicode": "e777",
+      "unicode_decimal": 59255
+    },
+    {
+      "icon_id": "33556090",
+      "name": "SAP HANA",
+      "font_class": "saphana",
+      "alias": ["saphana", "sap_hana"],
+      "unicode": "e73d",
+      "unicode_decimal": 59197
+    },
+    {
+      "icon_id": "35568882",
+      "name": "东方通TongWeb",
+      "font_class": "tongweb",
+      "alias": ["tongweb", "tongweb-server"],
+      "unicode": "e692",
+      "unicode_decimal": 59026
+    },
+    {
+      "icon_id": "35802006",
+      "name": "ActiveMQ",
+      "font_class": "activemq",
+      "alias": ["activemq"],
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "37660667",
+      "name": "达梦",
+      "font_class": "dm",
+      "alias": ["dm", "dm_v8"],
+      "unicode": "e736",
+      "unicode_decimal": 59190
+    },
+    {
+      "icon_id": "40055251",
+      "name": "Ceph",
+      "font_class": "ceph",
+      "alias": ["ceph"],
+      "unicode": "e86f",
+      "unicode_decimal": 59503
+    },
+    {
+      "icon_id": "42582043",
+      "name": "HiveMQ",
+      "font_class": "hivemq",
+      "alias": ["hivemq"],
+      "unicode": "e65a",
+      "unicode_decimal": 58970
+    },
+    {
+      "icon_id": "42583019",
+      "name": "SSH",
+      "font_class": "ssh",
+      "alias": ["ssh"],
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
+      "icon_id": "23284517",
+      "name": "Python",
+      "font_class": "python",
+      "alias": ["python"],
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "5978710",
+      "name": "DB2",
+      "font_class": "ibmdb2",
+      "alias": ["ibmdb2", "db2"],
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "4936970",
+      "name": "Gitlab",
+      "font_class": "gitlab",
+      "alias": ["gitlab"],
+      "unicode": "e87f",
+      "unicode_decimal": 59519
+    },
+    {
+      "icon_id": "1312373",
+      "name": "Datadog",
+      "font_class": "datadog",
+      "alias": ["datadog"],
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "2057476",
+      "name": "OpenSearch",
+      "font_class": "opensearch",
+      "alias": ["opensearch"],
+      "unicode": "e710",
+      "unicode_decimal": 59152
+    },
+    {
+      "icon_id": "2786488",
+      "name": "Jetty",
+      "font_class": "jetty",
+      "alias": ["jetty", "jetty-server", "jetty-client"],
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "3447701",
+      "name": "Nginx",
+      "font_class": "nginx",
+      "alias": ["nginx"],
+      "unicode": "e709",
+      "unicode_decimal": 59145
+    },
+    {
+      "icon_id": "3638339",
+      "name": "Agent",
+      "font_class": "agent",
+      "alias": ["agent"],
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "5127911",
+      "name": "分布式数据库DRDS",
+      "font_class": "drds",
+      "alias": ["drds"],
+      "unicode": "e9f0",
+      "unicode_decimal": 59888
+    },
+    {
+      "icon_id": "5583409",
+      "name": "NAT网关",
+      "font_class": "nat",
+      "alias": ["nat"],
+      "unicode": "e8b1",
+      "unicode_decimal": 59569
+    },
+    {
+      "icon_id": "5583410",
+      "name": "对象存储OSS",
+      "font_class": "oss",
+      "alias": ["oss"],
+      "unicode": "e8b2",
+      "unicode_decimal": 59570
+    },
+    {
+      "icon_id": "5583421",
+      "name": "负载均衡SLB",
+      "font_class": "slb",
+      "alias": ["slb"],
+      "unicode": "e8b3",
+      "unicode_decimal": 59571
+    },
+    {
+      "icon_id": "7119672",
+      "name": "SQL Server",
+      "font_class": "sqlserver",
+      "alias": ["sqlserver"],
+      "unicode": "e664",
+      "unicode_decimal": 58980
+    },
+    {
+      "icon_id": "10055643",
+      "name": "云服务器ECS",
+      "font_class": "ecs",
+      "alias": ["ecs"],
+      "unicode": "e7d8",
+      "unicode_decimal": 59352
+    },
+    {
+      "icon_id": "11249896",
+      "name": "Terminal",
+      "font_class": "terminal",
+      "alias": ["terminal", "rmi", "rmi-client", "rmi-server"],
+      "unicode": "e861",
+      "unicode_decimal": 59489
+    },
+    {
+      "icon_id": "11993111",
+      "name": "NodeJS",
+      "font_class": "nodejs",
+      "alias": ["nodejs", "node"],
+      "unicode": "e718",
+      "unicode_decimal": 59160
+    },
+    {
+      "icon_id": "11993247",
+      "name": "Redhat",
+      "font_class": "redhat",
+      "alias": ["redhat"],
+      "unicode": "e743",
+      "unicode_decimal": 59203
+    },
+    {
+      "icon_id": "13723265",
+      "name": "Cassandra",
+      "font_class": "cassandra",
+      "alias": ["cassandra", "java-cassandra"],
+      "unicode": "e74f",
+      "unicode_decimal": 59215
+    },
+    {
+      "icon_id": "15188214",
+      "name": "亚马逊AWS",
+      "font_class": "aws",
+      "alias": ["aws", "java-aws-sdk"],
+      "unicode": "e6ca",
+      "unicode_decimal": 59082
+    },
+    {
+      "icon_id": "15188337",
+      "name": "Docker",
+      "font_class": "docker",
+      "alias": ["docker"],
+      "unicode": "e6e1",
+      "unicode_decimal": 59105
+    },
+    {
+      "icon_id": "15188427",
+      "name": "JAVA",
+      "font_class": "java",
+      "alias": ["java", "jvm"],
+      "unicode": "e70a",
+      "unicode_decimal": 59146
+    },
+    {
+      "icon_id": "15188503",
+      "name": "PHP",
+      "font_class": "php",
+      "alias": ["php"],
+      "unicode": "e70b",
+      "unicode_decimal": 59147
+    },
+    {
+      "icon_id": "15378134",
+      "name": "Apache",
+      "font_class": "apache",
+      "alias": ["apache", "apache-httpasyncclient", "apache-httpclient", "apache-httpclient5"],
+      "unicode": "eb3d",
+      "unicode_decimal": 60221
+    },
+    {
+      "icon_id": "15378313",
+      "name": "Dynatrace",
+      "font_class": "dynatrace",
+      "alias": ["dynatrace"],
+      "unicode": "eb83",
+      "unicode_decimal": 60291
+    },
+    {
+      "icon_id": "15378423",
+      "name": "GraphQL",
+      "font_class": "graphql",
+      "alias": ["graphql"],
+      "unicode": "ebb1",
+      "unicode_decimal": 60337
+    },
+    {
+      "icon_id": "15378553",
+      "name": "Logstash",
+      "font_class": "logstash",
+      "alias": ["logstash"],
+      "unicode": "ebfc",
+      "unicode_decimal": 60412
+    },
+    {
+      "icon_id": "15378704",
+      "name": "PostgreSQL",
+      "font_class": "postgresql",
+      "alias": ["postgresql", "postgres"],
+      "unicode": "ec5d",
+      "unicode_decimal": 60509
+    },
+    {
+      "icon_id": "19116960",
+      "name": "Splunk",
+      "font_class": "splunk",
+      "alias": ["splunk"],
+      "unicode": "e7f7",
+      "unicode_decimal": 59383
+    },
+    {
+      "icon_id": "20113952",
+      "name": "Spring Boot",
+      "font_class": "springboot",
+      "alias": ["springboot", "spring", "spring-scheduling", "spring-data", "spring-webflux-client", "spring-webflux-controller", "spring-web-client", "spring-web-controller"],
+      "unicode": "e70c",
+      "unicode_decimal": 59148
+    },
+    {
+      "icon_id": "20611443",
+      "name": "StatsD",
+      "font_class": "statsd",
+      "alias": ["statsd"],
+      "unicode": "e654",
+      "unicode_decimal": 58964
+    },
+    {
+      "icon_id": "24346526",
+      "name": "Aerospike",
+      "font_class": "aerospike",
+      "alias": ["aerospike", "java-aerospike"],
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "26923387",
+      "name": "JDBC",
+      "font_class": "jdbc",
+      "alias": ["jdbc", "java-jdbc", "java-jdbc-connection"],
+      "unicode": "e653",
+      "unicode_decimal": 58963
+    },
+    {
+      "icon_id": "27571252",
+      "name": "ClickHouse",
+      "font_class": "clickhouse",
+      "alias": ["clickhouse"],
+      "unicode": "e8f3",
+      "unicode_decimal": 59635
+    },
+    {
+      "icon_id": "29243194",
+      "name": "Prometheus",
+      "font_class": "prometheus",
+      "alias": ["prometheus", "prometheusremotewrite"],
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "34415396",
+      "name": "Http",
+      "font_class": "http",
+      "alias": ["http", "commons-http-client", "http-url-connection"],
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "34452939",
+      "name": "Product Filter",
+      "font_class": "productfilter",
+      "alias": ["productfilter", "product-filter"],
+      "unicode": "e833",
+      "unicode_decimal": 59443
+    },
+    {
+      "icon_id": "1363847",
+      "name": "Right圆形",
+      "font_class": "right-pie",
+      "alias": ["right-pie", "health-normal", "health-right"],
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "3878387",
+      "name": "Zabbix",
+      "font_class": "zabbix",
+      "alias": ["zabbix", "zabbix-simple"],
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "4765896",
+      "name": "眼睛睁开",
+      "font_class": "eye-show",
+      "alias": ["eye-show"],
+      "unicode": "e78f",
+      "unicode_decimal": 59279
+    },
+    {
+      "icon_id": "8092167",
+      "name": "眼睛闭合",
+      "font_class": "eye-close",
+      "alias": ["eye-close"],
+      "unicode": "e8ff",
+      "unicode_decimal": 59647
+    },
+    {
+      "icon_id": "13533332",
+      "name": "消息队列MQ",
+      "font_class": "mq",
+      "alias": ["mq", "queue"],
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "15378422",
+      "name": "Grafana",
+      "font_class": "grafana",
+      "alias": ["grafana"],
+      "unicode": "ebb0",
+      "unicode_decimal": 60336
+    },
+    {
+      "icon_id": "27402570",
+      "name": "腾讯云",
+      "font_class": "tencentcloud",
+      "alias": ["tencentcloud", "tencent"],
+      "unicode": "ee49",
+      "unicode_decimal": 61001
+    },
+    {
+      "icon_id": "31620686",
+      "name": "科来",
+      "font_class": "colasoft",
+      "alias": ["colasoft"],
+      "unicode": "e6b6",
+      "unicode_decimal": 59062
+    },
+    {
+      "icon_id": "32078911",
+      "name": "跳转",
+      "font_class": "link",
+      "alias": ["link"],
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
+      "icon_id": "33638712",
+      "name": "Nacos",
+      "font_class": "nacos",
+      "alias": ["nacos"],
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "36431305",
+      "name": "Dubbo",
+      "font_class": "dubbo",
+      "alias": ["dubbo", "apache-dubbo"],
+      "unicode": "e708",
+      "unicode_decimal": 59144
+    },
+    {
+      "icon_id": "42551510",
+      "name": "Close圆形",
+      "font_class": "close-pie",
+      "alias": ["close-pie"],
+      "unicode": "e62a",
+      "unicode_decimal": 58922
+    },
+    {
+      "icon_id": "1403428",
+      "name": "华为云",
+      "font_class": "huaweicloud",
+      "alias": ["huaweicloud", "huawei"],
+      "unicode": "e82e",
+      "unicode_decimal": 59438
+    },
+    {
+      "icon_id": "36086904",
+      "name": "阿里云",
+      "font_class": "alicloud",
+      "alias": ["alicloud", "aliyun", "ali_ads_mysql", "ali_ads_pg", "ali_cms", "ali_ecs", "ali_rds", "ali_redis", "alibaba_cloud_slb"],
+      "unicode": "ecfe",
+      "unicode_decimal": 60670
+    },
+    {
+      "icon_id": "42567024",
+      "name": "用户体验",
+      "font_class": "rum",
+      "alias": ["rum"],
+      "unicode": "e651",
+      "unicode_decimal": 58961
+    },
+    {
+      "icon_id": "42566561",
+      "name": "缩小",
+      "font_class": "scale-small",
+      "alias": ["scale-small"],
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "42566562",
+      "name": "放大",
+      "font_class": "scale-big",
+      "alias": ["scale-big"],
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "42566506",
+      "name": "向右旋转",
+      "font_class": "rotate-right",
+      "alias": ["rotate-right"],
+      "unicode": "e64e",
+      "unicode_decimal": 58958
+    },
+    {
+      "icon_id": "42562649",
+      "name": "帮助",
+      "font_class": "help",
+      "alias": ["help"],
+      "unicode": "e637",
+      "unicode_decimal": 58935
+    },
+    {
+      "icon_id": "42562650",
+      "name": "网络性能",
+      "font_class": "npm",
+      "alias": ["npm"],
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    },
+    {
+      "icon_id": "42562651",
+      "name": "基础设施",
+      "font_class": "infrastructure",
+      "alias": ["infrastructure"],
+      "unicode": "e642",
+      "unicode_decimal": 58946
+    },
+    {
+      "icon_id": "42562652",
+      "name": "指标",
+      "font_class": "metrics",
+      "alias": ["metrics"],
+      "unicode": "e645",
+      "unicode_decimal": 58949
+    },
+    {
+      "icon_id": "42562653",
+      "name": "告警",
+      "font_class": "alarm",
+      "alias": ["alarm"],
+      "unicode": "e646",
+      "unicode_decimal": 58950
+    },
+    {
+      "icon_id": "42562654",
+      "name": "应用性能",
+      "font_class": "app-service",
+      "alias": ["app-service"],
+      "unicode": "e647",
+      "unicode_decimal": 58951
+    },
+    {
+      "icon_id": "42562655",
+      "name": "部署",
+      "font_class": "deploy",
+      "alias": ["deploy"],
+      "unicode": "e648",
+      "unicode_decimal": 58952
+    },
+    {
+      "icon_id": "42562656",
+      "name": "驾驶舱",
+      "font_class": "cockpit",
+      "alias": ["cockpit"],
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "42562657",
+      "name": "报表",
+      "font_class": "report",
+      "alias": ["report"],
+      "unicode": "e64c",
+      "unicode_decimal": 58956
+    },
+    {
+      "icon_id": "42562658",
+      "name": "日志",
+      "font_class": "log",
+      "alias": ["log"],
+      "unicode": "e64d",
+      "unicode_decimal": 58957
+    },
+    {
+      "icon_id": "42336061",
+      "name": "业务系统",
+      "font_class": "aside-business",
+      "alias": ["aside-business"],
+      "unicode": "e6e6",
+      "unicode_decimal": 59110
+    },
+    {
+      "icon_id": "42336062",
+      "name": "进程",
+      "font_class": "aside-process",
+      "alias": ["aside-process"],
+      "unicode": "e6e7",
+      "unicode_decimal": 59111
+    },
+    {
+      "icon_id": "42336066",
+      "name": "应用",
+      "font_class": "aside-application",
+      "alias": ["aside-application"],
+      "unicode": "e6e8",
+      "unicode_decimal": 59112
+    },
+    {
+      "icon_id": "42336069",
+      "name": "RocketMQ",
+      "font_class": "rocketmq",
+      "alias": ["rocketmq", "rocket", "apacherocketmq", "apache-rocketmq"],
+      "unicode": "e6e9",
+      "unicode_decimal": 59113
+    },
+    {
+      "icon_id": "42336070",
+      "name": "主系统",
+      "font_class": "map-bus",
+      "alias": ["map-bus", "business", "bus", "bs", "bs-node", "list-bus", "list-bs", "bs-list"],
+      "unicode": "e6ea",
+      "unicode_decimal": 59114
+    },
+    {
+      "icon_id": "42336071",
+      "name": "RabbitMQ",
+      "font_class": "rabbitmq",
+      "alias": ["rabbit", "rabbitmq", "rabbitmq-amqp", "rabbit-fill", "rabbitmq-fill", "rabbitmq-amqp-fill"],
+      "unicode": "e6eb",
+      "unicode_decimal": 59115
+    },
+    {
+      "icon_id": "42336072",
+      "name": "Elasticsearch",
+      "font_class": "elasticsearch",
+      "alias": ["elasticsearch", "elasticsearch-java", "elasticsearch-fill", "elasticsearch-java-fill"],
+      "unicode": "e6ec",
+      "unicode_decimal": 59116
+    },
+    {
+      "icon_id": "42336073",
+      "name": "主机",
+      "font_class": "aside-host",
+      "alias": ["aside-host"],
+      "unicode": "e6ed",
+      "unicode_decimal": 59117
+    },
+    {
+      "icon_id": "42336076",
+      "name": "Kafka",
+      "font_class": "kafka",
+      "alias": ["kafka", "java-kafka", "java-kafka-streams", "kafka-fill", "java-kafka-fill", "java-kafka-streams-fill"],
+      "unicode": "e6ef",
+      "unicode_decimal": 59119
+    },
+    {
+      "icon_id": "42336077",
+      "name": "Linux",
+      "font_class": "linux",
+      "alias": ["linux"],
+      "unicode": "e6f0",
+      "unicode_decimal": 59120
+    },
+    {
+      "icon_id": "42336078",
+      "name": "Redis",
+      "font_class": "redis",
+      "alias": ["redis", "redis-client", "redis-command", "cache"],
+      "unicode": "e6f1",
+      "unicode_decimal": 59121
+    },
+    {
+      "icon_id": "42336264",
+      "name": "服务",
+      "font_class": "aside-service",
+      "alias": ["aside-service"],
+      "unicode": "e6f2",
+      "unicode_decimal": 59122
+    },
+    {
+      "icon_id": "42336506",
+      "name": "Tomcat",
+      "font_class": "tomcat",
+      "alias": ["tomcat", "tomcat-server", "tomcat-fill", "tomcat-server-fill"],
+      "unicode": "e6f3",
+      "unicode_decimal": 59123
+    },
+    {
+      "icon_id": "42336505",
+      "name": "网络",
+      "font_class": "network",
+      "alias": ["network", "web", "java-web", "java-web-servlet", "java-web-servlet-async-dispatcher", "java-web-servlet-dispatcher", "java-web-servlet-filter", "java-web-servlet-service", "java-web-servlet-response"],
+      "unicode": "e6f4",
+      "unicode_decimal": 59124
+    },
+    {
+      "icon_id": "42336503",
+      "name": "子系统",
+      "font_class": "map-subbus",
+      "alias": ["map-subbus", "subbus", "sub-business", "subbs", "subbs-node", "list-subbus", "subbs-list"],
+      "unicode": "e6f5",
+      "unicode_decimal": 59125
+    },
+    {
+      "icon_id": "42336504",
+      "name": "Pod",
+      "font_class": "pod",
+      "alias": ["pod", "pods", "k8s-pods", "k8s-pod"],
+      "unicode": "e6f6",
+      "unicode_decimal": 59126
+    },
+    {
+      "icon_id": "42336501",
+      "name": "数据库",
+      "font_class": "database",
+      "alias": ["database", "db"],
+      "unicode": "e6f7",
+      "unicode_decimal": 59127
+    },
+    {
+      "icon_id": "42336502",
+      "name": "App",
+      "font_class": "app",
+      "alias": ["app"],
+      "unicode": "e6f8",
+      "unicode_decimal": 59128
+    },
+    {
+      "icon_id": "42336580",
+      "name": "刷新",
+      "font_class": "refresh",
+      "alias": ["refresh"],
+      "unicode": "e6f9",
+      "unicode_decimal": 59129
+    },
+    {
+      "icon_id": "42336583",
+      "name": "环形布局",
+      "font_class": "layout-circular",
+      "alias": ["layout-circular"],
+      "unicode": "e6fa",
+      "unicode_decimal": 59130
+    },
+    {
+      "icon_id": "42336582",
+      "name": "显示名称",
+      "font_class": "name-show",
+      "alias": ["name-show"],
+      "unicode": "e6fb",
+      "unicode_decimal": 59131
+    },
+    {
+      "icon_id": "42336581",
+      "name": "折叠",
+      "font_class": "fold",
+      "alias": ["fold"],
+      "unicode": "e6fc",
+      "unicode_decimal": 59132
+    },
+    {
+      "icon_id": "42336579",
+      "name": "下",
+      "font_class": "down",
+      "alias": ["down"],
+      "unicode": "e6fd",
+      "unicode_decimal": 59133
+    },
+    {
+      "icon_id": "42336578",
+      "name": "时间",
+      "font_class": "time",
+      "alias": ["time"],
+      "unicode": "e6fe",
+      "unicode_decimal": 59134
+    },
+    {
+      "icon_id": "42336577",
+      "name": "展开",
+      "font_class": "unfold",
+      "alias": ["unfold"],
+      "unicode": "e6ff",
+      "unicode_decimal": 59135
+    },
+    {
+      "icon_id": "42336576",
+      "name": "上",
+      "font_class": "up",
+      "alias": ["up"],
+      "unicode": "e700",
+      "unicode_decimal": 59136
+    },
+    {
+      "icon_id": "42336597",
+      "name": "横向布局",
+      "font_class": "layout-horizontal",
+      "alias": ["layout-horizontal"],
+      "unicode": "e701",
+      "unicode_decimal": 59137
+    },
+    {
+      "icon_id": "42336598",
+      "name": "纵向布局",
+      "font_class": "layout-vertical",
+      "alias": ["layout-vertical"],
+      "unicode": "e702",
+      "unicode_decimal": 59138
+    },
+    {
+      "icon_id": "42336596",
+      "name": "隐藏名称",
+      "font_class": "name-hide",
+      "alias": ["name-hide"],
+      "unicode": "e703",
+      "unicode_decimal": 59139
+    },
+    {
+      "icon_id": "42336595",
+      "name": "消息",
+      "font_class": "news",
+      "alias": ["news"],
+      "unicode": "e704",
+      "unicode_decimal": 59140
+    },
+    {
+      "icon_id": "42336594",
+      "name": "布局",
+      "font_class": "layout",
+      "alias": ["layout"],
+      "unicode": "e705",
+      "unicode_decimal": 59141
+    },
+    {
+      "icon_id": "42461856",
+      "name": "通用Default",
+      "font_class": "default",
+      "alias": ["default"],
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "42464802",
+      "name": "Flink",
+      "font_class": "flink",
+      "alias": ["flink", "apacheflink"],
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "42464801",
+      "name": "MongoDB",
+      "font_class": "mongodb",
+      "alias": ["mongodb", "mongo"],
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "42464800",
+      "name": "Hadoop",
+      "font_class": "hadoop",
+      "alias": ["hadoop"],
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "42464798",
+      "name": "Zookeeper",
+      "font_class": "zookeeper",
+      "alias": ["zookeeper"],
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "42464797",
+      "name": "Oracle-text",
+      "font_class": "oracle-text",
+      "alias": ["oracle-text"],
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "42464795",
+      "name": "MySQL",
+      "font_class": "mysql",
+      "alias": ["mysql"],
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "42464796",
+      "name": "Hive",
+      "font_class": "hive",
+      "alias": ["hive"],
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "42464794",
+      "name": "Doris",
+      "font_class": "doris",
+      "alias": ["doris"],
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "42556592",
+      "name": "左",
+      "font_class": "left",
+      "alias": ["left"],
+      "unicode": "e706",
+      "unicode_decimal": 59142
+    },
+    {
+      "icon_id": "42556627",
+      "name": "右",
+      "font_class": "right",
+      "alias": ["right"],
+      "unicode": "e707",
+      "unicode_decimal": 59143
+    },
+    {
+      "icon_id": "4936983",
+      "name": "Windows",
+      "font_class": "windows",
+      "alias": ["windows"],
+      "unicode": "e882",
+      "unicode_decimal": 59522
+    },
+    {
+      "icon_id": "11992364",
+      "name": "CentOS",
+      "font_class": "centos",
+      "alias": ["centos"],
+      "unicode": "e64b",
+      "unicode_decimal": 58955
+    },
+    {
+      "icon_id": "42551655",
+      "name": "KylinOS",
+      "font_class": "kylinos",
+      "alias": ["kylinos", "kylin"],
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "42551665",
+      "name": "Ubuntu",
+      "font_class": "ubuntu",
+      "alias": ["ubuntu"],
+      "unicode": "e633",
+      "unicode_decimal": 58931
+    },
+    {
+      "icon_id": "42551682",
+      "name": "Kubernetes",
+      "font_class": "kubernetes",
+      "alias": ["kubernetes", "kubernets", "k8s"],
+      "unicode": "e644",
+      "unicode_decimal": 58948
+    },
+    {
+      "icon_id": "42557880",
+      "name": "网卡",
+      "font_class": "networkcard",
+      "alias": ["networkcard"],
+      "unicode": "e631",
+      "unicode_decimal": 58929
+    },
+    {
+      "icon_id": "42551643",
+      "name": "Apple",
+      "font_class": "apple",
+      "alias": ["apple", "macos", "mac", "ios"],
+      "unicode": "e632",
+      "unicode_decimal": 58930
+    },
+    {
+      "icon_id": "42551645",
+      "name": "Android",
+      "font_class": "android",
+      "alias": ["android"],
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
+      "icon_id": "42551671",
+      "name": "小程序",
+      "font_class": "mini-program",
+      "alias": ["mini-program"],
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "42551681",
+      "name": "Javascript",
+      "font_class": "javascript",
+      "alias": ["javascript", "js"],
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    },
+    {
+      "icon_id": "42551649",
+      "name": "退出全屏",
+      "font_class": "fullscreen-shrink",
+      "alias": ["fullscreen-shrink"],
+      "unicode": "e635",
+      "unicode_decimal": 58933
+    },
+    {
+      "icon_id": "42551672",
+      "name": "全屏",
+      "font_class": "fullscreen-expand",
+      "alias": ["fullscreen-expand"],
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    },
+    {
+      "icon_id": "1201488",
+      "name": "月亮",
+      "font_class": "moon",
+      "alias": ["moon"],
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "42551658",
+      "name": "太阳",
+      "font_class": "sun",
+      "alias": ["sun"],
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "1368574",
+      "name": "关闭",
+      "font_class": "close",
+      "alias": ["close"],
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "13074974",
+      "name": "过滤",
+      "font_class": "filter",
+      "alias": ["filter", "filter-line"],
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "22053466",
+      "name": "地球",
+      "font_class": "earth",
+      "alias": ["earth"],
+      "unicode": "e9a7",
+      "unicode_decimal": 59815
+    },
+    {
+      "icon_id": "34453176",
+      "name": "Code",
+      "font_class": "code",
+      "alias": ["code"],
+      "unicode": "e84f",
+      "unicode_decimal": 59471
+    },
+    {
+      "icon_id": "42551648",
+      "name": "上传",
+      "font_class": "upload",
+      "alias": ["upload"],
+      "unicode": "e638",
+      "unicode_decimal": 58936
+    },
+    {
+      "icon_id": "42551651",
+      "name": "警告",
+      "font_class": "warning",
+      "alias": ["warning", "problem"],
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    },
+    {
+      "icon_id": "42551669",
+      "name": "主机",
+      "font_class": "host",
+      "alias": ["host"],
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "42551670",
+      "name": "导出",
+      "font_class": "export",
+      "alias": ["export"],
+      "unicode": "e63f",
+      "unicode_decimal": 58943
+    },
+    {
+      "icon_id": "42551687",
+      "name": "用户",
+      "font_class": "user",
+      "alias": ["user"],
+      "unicode": "e649",
+      "unicode_decimal": 58953
+    },
+    {
+      "icon_id": "42558161",
+      "name": "指示灯",
+      "font_class": "lamp",
+      "alias": ["lamp"],
+      "unicode": "e640",
+      "unicode_decimal": 58944
+    },
+    {
+      "icon_id": "42559002",
+      "name": "拓扑",
+      "font_class": "topology",
+      "alias": ["topology"],
+      "unicode": "e9a9",
+      "unicode_decimal": 59817
+    },
+    {
+      "icon_id": "42470914",
+      "name": "业务观测",
+      "font_class": "scene",
+      "alias": ["scene"],
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    }
+  ]
+}

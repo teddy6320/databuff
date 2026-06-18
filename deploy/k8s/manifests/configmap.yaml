@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ai-apm-config
+  namespace: databuff
+  labels:
+    app.kubernetes.io/name: ai-apm
+data:
+  DORIS_FE_HOST: ai-apm-doris
+  DORIS_FE_HTTP_PORT: "8030"
+  DORIS_FE_QUERY_PORT: "9030"
+  DORIS_BE_HTTP_HOST: ai-apm-doris
+  DORIS_BE_HTTP_PORT: "8040"
+  ZK_CONNECT_STRING: ai-apm-zookeeper.databuff.svc.cluster.local:2181
+  # ingest 集群模式：replicas>1 时启用跨节点二次聚合与 gRPC 转发（单副本时仍按 standalone 运行）
+  INGEST_CLUSTER_ENABLED: "true"
+  INGEST_NODE_ID: auto

@@ -1,0 +1,15 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": {
+    "resource": "/demo/checkout",
+    "serviceId": "9bf61532d56eb7b5",
+    "service": "service-a",
+    "service_type": "web",
+    "httpMethod": "GET",
+    "callCnt": 10,
+    "errCnt": 0,
+    "avgLatency": 240000000,
+    "errRate": 0.0
+  }
+}

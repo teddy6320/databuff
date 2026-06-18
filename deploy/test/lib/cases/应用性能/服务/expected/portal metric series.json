@@ -1,0 +1,26 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": [
+    {
+      "epochSeconds": 1781498100,
+      "value": 28.0
+    },
+    {
+      "epochSeconds": 1781498160,
+      "value": 28.0
+    },
+    {
+      "epochSeconds": 1781498220,
+      "value": 28.0
+    },
+    {
+      "epochSeconds": 1781498280,
+      "value": 28.0
+    },
+    {
+      "epochSeconds": 1781498340,
+      "value": 28.0
+    }
+  ]
+}

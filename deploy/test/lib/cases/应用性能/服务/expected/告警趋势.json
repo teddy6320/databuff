@@ -1,0 +1,26 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": {
+    "1781407980000": {
+      "value": 0,
+      "trafficLight": "green"
+    },
+    "1781408040000": {
+      "value": 0,
+      "trafficLight": "green"
+    },
+    "1781408100000": {
+      "value": 0,
+      "trafficLight": "green"
+    },
+    "1781408160000": {
+      "value": 0,
+      "trafficLight": "green"
+    },
+    "1781408220000": {
+      "value": 0,
+      "trafficLight": "green"
+    }
+  }
+}

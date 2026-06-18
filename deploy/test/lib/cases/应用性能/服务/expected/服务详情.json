@@ -1,0 +1,38 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": {
+    "serviceId": "9bf61532d56eb7b5",
+    "name": "service-a",
+    "service": "service-a",
+    "service_type": "web",
+    "type": "web",
+    "technology": "jvm,http",
+    "language": "",
+    "processRuntimeName": "",
+    "processRuntimeVersion": "",
+    "datasource": "OTLP",
+    "source": "",
+    "fqdn": "",
+    "container_service": "",
+    "virtual_service": false,
+    "describe": "",
+    "alarmCount": 0,
+    "silenceIds": [],
+    "tags": {
+      "custom": []
+    },
+    "componentTypes": [
+      "service.http",
+      "service.db",
+      "service.rpc",
+      "service.trace",
+      "service.jvm"
+    ],
+    "bizEvents": [],
+    "domainManager": {},
+    "businessLineName": "",
+    "businessLineInfo": [],
+    "k8sNamespace": ""
+  }
+}

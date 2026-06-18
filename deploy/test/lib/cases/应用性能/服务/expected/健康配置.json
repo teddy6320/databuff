@@ -1,0 +1,24 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": {
+    "alarmYellow": 1,
+    "showServiceNumber": 10,
+    "errorRateThreshold": 0.05,
+    "minRequestCount": 10,
+    "exceptionRed": 10,
+    "exceptionYellow": 2,
+    "alarmRed": 2,
+    "alarm": {
+      "red": 2.0,
+      "yellow": 1.0
+    },
+    "exception": {
+      "red": 10.0,
+      "yellow": 2.0
+    },
+    "type": "alarm",
+    "red": 2.0,
+    "yellow": 1.0
+  }
+}

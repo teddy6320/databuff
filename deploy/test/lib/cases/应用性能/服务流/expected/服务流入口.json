@@ -1,0 +1,13 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": {
+    "entryPoints": [
+      {
+        "service": "service-a",
+        "serviceId": "9bf61532d56eb7b5",
+        "entrypointPathId": "-4605470139737123236"
+      }
+    ]
+  }
+}

@@ -1,0 +1,271 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": [
+    {
+      "timestamp": 1781407980000,
+      "serviceOrders": [
+        {
+          "serviceId": "c89bb188ecff78ec",
+          "name": "[elasticsearch]es:9200",
+          "service": "[elasticsearch]es:9200",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        },
+        {
+          "serviceId": "c1fbe6792ea65d41",
+          "name": "[kafka]order-events",
+          "service": "[kafka]order-events",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        },
+        {
+          "serviceId": "c72cc83a8831e407",
+          "name": "[mysql]demo_apm",
+          "service": "[mysql]demo_apm",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        },
+        {
+          "serviceId": "94d612e1c2166206",
+          "name": "[redis]redis:6379",
+          "service": "[redis]redis:6379",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        },
+        {
+          "serviceId": "9bf61532d56eb7b5",
+          "name": "service-a",
+          "service": "service-a",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        },
+        {
+          "serviceId": "5457a0119281bb98",
+          "name": "service-b",
+          "service": "service-b",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        }
+      ]
+    },
+    {
+      "timestamp": 1781408040000,
+      "serviceOrders": [
+        {
+          "serviceId": "c89bb188ecff78ec",
+          "name": "[elasticsearch]es:9200",
+          "service": "[elasticsearch]es:9200",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        },
+        {
+          "serviceId": "c1fbe6792ea65d41",
+          "name": "[kafka]order-events",
+          "service": "[kafka]order-events",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        },
+        {
+          "serviceId": "c72cc83a8831e407",
+          "name": "[mysql]demo_apm",
+          "service": "[mysql]demo_apm",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        },
+        {
+          "serviceId": "94d612e1c2166206",
+          "name": "[redis]redis:6379",
+          "service": "[redis]redis:6379",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        },
+        {
+          "serviceId": "9bf61532d56eb7b5",
+          "name": "service-a",
+          "service": "service-a",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        },
+        {
+          "serviceId": "5457a0119281bb98",
+          "name": "service-b",
+          "service": "service-b",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        }
+      ]
+    },
+    {
+      "timestamp": 1781408100000,
+      "serviceOrders": [
+        {
+          "serviceId": "c89bb188ecff78ec",
+          "name": "[elasticsearch]es:9200",
+          "service": "[elasticsearch]es:9200",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        },
+        {
+          "serviceId": "c1fbe6792ea65d41",
+          "name": "[kafka]order-events",
+          "service": "[kafka]order-events",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        },
+        {
+          "serviceId": "c72cc83a8831e407",
+          "name": "[mysql]demo_apm",
+          "service": "[mysql]demo_apm",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        },
+        {
+          "serviceId": "94d612e1c2166206",
+          "name": "[redis]redis:6379",
+          "service": "[redis]redis:6379",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        },
+        {
+          "serviceId": "9bf61532d56eb7b5",
+          "name": "service-a",
+          "service": "service-a",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        },
+        {
+          "serviceId": "5457a0119281bb98",
+          "name": "service-b",
+          "service": "service-b",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        }
+      ]
+    },
+    {
+      "timestamp": 1781408160000,
+      "serviceOrders": [
+        {
+          "serviceId": "c89bb188ecff78ec",
+          "name": "[elasticsearch]es:9200",
+          "service": "[elasticsearch]es:9200",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        },
+        {
+          "serviceId": "c1fbe6792ea65d41",
+          "name": "[kafka]order-events",
+          "service": "[kafka]order-events",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        },
+        {
+          "serviceId": "c72cc83a8831e407",
+          "name": "[mysql]demo_apm",
+          "service": "[mysql]demo_apm",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        },
+        {
+          "serviceId": "94d612e1c2166206",
+          "name": "[redis]redis:6379",
+          "service": "[redis]redis:6379",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        },
+        {
+          "serviceId": "9bf61532d56eb7b5",
+          "name": "service-a",
+          "service": "service-a",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        },
+        {
+          "serviceId": "5457a0119281bb98",
+          "name": "service-b",
+          "service": "service-b",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        }
+      ]
+    },
+    {
+      "timestamp": 1781408220000,
+      "serviceOrders": [
+        {
+          "serviceId": "c89bb188ecff78ec",
+          "name": "[elasticsearch]es:9200",
+          "service": "[elasticsearch]es:9200",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        },
+        {
+          "serviceId": "c1fbe6792ea65d41",
+          "name": "[kafka]order-events",
+          "service": "[kafka]order-events",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        },
+        {
+          "serviceId": "c72cc83a8831e407",
+          "name": "[mysql]demo_apm",
+          "service": "[mysql]demo_apm",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        },
+        {
+          "serviceId": "94d612e1c2166206",
+          "name": "[redis]redis:6379",
+          "service": "[redis]redis:6379",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        },
+        {
+          "serviceId": "9bf61532d56eb7b5",
+          "name": "service-a",
+          "service": "service-a",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        },
+        {
+          "serviceId": "5457a0119281bb98",
+          "name": "service-b",
+          "service": "service-b",
+          "value": 0,
+          "trafficLight": "green",
+          "businessName": ""
+        }
+      ]
+    }
+  ]
+}

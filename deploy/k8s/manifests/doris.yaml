@@ -1,0 +1,151 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ai-apm-doris
+  namespace: databuff
+  labels:
+    app.kubernetes.io/name: ai-apm
+    app.kubernetes.io/component: doris
+spec:
+  clusterIP: None
+  selector:
+    app.kubernetes.io/name: ai-apm
+    app.kubernetes.io/component: doris
+  ports:
+    - name: fe-query
+      port: 9030
+      targetPort: fe-query
+    - name: fe-http
+      port: 8030
+      targetPort: fe-http
+    - name: be-http
+      port: 8040
+      targetPort: be-http
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: ai-apm-doris
+  namespace: databuff
+  labels:
+    app.kubernetes.io/name: ai-apm
+    app.kubernetes.io/component: doris
+spec:
+  serviceName: ai-apm-doris
+  replicas: 1
+  podManagementPolicy: OrderedReady
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: ai-apm
+      app.kubernetes.io/component: doris
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: ai-apm
+        app.kubernetes.io/component: doris
+    spec:
+      containers:
+        - name: ai-apm-doris-fe
+          image: __DORIS_FE_IMAGE__
+          workingDir: /opt/apache-doris
+          env:
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+          command: ["/bin/bash", "-ec"]
+          args:
+            - |
+              export FE_SERVERS="fe1:${POD_IP}:9010"
+              export FE_ID=1
+              sed -i 's/-Xmx8192m/-Xmx1200m/g' /opt/apache-doris/fe/conf/fe.conf
+              sed -i 's/-Xms8192m/-Xms1200m/g' /opt/apache-doris/fe/conf/fe.conf
+              exec bash init_fe.sh
+          ports:
+            - name: fe-query
+              containerPort: 9030
+            - name: fe-http
+              containerPort: 8030
+          volumeMounts:
+            - name: fe-meta
+              mountPath: /opt/apache-doris/fe/doris-meta
+          readinessProbe:
+            exec:
+              command:
+                - bash
+                - -c
+                - exec 3<>/dev/tcp/127.0.0.1/9030
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 30
+          livenessProbe:
+            exec:
+              command:
+                - bash
+                - -c
+                - exec 3<>/dev/tcp/127.0.0.1/9030
+            initialDelaySeconds: 120
+            periodSeconds: 15
+            timeoutSeconds: 5
+            failureThreshold: 6
+          resources:
+            requests:
+              memory: 1.5Gi
+              cpu: "500m"
+            limits:
+              memory: 2Gi
+              cpu: "1"
+        - name: ai-apm-doris-be
+          image: __DORIS_BE_IMAGE__
+          workingDir: /opt/apache-doris
+          env:
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+          command: ["/bin/bash", "-ec"]
+          args:
+            - |
+              export FE_SERVERS="fe1:${POD_IP}:9010"
+              export BE_ADDR="${POD_IP}:9050"
+              exec bash entry_point.sh
+          ports:
+            - name: be-http
+              containerPort: 8040
+          volumeMounts:
+            - name: be-storage
+              mountPath: /opt/apache-doris/be/storage
+          readinessProbe:
+            exec:
+              command:
+                - bash
+                - -c
+                - curl -sf http://127.0.0.1:8040/api/health
+            initialDelaySeconds: 90
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 30
+          livenessProbe:
+            exec:
+              command:
+                - bash
+                - -c
+                - curl -sf http://127.0.0.1:8040/api/health
+            initialDelaySeconds: 120
+            periodSeconds: 15
+            timeoutSeconds: 5
+            failureThreshold: 6
+          resources:
+            requests:
+              memory: 4Gi
+              cpu: "500m"
+            limits:
+              memory: 6Gi
+              cpu: "2"
+      volumes:
+        - name: fe-meta
+          emptyDir: {}
+        - name: be-storage
+          emptyDir: {}

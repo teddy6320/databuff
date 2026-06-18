@@ -1,0 +1,13 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": {
+    "componentType": "service.http",
+    "reqInCnt": 10,
+    "reqInErrCnt": 0,
+    "reqInTime": 800000000.0,
+    "reqOutCnt": 10,
+    "reqOutErrCnt": 0,
+    "reqOutTime": 1000000000.0
+  }
+}

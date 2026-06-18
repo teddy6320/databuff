@@ -1,0 +1,1298 @@
+@font-face {
+  font-family: "db-icon"; /* Project id 4744753 */
+  src: url('db-iconfont.woff2?t=1768290923091') format('woff2'),
+       url('db-iconfont.woff?t=1768290923091') format('woff'),
+       url('db-iconfont.ttf?t=1768290923091') format('truetype');
+}
+
+.db-icon,
+[class^=db-icon-],
+[class*=" db-icon-"] {
+  font-family: "db-icon" !important;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.db-icon-infinity:before {
+  content: "\e70f";
+}
+
+.db-icon-rust:before {
+  content: "\e70d";
+}
+
+.db-icon-dashboard:before {
+  content: "\e6e4";
+}
+
+.db-icon-folder:before {
+  content: "\e6e5";
+}
+
+.db-icon-line-step-before:before {
+  content: "\e6df";
+}
+
+.db-icon-line-step-after:before {
+  content: "\e6e0";
+}
+
+.db-icon-line-smooth:before {
+  content: "\e6e2";
+}
+
+.db-icon-line-linear:before {
+  content: "\e6e3";
+}
+
+.db-icon-unlock:before {
+  content: "\e6de";
+}
+
+.db-icon-download-image:before {
+  content: "\e6dd";
+}
+
+.db-icon-screen:before {
+  content: "\e6dc";
+}
+
+.db-icon-alarm-fill:before {
+  content: "\e89d";
+}
+
+.db-icon-face-sad:before {
+  content: "\e6d6";
+}
+
+.db-icon-face-normal:before {
+  content: "\e6d7";
+}
+
+.db-icon-face-smile:before {
+  content: "\e6db";
+}
+
+.db-icon-bes-app:before {
+  content: "\e6d9";
+}
+
+.db-icon-bes-web:before {
+  content: "\e6da";
+}
+
+.db-icon-arrow:before {
+  content: "\e6d5";
+}
+
+.db-icon-comp-pie:before {
+  content: "\e6cc";
+}
+
+.db-icon-comp-text:before {
+  content: "\e6cf";
+}
+
+.db-icon-comp-suggest:before {
+  content: "\e6d0";
+}
+
+.db-icon-comp-error:before {
+  content: "\e6d1";
+}
+
+.db-icon-comp-line:before {
+  content: "\e6d2";
+}
+
+.db-icon-comp-title:before {
+  content: "\e6d3";
+}
+
+.db-icon-comp-bar:before {
+  content: "\e6d4";
+}
+
+.db-icon-apple-o:before {
+  content: "\e87e";
+}
+
+.db-icon-android-o:before {
+  content: "\e6ce";
+}
+
+.db-icon-javascript-o:before {
+  content: "\e716";
+}
+
+.db-icon-table:before {
+  content: "\e6cd";
+}
+
+.db-icon-cpp:before {
+  content: "\e7c7";
+}
+
+.db-icon-remapping:before {
+  content: "\e6c9";
+}
+
+.db-icon-like:before {
+  content: "\e6c8";
+}
+
+.db-icon-thinkphp:before {
+  content: "\e6c7";
+}
+
+.db-icon-cakephp:before {
+  content: "\e6c5";
+}
+
+.db-icon-codeigniter:before {
+  content: "\e6c6";
+}
+
+.db-icon-yii:before {
+  content: "\ecd1";
+}
+
+.db-icon-symfony:before {
+  content: "\ecd4";
+}
+
+.db-icon-laravel:before {
+  content: "\ebef";
+}
+
+.db-icon-phalcon:before {
+  content: "\ee4a";
+}
+
+.db-icon-translate:before {
+  content: "\e6c4";
+}
+
+.db-icon-right-o:before {
+  content: "\e6be";
+}
+
+.db-icon-upload2:before {
+  content: "\e6bf";
+}
+
+.db-icon-attachment:before {
+  content: "\e6c1";
+}
+
+.db-icon-pipeline:before {
+  content: "\e6c2";
+}
+
+.db-icon-template:before {
+  content: "\e6c3";
+}
+
+.db-icon-star-s:before {
+  content: "\e6bc";
+}
+
+.db-icon-star:before {
+  content: "\e6bd";
+}
+
+.db-icon-batch:before {
+  content: "\e6ba";
+}
+
+.db-icon-metric-exp:before {
+  content: "\e6bb";
+}
+
+.db-icon-add2:before {
+  content: "\e6b2";
+}
+
+.db-icon-merge:before {
+  content: "\e6b3";
+}
+
+.db-icon-convert:before {
+  content: "\e6b4";
+}
+
+.db-icon-extract:before {
+  content: "\e6b5";
+}
+
+.db-icon-update:before {
+  content: "\e6b7";
+}
+
+.db-icon-delete2:before {
+  content: "\e6b8";
+}
+
+.db-icon-hash:before {
+  content: "\e6b9";
+}
+
+.db-icon-databuff:before {
+  content: "\e6aa";
+}
+
+.db-icon-intelligence:before {
+  content: "\e6a6";
+}
+
+.db-icon-ai:before {
+  content: "\e6a7";
+}
+
+.db-icon-link2:before {
+  content: "\e6a9";
+}
+
+.db-icon-filter:before {
+  content: "\e6a5";
+}
+
+.db-icon-expression:before {
+  content: "\e6b0";
+}
+
+.db-icon-chart-area:before {
+  content: "\e6ac";
+}
+
+.db-icon-chart-line:before {
+  content: "\e6ae";
+}
+
+.db-icon-chart-bar:before {
+  content: "\e6af";
+}
+
+.db-icon-remote-service:before {
+  content: "\e60f";
+}
+
+.db-icon-decrease:before {
+  content: "\e6ab";
+}
+
+.db-icon-increase:before {
+  content: "\e750";
+}
+
+.db-icon-more:before {
+  content: "\e6a4";
+}
+
+.db-icon-lock:before {
+  content: "\e6a3";
+}
+
+.db-icon-application:before {
+  content: "\e6a2";
+}
+
+.db-icon-minus:before {
+  content: "\e6a1";
+}
+
+.db-icon-info:before {
+  content: "\e6a0";
+}
+
+.db-icon-lab-system:before {
+  content: "\e61d";
+}
+
+.db-icon-save:before {
+  content: "\e6ee";
+}
+
+.db-icon-oracle:before {
+  content: "\e7c9";
+}
+
+.db-icon-lab-home:before {
+  content: "\e6ad";
+}
+
+.db-icon-lab-analysis:before {
+  content: "\e60b";
+}
+
+.db-icon-lab-library:before {
+  content: "\e600";
+}
+
+.db-icon-lab-history:before {
+  content: "\e601";
+}
+
+.db-icon-lab-insert:before {
+  content: "\e618";
+}
+
+.db-icon-event:before {
+  content: "\e69f";
+}
+
+.db-icon-edit3:before {
+  content: "\e69d";
+}
+
+.db-icon-bell:before {
+  content: "\e69e";
+}
+
+.db-icon-opengauss:before {
+  content: "\e69c";
+}
+
+.db-icon-chart:before {
+  content: "\e63c";
+}
+
+.db-icon-date:before {
+  content: "\e699";
+}
+
+.db-icon-chart1:before {
+  content: "\e69a";
+}
+
+.db-icon-table-setting:before {
+  content: "\e69b";
+}
+
+.db-icon-webhook:before {
+  content: "\e698";
+}
+
+.db-icon-sms:before {
+  content: "\e62f";
+}
+
+.db-icon-socket:before {
+  content: "\e630";
+}
+
+.db-icon-wechat:before {
+  content: "\e695";
+}
+
+.db-icon-email:before {
+  content: "\e696";
+}
+
+.db-icon-dingtalk:before {
+  content: "\e697";
+}
+
+.db-icon-rootcause:before {
+  content: "\e62e";
+}
+
+.db-icon-back:before {
+  content: "\e694";
+}
+
+.db-icon-cpu-o:before {
+  content: "\e68d";
+}
+
+.db-icon-baseinfo-o:before {
+  content: "\e68e";
+}
+
+.db-icon-networkcard-o:before {
+  content: "\e68f";
+}
+
+.db-icon-memory-o:before {
+  content: "\e690";
+}
+
+.db-icon-disk-o:before {
+  content: "\e693";
+}
+
+.db-icon-system-disk:before {
+  content: "\e688";
+}
+
+.db-icon-system-swap:before {
+  content: "\e689";
+}
+
+.db-icon-system-network:before {
+  content: "\e68a";
+}
+
+.db-icon-system-uptime:before {
+  content: "\e68b";
+}
+
+.db-icon-system-core:before {
+  content: "\e68c";
+}
+
+.db-icon-system-memory:before {
+  content: "\e628";
+}
+
+.db-icon-system-diskio:before {
+  content: "\e683";
+}
+
+.db-icon-system-load:before {
+  content: "\e684";
+}
+
+.db-icon-system-cpu:before {
+  content: "\e685";
+}
+
+.db-icon-system-process:before {
+  content: "\e686";
+}
+
+.db-icon-databuff-agent:before {
+  content: "\e687";
+}
+
+.db-icon-list:before {
+  content: "\e682";
+}
+
+.db-icon-snmp:before {
+  content: "\e680";
+}
+
+.db-icon-graphite:before {
+  content: "\e652";
+}
+
+.db-icon-tiandan:before {
+  content: "\e658";
+}
+
+.db-icon-ibmws:before {
+  content: "\e681";
+}
+
+.db-icon-edit2:before {
+  content: "\e67f";
+}
+
+.db-icon-more-pie:before {
+  content: "\e67d";
+}
+
+.db-icon-error-pie:before {
+  content: "\e619";
+}
+
+.db-icon-dealing:before {
+  content: "\e91f";
+}
+
+.db-icon-spark:before {
+  content: "\e674";
+}
+
+.db-icon-container:before {
+  content: "\e615";
+}
+
+.db-icon-process:before {
+  content: "\e6d8";
+}
+
+.db-icon-setting:before {
+  content: "\e67e";
+}
+
+.db-icon-yarn:before {
+  content: "\e67b";
+}
+
+.db-icon-hbase:before {
+  content: "\e67c";
+}
+
+.db-icon-opentelemetry:before {
+  content: "\e612";
+}
+
+.db-icon-oceanbase:before {
+  content: "\e67a";
+}
+
+.db-icon-skywalking:before {
+  content: "\e6b1";
+}
+
+.db-icon-web:before {
+  content: "\e611";
+}
+
+.db-icon-sql:before {
+  content: "\e70e";
+}
+
+.db-icon-rpc:before {
+  content: "\e6a8";
+}
+
+.db-icon-trace:before {
+  content: "\e603";
+}
+
+.db-icon-namespace:before {
+  content: "\e661";
+}
+
+.db-icon-node:before {
+  content: "\e670";
+}
+
+.db-icon-pod2:before {
+  content: "\e671";
+}
+
+.db-icon-service:before {
+  content: "\e678";
+}
+
+.db-icon-workload:before {
+  content: "\e679";
+}
+
+.db-icon-copy:before {
+  content: "\e672";
+}
+
+.db-icon-edit:before {
+  content: "\e673";
+}
+
+.db-icon-add:before {
+  content: "\e675";
+}
+
+.db-icon-delete:before {
+  content: "\e677";
+}
+
+.db-icon-search:before {
+  content: "\e65c";
+}
+
+.db-icon-silence:before {
+  content: "\e659";
+}
+
+.db-icon-go:before {
+  content: "\e63d";
+}
+
+.db-icon-mute:before {
+  content: "\e62b";
+}
+
+.db-icon-uos:before {
+  content: "\e6c0";
+}
+
+.db-icon-h2:before {
+  content: "\e60a";
+}
+
+.db-icon-influxdb:before {
+  content: "\e6cb";
+}
+
+.db-icon-sqlite:before {
+  content: "\e610";
+}
+
+.db-icon-kingbase:before {
+  content: "\e96b";
+}
+
+.db-icon-gbase:before {
+  content: "\e99a";
+}
+
+.db-icon-grpc:before {
+  content: "\e66f";
+}
+
+.db-icon-plugin:before {
+  content: "\e60e";
+}
+
+.db-icon-redis-fill:before {
+  content: "\e669";
+}
+
+.db-icon-mq-fill:before {
+  content: "\e66a";
+}
+
+.db-icon-container-fill:before {
+  content: "\e66b";
+}
+
+.db-icon-service-fill:before {
+  content: "\e66c";
+}
+
+.db-icon-host-fill:before {
+  content: "\e66d";
+}
+
+.db-icon-database-fill:before {
+  content: "\e66e";
+}
+
+.db-icon-analysis:before {
+  content: "\e691";
+}
+
+.db-icon-github:before {
+  content: "\e885";
+}
+
+.db-icon-vmware:before {
+  content: "\e60d";
+}
+
+.db-icon-dotnet:before {
+  content: "\e60c";
+}
+
+.db-icon-hw-redis:before {
+  content: "\e65d";
+}
+
+.db-icon-hw-gdb-mysql:before {
+  content: "\e65e";
+}
+
+.db-icon-hw-gdb-mongo:before {
+  content: "\e65f";
+}
+
+.db-icon-hw-rds-postgresql:before {
+  content: "\e660";
+}
+
+.db-icon-hw-gdb-influx:before {
+  content: "\e662";
+}
+
+.db-icon-hw-rds-sqlserver:before {
+  content: "\e663";
+}
+
+.db-icon-hw-gdb-redis:before {
+  content: "\e665";
+}
+
+.db-icon-hw-gdb-opengauss:before {
+  content: "\e666";
+}
+
+.db-icon-hw-rds-mysql:before {
+  content: "\e667";
+}
+
+.db-icon-hw-ddm:before {
+  content: "\e668";
+}
+
+.db-icon-etcd:before {
+  content: "\e61a";
+}
+
+.db-icon-openstack:before {
+  content: "\e656";
+}
+
+.db-icon-ruby:before {
+  content: "\ec8e";
+}
+
+.db-icon-memcached:before {
+  content: "\e676";
+}
+
+.db-icon-harbor:before {
+  content: "\e609";
+}
+
+.db-icon-kvm:before {
+  content: "\e777";
+}
+
+.db-icon-saphana:before {
+  content: "\e73d";
+}
+
+.db-icon-tongweb:before {
+  content: "\e692";
+}
+
+.db-icon-activemq:before {
+  content: "\e657";
+}
+
+.db-icon-dm:before {
+  content: "\e736";
+}
+
+.db-icon-ceph:before {
+  content: "\e86f";
+}
+
+.db-icon-hivemq:before {
+  content: "\e65a";
+}
+
+.db-icon-ssh:before {
+  content: "\e65b";
+}
+
+.db-icon-python:before {
+  content: "\e655";
+}
+
+.db-icon-ibmdb2:before {
+  content: "\e608";
+}
+
+.db-icon-gitlab:before {
+  content: "\e87f";
+}
+
+.db-icon-datadog:before {
+  content: "\e616";
+}
+
+.db-icon-opensearch:before {
+  content: "\e710";
+}
+
+.db-icon-jetty:before {
+  content: "\e617";
+}
+
+.db-icon-nginx:before {
+  content: "\e709";
+}
+
+.db-icon-agent:before {
+  content: "\e62c";
+}
+
+.db-icon-drds:before {
+  content: "\e9f0";
+}
+
+.db-icon-nat:before {
+  content: "\e8b1";
+}
+
+.db-icon-oss:before {
+  content: "\e8b2";
+}
+
+.db-icon-slb:before {
+  content: "\e8b3";
+}
+
+.db-icon-sqlserver:before {
+  content: "\e664";
+}
+
+.db-icon-ecs:before {
+  content: "\e7d8";
+}
+
+.db-icon-terminal:before {
+  content: "\e861";
+}
+
+.db-icon-nodejs:before {
+  content: "\e718";
+}
+
+.db-icon-redhat:before {
+  content: "\e743";
+}
+
+.db-icon-cassandra:before {
+  content: "\e74f";
+}
+
+.db-icon-aws:before {
+  content: "\e6ca";
+}
+
+.db-icon-docker:before {
+  content: "\e6e1";
+}
+
+.db-icon-java:before {
+  content: "\e70a";
+}
+
+.db-icon-php:before {
+  content: "\e70b";
+}
+
+.db-icon-apache:before {
+  content: "\eb3d";
+}
+
+.db-icon-dynatrace:before {
+  content: "\eb83";
+}
+
+.db-icon-graphql:before {
+  content: "\ebb1";
+}
+
+.db-icon-logstash:before {
+  content: "\ebfc";
+}
+
+.db-icon-postgresql:before {
+  content: "\ec5d";
+}
+
+.db-icon-splunk:before {
+  content: "\e7f7";
+}
+
+.db-icon-springboot:before {
+  content: "\e70c";
+}
+
+.db-icon-statsd:before {
+  content: "\e654";
+}
+
+.db-icon-aerospike:before {
+  content: "\e605";
+}
+
+.db-icon-jdbc:before {
+  content: "\e653";
+}
+
+.db-icon-clickhouse:before {
+  content: "\e8f3";
+}
+
+.db-icon-prometheus:before {
+  content: "\e606";
+}
+
+.db-icon-http:before {
+  content: "\e607";
+}
+
+.db-icon-productfilter:before {
+  content: "\e833";
+}
+
+.db-icon-right-pie:before {
+  content: "\e613";
+}
+
+.db-icon-zabbix:before {
+  content: "\e614";
+}
+
+.db-icon-eye-show:before {
+  content: "\e78f";
+}
+
+.db-icon-eye-close:before {
+  content: "\e8ff";
+}
+
+.db-icon-mq:before {
+  content: "\e627";
+}
+
+.db-icon-grafana:before {
+  content: "\ebb0";
+}
+
+.db-icon-tencentcloud:before {
+  content: "\ee49";
+}
+
+.db-icon-colasoft:before {
+  content: "\e6b6";
+}
+
+.db-icon-link:before {
+  content: "\e629";
+}
+
+.db-icon-nacos:before {
+  content: "\e61c";
+}
+
+.db-icon-dubbo:before {
+  content: "\e708";
+}
+
+.db-icon-close-pie:before {
+  content: "\e62a";
+}
+
+.db-icon-huaweicloud:before {
+  content: "\e82e";
+}
+
+.db-icon-alicloud:before {
+  content: "\ecfe";
+}
+
+.db-icon-rum:before {
+  content: "\e651";
+}
+
+.db-icon-scale-small:before {
+  content: "\e64f";
+}
+
+.db-icon-scale-big:before {
+  content: "\e650";
+}
+
+.db-icon-rotate-right:before {
+  content: "\e64e";
+}
+
+.db-icon-help:before {
+  content: "\e637";
+}
+
+.db-icon-npm:before {
+  content: "\e641";
+}
+
+.db-icon-infrastructure:before {
+  content: "\e642";
+}
+
+.db-icon-metrics:before {
+  content: "\e645";
+}
+
+.db-icon-alarm:before {
+  content: "\e646";
+}
+
+.db-icon-app-service:before {
+  content: "\e647";
+}
+
+.db-icon-deploy:before {
+  content: "\e648";
+}
+
+.db-icon-cockpit:before {
+  content: "\e64a";
+}
+
+.db-icon-report:before {
+  content: "\e64c";
+}
+
+.db-icon-log:before {
+  content: "\e64d";
+}
+
+.db-icon-aside-business:before {
+  content: "\e6e6";
+}
+
+.db-icon-aside-process:before {
+  content: "\e6e7";
+}
+
+.db-icon-aside-application:before {
+  content: "\e6e8";
+}
+
+.db-icon-rocketmq:before {
+  content: "\e6e9";
+}
+
+.db-icon-map-bus:before {
+  content: "\e6ea";
+}
+
+.db-icon-rabbitmq:before {
+  content: "\e6eb";
+}
+
+.db-icon-elasticsearch:before {
+  content: "\e6ec";
+}
+
+.db-icon-aside-host:before {
+  content: "\e6ed";
+}
+
+.db-icon-kafka:before {
+  content: "\e6ef";
+}
+
+.db-icon-linux:before {
+  content: "\e6f0";
+}
+
+.db-icon-redis:before {
+  content: "\e6f1";
+}
+
+.db-icon-aside-service:before {
+  content: "\e6f2";
+}
+
+.db-icon-tomcat:before {
+  content: "\e6f3";
+}
+
+.db-icon-network:before {
+  content: "\e6f4";
+}
+
+.db-icon-map-subbus:before {
+  content: "\e6f5";
+}
+
+.db-icon-pod:before {
+  content: "\e6f6";
+}
+
+.db-icon-database:before {
+  content: "\e6f7";
+}
+
+.db-icon-app:before {
+  content: "\e6f8";
+}
+
+.db-icon-refresh:before {
+  content: "\e6f9";
+}
+
+.db-icon-layout-circular:before {
+  content: "\e6fa";
+}
+
+.db-icon-name-show:before {
+  content: "\e6fb";
+}
+
+.db-icon-fold:before {
+  content: "\e6fc";
+}
+
+.db-icon-down:before {
+  content: "\e6fd";
+}
+
+.db-icon-time:before {
+  content: "\e6fe";
+}
+
+.db-icon-unfold:before {
+  content: "\e6ff";
+}
+
+.db-icon-up:before {
+  content: "\e700";
+}
+
+.db-icon-layout-horizontal:before {
+  content: "\e701";
+}
+
+.db-icon-layout-vertical:before {
+  content: "\e702";
+}
+
+.db-icon-name-hide:before {
+  content: "\e703";
+}
+
+.db-icon-news:before {
+  content: "\e704";
+}
+
+.db-icon-layout:before {
+  content: "\e705";
+}
+
+.db-icon-default:before {
+  content: "\e61e";
+}
+
+.db-icon-flink:before {
+  content: "\e620";
+}
+
+.db-icon-mongodb:before {
+  content: "\e61f";
+}
+
+.db-icon-hadoop:before {
+  content: "\e621";
+}
+
+.db-icon-zookeeper:before {
+  content: "\e622";
+}
+
+.db-icon-oracle-text:before {
+  content: "\e623";
+}
+
+.db-icon-mysql:before {
+  content: "\e624";
+}
+
+.db-icon-hive:before {
+  content: "\e625";
+}
+
+.db-icon-doris:before {
+  content: "\e626";
+}
+
+.db-icon-left:before {
+  content: "\e706";
+}
+
+.db-icon-right:before {
+  content: "\e707";
+}
+
+.db-icon-windows:before {
+  content: "\e882";
+}
+
+.db-icon-centos:before {
+  content: "\e64b";
+}
+
+.db-icon-kylinos:before {
+  content: "\e62d";
+}
+
+.db-icon-ubuntu:before {
+  content: "\e633";
+}
+
+.db-icon-kubernetes:before {
+  content: "\e644";
+}
+
+.db-icon-networkcard:before {
+  content: "\e631";
+}
+
+.db-icon-apple:before {
+  content: "\e632";
+}
+
+.db-icon-android:before {
+  content: "\e634";
+}
+
+.db-icon-mini-program:before {
+  content: "\e639";
+}
+
+.db-icon-javascript:before {
+  content: "\e643";
+}
+
+.db-icon-fullscreen-shrink:before {
+  content: "\e635";
+}
+
+.db-icon-fullscreen-expand:before {
+  content: "\e63a";
+}
+
+.db-icon-moon:before {
+  content: "\e602";
+}
+
+.db-icon-sun:before {
+  content: "\e636";
+}
+
+.db-icon-close:before {
+  content: "\e604";
+}
+
+.db-icon-earth:before {
+  content: "\e9a7";
+}
+
+.db-icon-code:before {
+  content: "\e84f";
+}
+
+.db-icon-upload:before {
+  content: "\e638";
+}
+
+.db-icon-warning:before {
+  content: "\e63b";
+}
+
+.db-icon-host:before {
+  content: "\e63e";
+}
+
+.db-icon-export:before {
+  content: "\e63f";
+}
+
+.db-icon-user:before {
+  content: "\e649";
+}
+
+.db-icon-lamp:before {
+  content: "\e640";
+}
+
+.db-icon-topology:before {
+  content: "\e9a9";
+}
+
+.db-icon-scene:before {
+  content: "\e61b";
+}
+

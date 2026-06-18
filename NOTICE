@@ -1,0 +1,22 @@
+DataBuff AI APM
+Copyright (C) 2017-2026 杭州乘云数字技术有限公司
+
+This product is licensed under the GNU Affero General Public License v3.0 or later.
+See the LICENSE file for the full license text.
+
+Third-Party Software
+--------------------
+This product includes third-party open-source components. Their licenses and
+copyright notices are listed in THIRD-PARTY-NOTICES.txt.
+
+To regenerate the Maven dependency license report:
+
+  mvn org.codehaus.mojo:license-maven-plugin:aggregate-add-third-party \
+    -DoutputDirectory=target/generated-sources/license
+
+Then copy target/generated-sources/license/THIRD-PARTY.txt to THIRD-PARTY-NOTICES.txt.
+
+Source Code (AGPL Section 13)
+-----------------------------
+If you interact with this program over a network, you may obtain the complete
+corresponding source code as described in SOURCE-OFFER.txt and LICENSE.

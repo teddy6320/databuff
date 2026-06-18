@@ -1,0 +1,984 @@
+{
+  "measurements": {
+    "business.service": {
+      "tags": [
+        "apiKey",
+        "biz_internal_call",
+        "busName",
+        "dst_biz_id",
+        "dst_biz_pid",
+        "isIn",
+        "isOut",
+        "service",
+        "serviceId",
+        "serviceType",
+        "srcService",
+        "srcServiceId",
+        "srcServiceType",
+        "src_biz_id",
+        "src_biz_pid",
+        "sub_biz_internal_call"
+      ],
+      "fields": [
+        "cnt",
+        "error",
+        "maxDuration",
+        "sumDuration"
+      ],
+      "tags_open_source": [
+        "biz_internal_call",
+        "busName",
+        "dst_biz_id",
+        "dst_biz_pid",
+        "isIn",
+        "isOut",
+        "service",
+        "serviceId",
+        "serviceType",
+        "srcService",
+        "srcServiceId",
+        "srcServiceType",
+        "src_biz_id",
+        "src_biz_pid",
+        "sub_biz_internal_call"
+      ],
+      "include": false
+    },
+    "jvm": {
+      "tags": [
+        "instance",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "tag_host"
+      ],
+      "fields": [
+        "thread_count",
+        "cpu_load_process",
+        "cpu_load_system",
+        "gc_eden_size",
+        "gc_major_collection_count",
+        "gc_major_collection_time",
+        "gc_metaspace_size",
+        "gc_minor_collection_count",
+        "gc_minor_collection_time",
+        "gc_old_gen_size",
+        "gc_survivor_size",
+        "buffer_pool_direct_capacity",
+        "buffer_pool_direct_count",
+        "buffer_pool_direct_used",
+        "buffer_pool_mapped_capacity",
+        "buffer_pool_mapped_count",
+        "buffer_pool_mapped_used",
+        "loaded_classes_count",
+        "memory_heap_committed",
+        "memory_heap_init",
+        "memory_heap_max",
+        "memory_heap_used",
+        "memory_heap_free",
+        "memory_heap_pct",
+        "memory_noheap_committed",
+        "memory_noheap_init",
+        "memory_noheap_max",
+        "memory_noheap_used"
+      ],
+      "tags_open_source": [
+        "instance",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "tag_host"
+      ],
+      "include": true
+    },
+    "jvm.buffer_pool": {
+      "tags": [
+        "instance",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "tag_host"
+      ],
+      "fields": [
+        "direct.capacity",
+        "direct.count",
+        "direct.used",
+        "mapped.capacity",
+        "mapped.count",
+        "mapped.used"
+      ],
+      "tags_open_source": [
+        "instance",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "tag_host"
+      ],
+      "include": true
+    },
+    "jvm.gc": {
+      "tags": [
+        "instance",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "tag_host"
+      ],
+      "fields": [
+        "eden_size",
+        "major_collection_count",
+        "major_collection_time",
+        "metaspace_size",
+        "minor_collection_count",
+        "minor_collection_time",
+        "old_gen_size",
+        "survivor_size"
+      ],
+      "tags_open_source": [
+        "instance",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "tag_host"
+      ],
+      "include": true
+    },
+    "jvm.loaded_classes": {
+      "tags": [
+        "instance",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "tag_host"
+      ],
+      "fields": [
+        "count"
+      ],
+      "tags_open_source": [
+        "instance",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "tag_host"
+      ],
+      "include": true
+    },
+    "jvm.memory.heap": {
+      "tags": [
+        "instance",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "tag_host"
+      ],
+      "fields": [
+        "committed",
+        "init",
+        "max",
+        "used"
+      ],
+      "tags_open_source": [
+        "instance",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "tag_host"
+      ],
+      "include": true
+    },
+    "jvm.memory.noheap": {
+      "tags": [
+        "instance",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "tag_host"
+      ],
+      "fields": [
+        "committed",
+        "init",
+        "max",
+        "used"
+      ],
+      "tags_open_source": [
+        "instance",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "tag_host"
+      ],
+      "include": true
+    },
+    "service": {
+      "tags": [
+        "errorType",
+        "service",
+        "serviceId",
+        "serviceInstance"
+      ],
+      "fields": [
+        "apdex",
+        "cnt",
+        "error",
+        "healthStatus",
+        "histogramCount",
+        "histogramMax",
+        "maxDuration",
+        "minDuration",
+        "reqBodyLength",
+        "respBodyLength",
+        "slowCnt",
+        "sumCpuTime",
+        "sumDuration",
+        "verySlowCnt"
+      ],
+      "tags_open_source": [
+        "errorType",
+        "service",
+        "serviceId",
+        "serviceInstance"
+      ],
+      "include": true
+    },
+    "service.config": {
+      "tags": [
+        "config.type",
+        "durationRange",
+        "isIn",
+        "isOut",
+        "operation",
+        "resource",
+        "rootComponentType",
+        "rootResource",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "srcService",
+        "srcServiceId",
+        "srcServiceInstance"
+      ],
+      "fields": [
+        "cnt",
+        "error",
+        "histogramCount",
+        "histogramMax",
+        "maxDuration",
+        "minDuration",
+        "slow",
+        "sumDuration"
+      ],
+      "tags_open_source": [
+        "config.type",
+        "durationRange",
+        "isIn",
+        "isOut",
+        "operation",
+        "resource",
+        "rootComponentType",
+        "rootResource",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "srcService",
+        "srcServiceId",
+        "srcServiceInstance"
+      ],
+      "include": true
+    },
+    "service.cpu": {
+      "tags": [
+        "service",
+        "serviceCode",
+        "serviceId",
+        "serviceInstance"
+      ],
+      "fields": [
+        "usage_pct"
+      ],
+      "tags_open_source": [
+        "service",
+        "serviceCode",
+        "serviceId",
+        "serviceInstance"
+      ],
+      "include": true
+    },
+    "service.db": {
+      "tags": [
+        "dbType",
+        "durationRange",
+        "isIn",
+        "isOut",
+        "isSlow",
+        "resource",
+        "rootComponentType",
+        "rootResource",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "sqlContent",
+        "sqlDatabase",
+        "sqlOperation",
+        "srcService",
+        "srcServiceId",
+        "srcServiceInstance"
+      ],
+      "fields": [
+        "cnt",
+        "error",
+        "histogramCount",
+        "histogramMax",
+        "maxDuration",
+        "minDuration",
+        "readRows",
+        "readRowsCnt",
+        "slow",
+        "slowCnt",
+        "sumDuration",
+        "updateRows",
+        "updateRowsCnt"
+      ],
+      "tags_open_source": [
+        "dbType",
+        "durationRange",
+        "isIn",
+        "isOut",
+        "isSlow",
+        "resource",
+        "rootComponentType",
+        "rootResource",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "sqlContent",
+        "sqlDatabase",
+        "sqlOperation",
+        "srcService",
+        "srcServiceId",
+        "srcServiceInstance"
+      ],
+      "include": true
+    },
+    "service.db.connection.pool": {
+      "tags": [
+        "connectionPoolDbType",
+        "connectionPoolName",
+        "connectionPoolType",
+        "connectionPoolUrl",
+        "connectionPoolUsername",
+        "driverClassName",
+        "service",
+        "serviceId",
+        "serviceInstance"
+      ],
+      "fields": [
+        "activeSize",
+        "idleSize",
+        "maxSize",
+        "waiterNum"
+      ],
+      "tags_open_source": [
+        "connectionPoolDbType",
+        "connectionPoolName",
+        "connectionPoolType",
+        "connectionPoolUrl",
+        "connectionPoolUsername",
+        "driverClassName",
+        "service",
+        "serviceId",
+        "serviceInstance"
+      ],
+      "include": true
+    },
+    "service.exception": {
+      "tags": [
+        "componentService",
+        "componentServiceId",
+        "componentServiceInstance",
+        "exceptionCode",
+        "exceptionName",
+        "isIn",
+        "isOut",
+        "resource",
+        "rootComponentType",
+        "rootResource",
+        "service",
+        "serviceId",
+        "serviceInstance"
+      ],
+      "fields": [
+        "cnt",
+        "error"
+      ],
+      "tags_open_source": [
+        "componentService",
+        "componentServiceId",
+        "componentServiceInstance",
+        "exceptionCode",
+        "exceptionName",
+        "isIn",
+        "isOut",
+        "resource",
+        "rootComponentType",
+        "rootResource",
+        "service",
+        "serviceId",
+        "serviceInstance"
+      ],
+      "include": true
+    },
+    "service.flow": {
+      "tags": [
+        "entryInterfacePathId",
+        "entryPathId",
+        "interfacePathId",
+        "isIn",
+        "parentInterfacePathId",
+        "parentPathId",
+        "parentResource",
+        "parentService",
+        "parentServiceId",
+        "pathId",
+        "resource",
+        "service",
+        "serviceId"
+      ],
+      "fields": [
+        "cnt",
+        "error",
+        "slow",
+        "srcCall",
+        "sumDuration"
+      ],
+      "tags_open_source": [
+        "entryInterfacePathId",
+        "entryPathId",
+        "interfacePathId",
+        "isIn",
+        "parentInterfacePathId",
+        "parentPathId",
+        "parentResource",
+        "parentService",
+        "parentServiceId",
+        "pathId",
+        "resource",
+        "service",
+        "serviceId"
+      ],
+      "include": true
+    },
+    "service.health_status": {
+      "tags": [
+        "convergenceType",
+        "gid",
+        "host",
+        "level",
+        "policyId",
+        "policyName",
+        "problemId",
+        "service",
+        "serviceId",
+        "serviceInstance"
+      ],
+      "fields": [
+        "metricsVal"
+      ],
+      "tags_open_source": [
+        "convergenceType",
+        "gid",
+        "host",
+        "level",
+        "policyId",
+        "policyName",
+        "problemId",
+        "service",
+        "serviceId",
+        "serviceInstance"
+      ],
+      "include": true
+    },
+    "service.http": {
+      "tags": [
+        "durationRange",
+        "httpCode",
+        "httpMethod",
+        "isIn",
+        "isOut",
+        "resource",
+        "rootComponentType",
+        "rootResource",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "srcService",
+        "srcServiceId",
+        "srcServiceInstance",
+        "url"
+      ],
+      "fields": [
+        "cnt",
+        "cpuTime",
+        "error",
+        "histogramCount",
+        "histogramMax",
+        "maxDuration",
+        "minDuration",
+        "reqBodyLength",
+        "respBodyLength",
+        "slow",
+        "slowCnt",
+        "sumDuration",
+        "verySlowCnt"
+      ],
+      "tags_open_source": [
+        "durationRange",
+        "httpCode",
+        "httpMethod",
+        "isIn",
+        "isOut",
+        "resource",
+        "rootComponentType",
+        "rootResource",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "srcService",
+        "srcServiceId",
+        "srcServiceInstance",
+        "url"
+      ],
+      "include": true
+    },
+    "service.instance": {
+      "tags": [
+        "biz_pid_id",
+        "containerId",
+        "containerName",
+        "hostIp",
+        "hostname",
+        "javaVendor",
+        "javaVersion",
+        "k8sClusterId",
+        "k8sContainerId",
+        "k8sNamespace",
+        "k8sPodName",
+        "pid",
+        "pname",
+        "ports",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "service_type",
+        "virtualService"
+      ],
+      "fields": [
+        "metricsVal"
+      ],
+      "tags_open_source": [
+        "biz_pid_id",
+        "containerId",
+        "containerName",
+        "hostIp",
+        "hostname",
+        "javaVendor",
+        "javaVersion",
+        "k8sClusterId",
+        "k8sContainerId",
+        "k8sNamespace",
+        "k8sPodName",
+        "pid",
+        "pname",
+        "ports",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "service_type",
+        "virtualService"
+      ],
+      "include": true
+    },
+    "service.io": {
+      "tags": [
+        "service",
+        "serviceCode",
+        "serviceId",
+        "serviceInstance"
+      ],
+      "fields": [
+        "read.rate",
+        "write.rate"
+      ],
+      "tags_open_source": [
+        "service",
+        "serviceCode",
+        "serviceId",
+        "serviceInstance"
+      ],
+      "include": true
+    },
+    "service.mem": {
+      "tags": [
+        "service",
+        "serviceCode",
+        "serviceId",
+        "serviceInstance"
+      ],
+      "fields": [
+        "size",
+        "usage_pct",
+        "used"
+      ],
+      "tags_open_source": [
+        "service",
+        "serviceCode",
+        "serviceId",
+        "serviceInstance"
+      ],
+      "include": true
+    },
+    "service.mq": {
+      "tags": [
+        "broker",
+        "durationRange",
+        "group",
+        "isConsume",
+        "isIn",
+        "isOut",
+        "partition",
+        "resource",
+        "rootComponentType",
+        "rootResource",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "srcService",
+        "srcServiceId",
+        "srcServiceInstance",
+        "topic",
+        "type"
+      ],
+      "fields": [
+        "cnt",
+        "cpuTime",
+        "delay",
+        "error",
+        "histogramCount",
+        "histogramMax",
+        "maxDuration",
+        "minDuration",
+        "mqBodyLength",
+        "slow",
+        "sumDuration"
+      ],
+      "tags_open_source": [
+        "broker",
+        "durationRange",
+        "group",
+        "isConsume",
+        "isIn",
+        "isOut",
+        "partition",
+        "resource",
+        "rootComponentType",
+        "rootResource",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "srcService",
+        "srcServiceId",
+        "srcServiceInstance",
+        "topic",
+        "type"
+      ],
+      "include": true
+    },
+    "service.net": {
+      "tags": [
+        "service",
+        "serviceCode",
+        "serviceId",
+        "serviceInstance"
+      ],
+      "fields": [
+        "bytes_rcvd",
+        "bytes_sent"
+      ],
+      "tags_open_source": [
+        "service",
+        "serviceCode",
+        "serviceId",
+        "serviceInstance"
+      ],
+      "include": true
+    },
+    "service.object.pool": {
+      "tags": [
+        "objectPoolFairness",
+        "objectPoolName",
+        "objectPoolObjectClass",
+        "service",
+        "serviceId",
+        "serviceInstance"
+      ],
+      "fields": [
+        "activeSize",
+        "idleSize",
+        "maxSize"
+      ],
+      "tags_open_source": [
+        "objectPoolFairness",
+        "objectPoolName",
+        "objectPoolObjectClass",
+        "service",
+        "serviceId",
+        "serviceInstance"
+      ],
+      "include": true
+    },
+    "service.redis": {
+      "tags": [
+        "command",
+        "durationRange",
+        "isIn",
+        "isOut",
+        "resource",
+        "rootComponentType",
+        "rootResource",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "srcService",
+        "srcServiceId",
+        "srcServiceInstance"
+      ],
+      "fields": [
+        "cnt",
+        "error",
+        "histogramCount",
+        "histogramMax",
+        "maxDuration",
+        "minDuration",
+        "reqBodyLength",
+        "respBodyLength",
+        "slow",
+        "sumDuration"
+      ],
+      "tags_open_source": [
+        "command",
+        "durationRange",
+        "isIn",
+        "isOut",
+        "resource",
+        "rootComponentType",
+        "rootResource",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "srcService",
+        "srcServiceId",
+        "srcServiceInstance"
+      ],
+      "include": true
+    },
+    "service.rpc": {
+      "tags": [
+        "durationRange",
+        "isIn",
+        "isOut",
+        "resource",
+        "rootComponentType",
+        "rootResource",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "srcService",
+        "srcServiceId",
+        "srcServiceInstance",
+        "statusCode",
+        "type"
+      ],
+      "fields": [
+        "cnt",
+        "cpuTime",
+        "error",
+        "histogramCount",
+        "histogramMax",
+        "maxDuration",
+        "minDuration",
+        "reqBodyLength",
+        "respBodyLength",
+        "slow",
+        "slowCnt",
+        "sumDuration",
+        "verySlowCnt"
+      ],
+      "tags_open_source": [
+        "durationRange",
+        "isIn",
+        "isOut",
+        "resource",
+        "rootComponentType",
+        "rootResource",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "srcService",
+        "srcServiceId",
+        "srcServiceInstance",
+        "statusCode",
+        "type"
+      ],
+      "include": true
+    },
+    "service.remote": {
+      "tags": [
+        "durationRange",
+        "isIn",
+        "isOut",
+        "resource",
+        "remoteType",
+        "rootComponentType",
+        "rootResource",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "srcService",
+        "srcServiceId",
+        "srcServiceInstance"
+      ],
+      "fields": [
+        "cnt",
+        "cpuTime",
+        "error",
+        "histogramCount",
+        "histogramMax",
+        "maxDuration",
+        "minDuration",
+        "reqBodyLength",
+        "respBodyLength",
+        "slow",
+        "slowCnt",
+        "sumDuration",
+        "verySlowCnt"
+      ],
+      "tags_open_source": [
+        "durationRange",
+        "isIn",
+        "isOut",
+        "resource",
+        "remoteType",
+        "rootComponentType",
+        "rootResource",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "srcService",
+        "srcServiceId",
+        "srcServiceInstance"
+      ],
+      "include": true
+    },
+    "service.tcp": {
+      "tags": [
+        "service",
+        "serviceCode",
+        "serviceId",
+        "serviceInstance"
+      ],
+      "fields": [
+        "conns_established",
+        "retransmit"
+      ],
+      "tags_open_source": [
+        "service",
+        "serviceCode",
+        "serviceId",
+        "serviceInstance"
+      ],
+      "include": true
+    },
+    "service.thread.pool": {
+      "tags": [
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "threadPoolName"
+      ],
+      "fields": [
+        "activeCount",
+        "completedTaskCount",
+        "corePoolSize",
+        "largestPoolSize",
+        "maximumPoolSize",
+        "poolSize",
+        "queueRemainingCapacity",
+        "queueSize",
+        "taskCount"
+      ],
+      "tags_open_source": [
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "threadPoolName"
+      ],
+      "include": true
+    },
+    "service.thread.pool.cost": {
+      "tags": [
+        "rootResource",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "threadPoolName",
+        "type"
+      ],
+      "fields": [
+        "cnt",
+        "maxDuration",
+        "minDuration",
+        "sumDuration"
+      ],
+      "tags_open_source": [
+        "rootResource",
+        "service",
+        "serviceId",
+        "serviceInstance",
+        "threadPoolName",
+        "type"
+      ],
+      "include": true
+    },
+    "service.trace": {
+      "tags": [
+        "errorType",
+        "hostName",
+        "httpMethod",
+        "httpStatusCode",
+        "resource",
+        "service",
+        "serviceId",
+        "serviceInstance"
+      ],
+      "fields": [
+        "cnt",
+        "error",
+        "histogramCount",
+        "histogramMax",
+        "maxDuration",
+        "minDuration",
+        "sumDuration"
+      ],
+      "tags_open_source": [
+        "errorType",
+        "hostName",
+        "httpMethod",
+        "httpStatusCode",
+        "resource",
+        "service",
+        "serviceId",
+        "serviceInstance"
+      ],
+      "include": true
+    }
+  }
+}

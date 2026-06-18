@@ -1,0 +1,25 @@
+logging:
+  level:
+    com.databuff.apm.ingest.otel.OtlpMetricDebugLogger: DEBUG
+    com.databuff.apm.ingest.metric.OtlpMetricDirectWriter: INFO
+    com.databuff.apm.ingest.metric.MetricWriteRouter: INFO
+    com.databuff.apm.common.storage.DorisStreamLoadSink: INFO
+
+server:
+  port: 4318
+
+management:
+  server:
+    port: 8081
+
+ingest:
+  metric:
+    trace-minute-late-flush-grace-ms: 20000
+  otlp:
+    grpc-port: 4317
+  doris:
+    fe-host: ${DORIS_FE_HOST:ai-apm-doris-fe}
+    fe-http-port: ${DORIS_FE_HTTP_PORT:8030}
+    fe-query-port: ${DORIS_FE_QUERY_PORT:9030}
+    be-http-host: ${DORIS_BE_HTTP_HOST:ai-apm-doris-be}
+    be-http-port: ${DORIS_BE_HTTP_PORT:8040}

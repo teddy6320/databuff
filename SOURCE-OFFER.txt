@@ -1,0 +1,21 @@
+DataBuff AI APM — Corresponding Source Offer (GNU AGPL v3, Section 13)
+=======================================================================
+
+You may obtain the complete corresponding source code for the version of
+DataBuff AI APM that you are using, including build scripts and documentation,
+by cloning or downloading from the project repository (replace with your public URL
+when publishing):
+
+     https://github.com/databufflabs/databuff
+
+   Use the Git tag or commit that matches the VERSION file shipped with your
+   deployment package.
+
+The source offer includes everything needed to build and run this program,
+including ai-apm-common, ai-apm-ingest, ai-apm-web, ai-apm-frontend, and the
+deploy/ directory, but excludes third-party components that are normally
+distributed separately (for example Apache Doris when deployed as an external
+service).
+
+This offer is valid for at least three years from the date you last received
+this software.

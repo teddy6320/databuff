@@ -1,0 +1,48 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": [
+    {
+      "serviceInstance": "service-a-1",
+      "hostName": "demo-host-a",
+      "hostIp": "demo-host-a",
+      "alarmCount": 0,
+      "serviceCall": 10,
+      "k8sNamespace": "demo",
+      "traceServiceEntity": {
+        "serviceId": "9bf61532d56eb7b5",
+        "name": "service-a",
+        "service": "service-a",
+        "service_type": "web",
+        "type": "web",
+        "technology": "jvm,http",
+        "language": "",
+        "processRuntimeName": "",
+        "processRuntimeVersion": "",
+        "datasource": "OTLP",
+        "source": "",
+        "fqdn": "",
+        "container_service": "",
+        "virtual_service": false,
+        "describe": "",
+        "alarmCount": 0,
+        "silenceIds": [],
+        "tags": {
+          "custom": []
+        },
+        "componentTypes": [
+          "service.http",
+          "service.db",
+          "service.rpc",
+          "service.trace",
+          "service.jvm"
+        ],
+        "bizEvents": [],
+        "domainManager": {},
+        "businessLineName": "",
+        "businessLineInfo": [],
+        "k8sNamespace": ""
+      }
+    }
+  ]
+}

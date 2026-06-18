@@ -1,0 +1,163 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": {
+    "services": [
+      {
+        "id": "9bf61532d56eb7b5",
+        "serviceId": "9bf61532d56eb7b5",
+        "name": "service-a",
+        "serviceName": "service-a",
+        "service": "service-a",
+        "callCnt": 60,
+        "errCnt": 0,
+        "errRate": 0.0,
+        "avgLatency": 39.833333333333336,
+        "alarmCount": 0,
+        "errType": 0,
+        "service_type": "default",
+        "type": "default"
+      },
+      {
+        "id": "5457a0119281bb98",
+        "serviceId": "5457a0119281bb98",
+        "name": "service-b",
+        "serviceName": "service-b",
+        "service": "service-b",
+        "callCnt": 50,
+        "errCnt": 0,
+        "errRate": 0.0,
+        "avgLatency": 53.6,
+        "alarmCount": 0,
+        "errType": 0,
+        "service_type": "default",
+        "type": "default"
+      },
+      {
+        "id": "c72cc83a8831e407",
+        "serviceId": "c72cc83a8831e407",
+        "name": "[mysql]demo_apm",
+        "serviceName": "[mysql]demo_apm",
+        "service": "[mysql]demo_apm",
+        "callCnt": 30,
+        "errCnt": 0,
+        "errRate": 0.0,
+        "avgLatency": 31.666666666666668,
+        "alarmCount": 0,
+        "errType": 0,
+        "service_type": "default",
+        "type": "default"
+      },
+      {
+        "id": "c89bb188ecff78ec",
+        "serviceId": "c89bb188ecff78ec",
+        "name": "[elasticsearch]es:9200",
+        "serviceName": "[elasticsearch]es:9200",
+        "service": "[elasticsearch]es:9200",
+        "callCnt": 10,
+        "errCnt": 0,
+        "errRate": 0.0,
+        "avgLatency": 18.0,
+        "alarmCount": 0,
+        "errType": 0,
+        "service_type": "db",
+        "type": "es"
+      },
+      {
+        "id": "94d612e1c2166206",
+        "serviceId": "94d612e1c2166206",
+        "name": "[redis]redis:6379",
+        "serviceName": "[redis]redis:6379",
+        "service": "[redis]redis:6379",
+        "callCnt": 20,
+        "errCnt": 0,
+        "errRate": 0.0,
+        "avgLatency": 13.0,
+        "alarmCount": 0,
+        "errType": 0,
+        "service_type": "cache",
+        "type": "redis"
+      },
+      {
+        "id": "c1fbe6792ea65d41",
+        "serviceId": "c1fbe6792ea65d41",
+        "name": "[kafka]order-events",
+        "serviceName": "[kafka]order-events",
+        "service": "[kafka]order-events",
+        "callCnt": 10,
+        "errCnt": 0,
+        "errRate": 0.0,
+        "avgLatency": 8.0,
+        "alarmCount": 0,
+        "errType": 0,
+        "service_type": "mq",
+        "type": "order-events"
+      }
+    ],
+    "serviceEdges": [
+      {
+        "src": "9bf61532d56eb7b5",
+        "dst": "5457a0119281bb98",
+        "cnt": 20,
+        "error": 0,
+        "avgDuration": 90.0,
+        "errRate": 0.0,
+        "successRate": 1.0
+      },
+      {
+        "src": "5457a0119281bb98",
+        "dst": "c72cc83a8831e407",
+        "cnt": 20,
+        "error": 0,
+        "avgDuration": 37.5,
+        "errRate": 0.0,
+        "successRate": 1.0
+      },
+      {
+        "src": "9bf61532d56eb7b5",
+        "dst": "c89bb188ecff78ec",
+        "cnt": 10,
+        "error": 0,
+        "avgDuration": 18.0,
+        "errRate": 0.0,
+        "successRate": 1.0
+      },
+      {
+        "src": "9bf61532d56eb7b5",
+        "dst": "c72cc83a8831e407",
+        "cnt": 10,
+        "error": 0,
+        "avgDuration": 20.0,
+        "errRate": 0.0,
+        "successRate": 1.0
+      },
+      {
+        "src": "5457a0119281bb98",
+        "dst": "94d612e1c2166206",
+        "cnt": 10,
+        "error": 0,
+        "avgDuration": 13.0,
+        "errRate": 0.0,
+        "successRate": 1.0
+      },
+      {
+        "src": "9bf61532d56eb7b5",
+        "dst": "94d612e1c2166206",
+        "cnt": 10,
+        "error": 0,
+        "avgDuration": 13.0,
+        "errRate": 0.0,
+        "successRate": 1.0
+      },
+      {
+        "src": "9bf61532d56eb7b5",
+        "dst": "c1fbe6792ea65d41",
+        "cnt": 10,
+        "error": 0,
+        "avgDuration": 8.0,
+        "errRate": 0.0,
+        "successRate": 1.0
+      }
+    ]
+  }
+}

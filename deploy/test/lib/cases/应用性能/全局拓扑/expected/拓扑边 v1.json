@@ -1,0 +1,44 @@
+[
+  {
+    "srcService": "service-a",
+    "dstService": "service-b",
+    "callCount": 20,
+    "errorCount": 0
+  },
+  {
+    "srcService": "service-b",
+    "dstService": "[mysql]demo_apm",
+    "callCount": 20,
+    "errorCount": 0
+  },
+  {
+    "srcService": "service-a",
+    "dstService": "[elasticsearch]es:9200",
+    "callCount": 10,
+    "errorCount": 0
+  },
+  {
+    "srcService": "service-a",
+    "dstService": "[mysql]demo_apm",
+    "callCount": 10,
+    "errorCount": 0
+  },
+  {
+    "srcService": "service-b",
+    "dstService": "[redis]redis:6379",
+    "callCount": 10,
+    "errorCount": 0
+  },
+  {
+    "srcService": "service-a",
+    "dstService": "[redis]redis:6379",
+    "callCount": 10,
+    "errorCount": 0
+  },
+  {
+    "srcService": "service-a",
+    "dstService": "[kafka]order-events",
+    "callCount": 10,
+    "errorCount": 0
+  }
+]

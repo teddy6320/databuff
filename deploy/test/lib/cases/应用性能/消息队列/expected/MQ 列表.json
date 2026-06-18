@@ -1,0 +1,41 @@
+{
+  "data": [
+    {
+      "serviceId": "c1fbe6792ea65d41",
+      "name": "[kafka]order-events",
+      "service": "[kafka]order-events",
+      "callCnt": 10,
+      "errCnt": 0,
+      "slowCnt": 0,
+      "errRate": 0.0,
+      "slowPercent": 0.0,
+      "avgLatency": 8000000.0,
+      "reqRate": 0.03333333333333333,
+      "lastMinReqRate": 2.0,
+      "service_type": "mq",
+      "type": "kafka",
+      "datasource": "OTLP",
+      "virtual_service": true,
+      "alarmCount": 0,
+      "alarmPendingCount": 0,
+      "alarmMetric": {
+        "unprocessed": 0,
+        "onprocess": 0,
+        "total": 0
+      },
+      "reqInCallCnt": 10,
+      "reqInErrCnt": 0,
+      "reqInErrRate": 0.0,
+      "reqInAvgLatency": 8000000.0,
+      "reqOutCallCnt": 0,
+      "reqOutErrCnt": 0,
+      "reqOutErrRate": 0.0,
+      "reqOutAvgLatency": 0.0
+    }
+  ],
+  "status": 200,
+  "message": "SUCCESS",
+  "total": 1,
+  "size": 1,
+  "offset": 1
+}

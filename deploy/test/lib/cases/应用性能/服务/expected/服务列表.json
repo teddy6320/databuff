@@ -1,0 +1,87 @@
+{
+  "data": [
+    {
+      "serviceId": "c72cc83a8831e407",
+      "name": "[mysql]demo_apm",
+      "service": "[mysql]demo_apm",
+      "callCnt": 30,
+      "errCnt": 0,
+      "errRate": 0.0,
+      "avgLatency": 31666666.666666668,
+      "maxLatency": 45000000,
+      "reqRate": 0.1,
+      "lastMinReqRate": 6.0,
+      "type": "mysql"
+    },
+    {
+      "serviceId": "5457a0119281bb98",
+      "name": "service-b",
+      "service": "service-b",
+      "callCnt": 30,
+      "errCnt": 10,
+      "errRate": 0.3333333333333333,
+      "avgLatency": 56666666.666666664,
+      "maxLatency": 80000000,
+      "reqRate": 0.1,
+      "lastMinReqRate": 6.0,
+      "type": "web"
+    },
+    {
+      "serviceId": "94d612e1c2166206",
+      "name": "[redis]redis:6379",
+      "service": "[redis]redis:6379",
+      "callCnt": 20,
+      "errCnt": 0,
+      "errRate": 0.0,
+      "avgLatency": 13000000.0,
+      "maxLatency": 13000000,
+      "reqRate": 0.06666666666666667,
+      "lastMinReqRate": 4.0,
+      "type": "redis"
+    },
+    {
+      "serviceId": "c89bb188ecff78ec",
+      "name": "[elasticsearch]es:9200",
+      "service": "[elasticsearch]es:9200",
+      "callCnt": 10,
+      "errCnt": 0,
+      "errRate": 0.0,
+      "avgLatency": 18000000.0,
+      "maxLatency": 18000000,
+      "reqRate": 0.03333333333333333,
+      "lastMinReqRate": 2.0,
+      "type": "elasticsearch"
+    },
+    {
+      "serviceId": "c1fbe6792ea65d41",
+      "name": "[kafka]order-events",
+      "service": "[kafka]order-events",
+      "callCnt": 10,
+      "errCnt": 0,
+      "errRate": 0.0,
+      "avgLatency": 8000000.0,
+      "maxLatency": 8000000,
+      "reqRate": 0.03333333333333333,
+      "lastMinReqRate": 2.0,
+      "type": "kafka"
+    },
+    {
+      "serviceId": "9bf61532d56eb7b5",
+      "name": "service-a",
+      "service": "service-a",
+      "callCnt": 10,
+      "errCnt": 0,
+      "errRate": 0.0,
+      "avgLatency": 240000000.0,
+      "maxLatency": 240000000,
+      "reqRate": 0.03333333333333333,
+      "lastMinReqRate": 2.0,
+      "type": "web"
+    }
+  ],
+  "status": 200,
+  "message": "SUCCESS",
+  "total": 6,
+  "size": 6,
+  "offset": 6
+}

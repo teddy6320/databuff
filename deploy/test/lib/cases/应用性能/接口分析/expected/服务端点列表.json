@@ -1,0 +1,63 @@
+{
+  "data": [
+    {
+      "resource": "/demo/checkout",
+      "serviceName": "service-a",
+      "serviceId": "9bf61532d56eb7b5",
+      "alias": "",
+      "method": "GET",
+      "type": "GET",
+      "callCnt": 10,
+      "errCnt": 0,
+      "slowCnt": 0,
+      "normalCnt": 10,
+      "errRate": 0.0,
+      "reqRate": 0.03333333333333333,
+      "avgLatency": 240000000,
+      "p50Latency": 240000000,
+      "p75Latency": 240000000,
+      "p90Latency": 240000000,
+      "p95Latency": 240000000,
+      "p99Latency": 240000000,
+      "maxLatency": 240000000,
+      "datasource": "OTLP",
+      "progressValue": {
+        "errRate": 0,
+        "avgLatency": 0,
+        "callCnt": 0
+      }
+    },
+    {
+      "resource": "/api/risk/check",
+      "serviceName": "service-a",
+      "serviceId": "9bf61532d56eb7b5",
+      "alias": "",
+      "method": "GET",
+      "type": "GET",
+      "callCnt": 10,
+      "errCnt": 0,
+      "slowCnt": 0,
+      "normalCnt": 10,
+      "errRate": 0.0,
+      "reqRate": 0.03333333333333333,
+      "avgLatency": 7000000,
+      "p50Latency": 7000000,
+      "p75Latency": 7000000,
+      "p90Latency": 7000000,
+      "p95Latency": 7000000,
+      "p99Latency": 7000000,
+      "maxLatency": 7000000,
+      "datasource": "OTLP",
+      "progressValue": {
+        "errRate": 0,
+        "avgLatency": 0,
+        "callCnt": 0
+      }
+    }
+  ],
+  "status": 200,
+  "message": "SUCCESS",
+  "total": 2,
+  "size": 2,
+  "offset": 2
+}

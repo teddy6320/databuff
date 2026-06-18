@@ -1,0 +1,16 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": [
+    {
+      "durationRange": "0-50ms",
+      "requestCount": 10,
+      "errorCount": 0
+    },
+    {
+      "durationRange": "200-500ms",
+      "requestCount": 10,
+      "errorCount": 0
+    }
+  ]
+}

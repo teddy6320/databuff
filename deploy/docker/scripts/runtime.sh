@@ -1,0 +1,103 @@
+#!/usr/bin/env bash
+# Runtime helpers shared by start/stop scripts in the deploy package.
+
+detect_local_ip() {
+  ip=""
+  if command -v ip >/dev/null 2>&1; then
+    ip="$(ip route get 1.1.1.1 2>/dev/null | awk '{for (i=1;i<=NF;i++) if ($i=="src") {print $(i+1); exit}}')"
+  fi
+  if [ -z "$ip" ] && command -v ipconfig >/dev/null 2>&1; then
+    for iface in en0 en1; do
+      ip="$(ipconfig getifaddr "$iface" 2>/dev/null || true)"
+      [ -n "$ip" ] && break
+    done
+  fi
+  if [ -z "$ip" ] && command -v hostname >/dev/null 2>&1; then
+    ip="$(hostname -I 2>/dev/null | awk '{print $1}')"
+  fi
+  if [ -z "$ip" ]; then
+    echo "127.0.0.1"
+  else
+    echo "$ip"
+  fi
+}
+
+check_http_ready() {
+  url="$1"
+  if command -v curl >/dev/null 2>&1; then
+    curl -sf --max-time 3 "$url" >/dev/null 2>&1
+    return $?
+  fi
+  host="${url#http://}"
+  host="${host%%/*}"
+  port="${host#*:}"
+  host="${host%%:*}"
+  if [ "$port" = "$host" ]; then
+    port=80
+  fi
+  bash -c "exec 3<>/dev/tcp/${host}/${port}" >/dev/null 2>&1
+}
+
+wait_for_http_ready() {
+  url="$1"
+  label="$2"
+  timeout="${3:-300}"
+  interval="${4:-3}"
+  elapsed=0
+
+  while [ "$elapsed" -lt "$timeout" ]; do
+    if check_http_ready "$url"; then
+      echo "[start] ${label} ready (${elapsed}s)"
+      return 0
+    fi
+    sleep "$interval"
+    elapsed=$((elapsed + interval))
+  done
+
+  echo "[start] timeout waiting for ${label} (${url}) after ${timeout}s" >&2
+  return 1
+}
+
+wait_for_apm_services_ready() {
+  timeout="${APM_READY_TIMEOUT:-300}"
+  failed=0
+
+  echo "[start] waiting for ingest and web to become ready (timeout ${timeout}s) ..."
+  wait_for_http_ready "http://127.0.0.1:4318/health" "ingest" "$timeout" &
+  pid_ingest=$!
+  wait_for_http_ready "http://127.0.0.1:27403/health" "web" "$timeout" &
+  pid_web=$!
+
+  wait "$pid_ingest" || failed=1
+  wait "$pid_web" || failed=1
+
+  if [ "$failed" -ne 0 ]; then
+    echo "[start] one or more services are not ready; check: docker compose logs ai-apm-ingest ai-apm-web" >&2
+    return 1
+  fi
+}
+
+print_apm_ready_summary() {
+  host_ip="$(detect_local_ip)"
+  CYN='\033[36m'
+  GRN='\033[32m'
+  YLW='\033[33m'
+  BLD='\033[1m'
+  RST='\033[0m'
+
+  echo ""
+  echo -e "${CYN}========================================================${RST}"
+  echo -e "${GRN}${BLD} 服务已就绪${RST}"
+  echo -e "${CYN}========================================================${RST}"
+  echo ""
+  echo -e "  ${CYN}Web UI${RST}"
+  echo "    http://${host_ip}:27403"
+  echo -e "  ${CYN}登录账号${RST}"
+  echo -e "    用户名: ${BLD}admin${RST}"
+  echo -e "    密码:   ${YLW}Databuff@123${RST}"
+  echo -e "  ${CYN}Ingest${RST}"
+  echo "    http://${host_ip}:4318/v1/traces"
+  echo ""
+  echo -e "${CYN}========================================================${RST}"
+  echo ""
+}

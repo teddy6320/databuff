@@ -1,0 +1,12 @@
+server:
+  port: 27403
+
+apm:
+  doris:
+    fe-host: ${DORIS_FE_HOST:ai-apm-doris-fe}
+    fe-query-port: ${DORIS_FE_QUERY_PORT:9030}
+    fe-http-port: ${DORIS_FE_HTTP_PORT:8030}
+  agent:
+    builtin-skills-dir: /app/skills
+    custom-skills-dir: ./data/skills
+    workspace-dir: ./data/ai-workspaces

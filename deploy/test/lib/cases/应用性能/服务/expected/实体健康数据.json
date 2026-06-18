@@ -1,0 +1,29 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": {
+    "total": 0,
+    "healthRangeScoreList": [
+      {
+        "timestamp": 1781379180000,
+        "unhealthyCount": 6
+      },
+      {
+        "timestamp": 1781379240000,
+        "unhealthyCount": 6
+      },
+      {
+        "timestamp": 1781379300000,
+        "unhealthyCount": 6
+      },
+      {
+        "timestamp": 1781379360000,
+        "unhealthyCount": 6
+      },
+      {
+        "timestamp": 1781379420000,
+        "unhealthyCount": 6
+      }
+    ]
+  }
+}

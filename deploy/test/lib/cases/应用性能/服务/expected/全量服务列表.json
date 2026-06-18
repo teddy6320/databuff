@@ -1,0 +1,54 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": [
+    {
+      "id": "c89bb188ecff78ec",
+      "name": "[elasticsearch]es:9200",
+      "service": "[elasticsearch]es:9200",
+      "service_type": "db",
+      "type": "elasticsearch",
+      "virtual_service": true
+    },
+    {
+      "id": "c1fbe6792ea65d41",
+      "name": "[kafka]order-events",
+      "service": "[kafka]order-events",
+      "service_type": "mq",
+      "type": "kafka",
+      "virtual_service": true
+    },
+    {
+      "id": "c72cc83a8831e407",
+      "name": "[mysql]demo_apm",
+      "service": "[mysql]demo_apm",
+      "service_type": "db",
+      "type": "mysql",
+      "virtual_service": true
+    },
+    {
+      "id": "94d612e1c2166206",
+      "name": "[redis]redis:6379",
+      "service": "[redis]redis:6379",
+      "service_type": "cache",
+      "type": "redis",
+      "virtual_service": true
+    },
+    {
+      "id": "9bf61532d56eb7b5",
+      "name": "service-a",
+      "service": "service-a",
+      "service_type": "web",
+      "type": "web",
+      "virtual_service": false
+    },
+    {
+      "id": "5457a0119281bb98",
+      "name": "service-b",
+      "service": "service-b",
+      "service_type": "web",
+      "type": "web",
+      "virtual_service": false
+    }
+  ]
+}

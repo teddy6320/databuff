@@ -1,0 +1,12 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": {
+    "service.http": [
+      {
+        "srcServiceId": "service-a",
+        "rootResource": ""
+      }
+    ]
+  }
+}

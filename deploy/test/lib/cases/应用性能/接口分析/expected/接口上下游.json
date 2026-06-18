@@ -1,0 +1,176 @@
+{
+  "status": 200,
+  "message": "success",
+  "data": {
+    "reqCnt": 10,
+    "currentResources": {
+      "service.http": [
+        {
+          "resource": "/demo/checkout",
+          "serviceId": "9bf61532d56eb7b5",
+          "service": "service-a",
+          "serviceType": "web",
+          "componentType": "service.http",
+          "allCnt": 10,
+          "slowCnt": 0,
+          "errCnt": 0,
+          "normalCnt": 10,
+          "errRate": 0.0,
+          "slowRate": 0.0,
+          "reqRate": 0.03333333333333333,
+          "avgTime": 240000000.0,
+          "avgLatency": 240000000,
+          "maxTime": 240000000,
+          "alias": "",
+          "typeIcon": "web"
+        }
+      ]
+    },
+    "upFlowResources": {},
+    "downFlowResources": {
+      "service.http": [
+        {
+          "resource": "/api/orders/10001",
+          "serviceId": "5457a0119281bb98",
+          "service": "service-b",
+          "serviceType": "web",
+          "componentType": "service.http",
+          "allCnt": 10,
+          "slowCnt": 0,
+          "errCnt": 0,
+          "normalCnt": 10,
+          "errRate": 0.0,
+          "slowRate": 0.0,
+          "reqRate": 0.03333333333333333,
+          "avgTime": 100000000.0,
+          "avgLatency": 100000000,
+          "maxTime": 100000000,
+          "alias": "",
+          "typeIcon": "web"
+        },
+        {
+          "resource": "/api/risk/check",
+          "serviceId": "9bf61532d56eb7b5",
+          "service": "service-a",
+          "serviceType": "web",
+          "componentType": "service.http",
+          "allCnt": 10,
+          "slowCnt": 0,
+          "errCnt": 0,
+          "normalCnt": 10,
+          "errRate": 0.0,
+          "slowRate": 0.0,
+          "reqRate": 0.03333333333333333,
+          "avgTime": 7000000.0,
+          "avgLatency": 7000000,
+          "maxTime": 7000000,
+          "alias": "",
+          "typeIcon": "web"
+        }
+      ],
+      "service.rpc": [
+        {
+          "resource": "Dubbo DemoOrderService.findInventory",
+          "serviceId": "5457a0119281bb98",
+          "service": "service-b",
+          "serviceType": "web",
+          "componentType": "service.rpc",
+          "allCnt": 10,
+          "slowCnt": 0,
+          "errCnt": 0,
+          "normalCnt": 10,
+          "errRate": 0.0,
+          "slowRate": 0.0,
+          "reqRate": 0.03333333333333333,
+          "avgTime": 80000000.0,
+          "avgLatency": 80000000,
+          "maxTime": 80000000,
+          "alias": "",
+          "typeIcon": "web"
+        }
+      ],
+      "service.mq": [
+        {
+          "resource": "order-events publish",
+          "serviceId": "c1fbe6792ea65d41",
+          "service": "[kafka]order-events",
+          "serviceType": "web",
+          "componentType": "service.mq",
+          "allCnt": 10,
+          "slowCnt": 0,
+          "errCnt": 0,
+          "normalCnt": 10,
+          "errRate": 0.0,
+          "slowRate": 0.0,
+          "reqRate": 0.03333333333333333,
+          "avgTime": 8000000.0,
+          "avgLatency": 8000000,
+          "maxTime": 8000000,
+          "alias": "",
+          "typeIcon": "web"
+        }
+      ],
+      "service.db": [
+        {
+          "resource": "INSERT INTO demo_order_audit(order_id, channel) VALUES (?, ?)",
+          "serviceId": "c72cc83a8831e407",
+          "service": "[mysql]demo_apm",
+          "serviceType": "web",
+          "componentType": "service.db",
+          "allCnt": 10,
+          "slowCnt": 0,
+          "errCnt": 0,
+          "normalCnt": 10,
+          "errRate": 0.0,
+          "slowRate": 0.0,
+          "reqRate": 0.03333333333333333,
+          "avgTime": 20000000.0,
+          "avgLatency": 20000000,
+          "maxTime": 20000000,
+          "alias": "",
+          "typeIcon": "web"
+        },
+        {
+          "resource": "/orders/_search",
+          "serviceId": "c89bb188ecff78ec",
+          "service": "[elasticsearch]es:9200",
+          "serviceType": "web",
+          "componentType": "service.db",
+          "allCnt": 10,
+          "slowCnt": 0,
+          "errCnt": 0,
+          "normalCnt": 10,
+          "errRate": 0.0,
+          "slowRate": 0.0,
+          "reqRate": 0.03333333333333333,
+          "avgTime": 18000000.0,
+          "avgLatency": 18000000,
+          "maxTime": 18000000,
+          "alias": "",
+          "typeIcon": "web"
+        }
+      ],
+      "service.redis": [
+        {
+          "resource": "GET cart",
+          "serviceId": "94d612e1c2166206",
+          "service": "[redis]redis:6379",
+          "serviceType": "web",
+          "componentType": "service.redis",
+          "allCnt": 10,
+          "slowCnt": 0,
+          "errCnt": 0,
+          "normalCnt": 10,
+          "errRate": 0.0,
+          "slowRate": 0.0,
+          "reqRate": 0.03333333333333333,
+          "avgTime": 13000000.0,
+          "avgLatency": 13000000,
+          "maxTime": 13000000,
+          "alias": "",
+          "typeIcon": "web"
+        }
+      ]
+    }
+  }
+}

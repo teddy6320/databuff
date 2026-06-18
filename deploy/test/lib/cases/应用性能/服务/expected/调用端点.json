@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "serviceId": "5457a0119281bb98",
+      "serviceName": "service-b",
+      "srcServiceId": "9bf61532d56eb7b5",
+      "resource": "/api/orders/10001",
+      "httpMethod": "GET",
+      "reqInCnt": 10,
+      "reqInErrCnt": 0,
+      "reqInAvgLatency": 80000000.0,
+      "reqInErrRate": 0.0,
+      "reqOutCnt": 10,
+      "reqOutErrCnt": 0,
+      "reqOutAvgLatency": 100000000.0,
+      "reqOutErrRate": 0.0
+    }
+  ],
+  "status": 200,
+  "message": "SUCCESS",
+  "total": 1,
+  "size": 1,
+  "offset": 1
+}

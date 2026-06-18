@@ -1,0 +1,237 @@
+{
+  "data": [
+    {
+      "start": 1781408252507000000,
+      "end": 1781408252607000000,
+      "resource": "HTTP GET service-b /api/orders",
+      "trace_id": "7c81f41dedfc2e84bbfb3fc1ad25d922",
+      "componentType": "service.http",
+      "client": {
+        "duration": 100000000,
+        "error": 0,
+        "span_id": "b2f26e995389cb94",
+        "parent_id": "98240f198fbca86f",
+        "statusCode": 200
+      },
+      "server": {
+        "duration": 80000000,
+        "error": 0,
+        "span_id": "3d796896ce0308fc",
+        "parent_id": "b2f26e995389cb94",
+        "statusCode": 200
+      },
+      "httpMethod": "GET",
+      "url": "/api/orders/10001"
+    },
+    {
+      "start": 1781408222481000000,
+      "end": 1781408222581000000,
+      "resource": "HTTP GET service-b /api/orders",
+      "trace_id": "2883ce2a1ffee2ed1cff2501e64dbd50",
+      "componentType": "service.http",
+      "client": {
+        "duration": 100000000,
+        "error": 0,
+        "span_id": "899141ac9ba168b2",
+        "parent_id": "41eddbaecd943d3b",
+        "statusCode": 200
+      },
+      "server": {
+        "duration": 80000000,
+        "error": 0,
+        "span_id": "5505bf914dabc1f6",
+        "parent_id": "899141ac9ba168b2",
+        "statusCode": 200
+      },
+      "httpMethod": "GET",
+      "url": "/api/orders/10001"
+    },
+    {
+      "start": 1781408192427000000,
+      "end": 1781408192527000000,
+      "resource": "HTTP GET service-b /api/orders",
+      "trace_id": "f6fe7cb8d734cfe4b37909efdad66d4c",
+      "componentType": "service.http",
+      "client": {
+        "duration": 100000000,
+        "error": 0,
+        "span_id": "913d995a306fdf05",
+        "parent_id": "0548db205d296825",
+        "statusCode": 200
+      },
+      "server": {
+        "duration": 80000000,
+        "error": 0,
+        "span_id": "755afe5bc564995f",
+        "parent_id": "913d995a306fdf05",
+        "statusCode": 200
+      },
+      "httpMethod": "GET",
+      "url": "/api/orders/10001"
+    },
+    {
+      "start": 1781408162385000000,
+      "end": 1781408162485000000,
+      "resource": "HTTP GET service-b /api/orders",
+      "trace_id": "7699cb2ac334390daf4cdd3312f6d998",
+      "componentType": "service.http",
+      "client": {
+        "duration": 100000000,
+        "error": 0,
+        "span_id": "c70e56b6fd24703f",
+        "parent_id": "faa68c2a9b1375b1",
+        "statusCode": 200
+      },
+      "server": {
+        "duration": 80000000,
+        "error": 0,
+        "span_id": "c19b557bf1581002",
+        "parent_id": "c70e56b6fd24703f",
+        "statusCode": 200
+      },
+      "httpMethod": "GET",
+      "url": "/api/orders/10001"
+    },
+    {
+      "start": 1781408132354000000,
+      "end": 1781408132454000000,
+      "resource": "HTTP GET service-b /api/orders",
+      "trace_id": "d52af04aee7d06c78d14105d1cd4bcff",
+      "componentType": "service.http",
+      "client": {
+        "duration": 100000000,
+        "error": 0,
+        "span_id": "8983667a745d70c8",
+        "parent_id": "2378e4a65b14a8a8",
+        "statusCode": 200
+      },
+      "server": {
+        "duration": 80000000,
+        "error": 0,
+        "span_id": "12b4f180affedbe1",
+        "parent_id": "8983667a745d70c8",
+        "statusCode": 200
+      },
+      "httpMethod": "GET",
+      "url": "/api/orders/10001"
+    },
+    {
+      "start": 1781408102299000000,
+      "end": 1781408102399000000,
+      "resource": "HTTP GET service-b /api/orders",
+      "trace_id": "a4e3a9607e7e61fbd06449343d8b6e04",
+      "componentType": "service.http",
+      "client": {
+        "duration": 100000000,
+        "error": 0,
+        "span_id": "6b44be1891f2555d",
+        "parent_id": "3ddc480f8433258d",
+        "statusCode": 200
+      },
+      "server": {
+        "duration": 80000000,
+        "error": 0,
+        "span_id": "976938cfd6da0593",
+        "parent_id": "6b44be1891f2555d",
+        "statusCode": 200
+      },
+      "httpMethod": "GET",
+      "url": "/api/orders/10001"
+    },
+    {
+      "start": 1781408072259000000,
+      "end": 1781408072359000000,
+      "resource": "HTTP GET service-b /api/orders",
+      "trace_id": "64b78b65193c40d0c73557d73776e417",
+      "componentType": "service.http",
+      "client": {
+        "duration": 100000000,
+        "error": 0,
+        "span_id": "69ac485e3cb961e6",
+        "parent_id": "c433774e4ff5875d",
+        "statusCode": 200
+      },
+      "server": {
+        "duration": 80000000,
+        "error": 0,
+        "span_id": "098f4b8f95b94f99",
+        "parent_id": "69ac485e3cb961e6",
+        "statusCode": 200
+      },
+      "httpMethod": "GET",
+      "url": "/api/orders/10001"
+    },
+    {
+      "start": 1781408042151000000,
+      "end": 1781408042251000000,
+      "resource": "HTTP GET service-b /api/orders",
+      "trace_id": "2fb442d4da6e177ef2f515122e7a6b4a",
+      "componentType": "service.http",
+      "client": {
+        "duration": 100000000,
+        "error": 0,
+        "span_id": "056d2b03a29fc2dc",
+        "parent_id": "6ea8d1e60d12fc73",
+        "statusCode": 200
+      },
+      "server": {
+        "duration": 80000000,
+        "error": 0,
+        "span_id": "b3c0f7a947bf80d6",
+        "parent_id": "056d2b03a29fc2dc",
+        "statusCode": 200
+      },
+      "httpMethod": "GET",
+      "url": "/api/orders/10001"
+    },
+    {
+      "start": 1781408012109000000,
+      "end": 1781408012209000000,
+      "resource": "HTTP GET service-b /api/orders",
+      "trace_id": "e0e613b727faa5b8afc3e50e5567bc73",
+      "componentType": "service.http",
+      "client": {
+        "duration": 100000000,
+        "error": 0,
+        "span_id": "4b4a0d5d1f2bf0e9",
+        "parent_id": "c974a410298789b9",
+        "statusCode": 200
+      },
+      "server": {
+        "duration": 80000000,
+        "error": 0,
+        "span_id": "64eef690c6370a47",
+        "parent_id": "4b4a0d5d1f2bf0e9",
+        "statusCode": 200
+      },
+      "httpMethod": "GET",
+      "url": "/api/orders/10001"
+    },
+    {
+      "start": 1781407982000000000,
+      "end": 1781407982100000000,
+      "resource": "HTTP GET service-b /api/orders",
+      "trace_id": "4d7dbaee0514573fff1ac38caa47604e",
+      "componentType": "service.http",
+      "client": {
+        "duration": 100000000,
+        "error": 0,
+        "span_id": "1ceb2d38553d5138",
+        "parent_id": "5921e43324bd7559",
+        "statusCode": 200
+      },
+      "server": {
+        "duration": 80000000,
+        "error": 0,
+        "span_id": "887954cf82eb2ee5",
+        "parent_id": "1ceb2d38553d5138",
+        "statusCode": 200
+      },
+      "httpMethod": "GET",
+      "url": "/api/orders/10001"
+    }
+  ],
+  "status": 200,
+  "message": "SUCCESS",
+  "total": 10
+}

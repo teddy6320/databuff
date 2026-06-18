@@ -1,0 +1,394 @@
+package com.databuff.apm.ingest.otel;
+
+import com.databuff.apm.common.serde.DcSpanUtil;
+import com.databuff.apm.common.meta.OtelAttributeMaps;
+import com.databuff.apm.ingest.metric.JvmOtelMetricNormalizer;
+import com.databuff.apm.common.model.DcSpan;
+import com.databuff.apm.common.trace.TraceSpanNames;
+import com.databuff.apm.common.time.ApmTimeZones;
+import com.databuff.apm.common.util.ServiceKeyUtil;
+import java.io.IOException;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import io.opentelemetry.proto.collector.metrics.v1.ExportMetricsServiceRequest;
+import io.opentelemetry.proto.collector.trace.v1.ExportTraceServiceRequest;
+import io.opentelemetry.proto.common.v1.AnyValue;
+import io.opentelemetry.proto.common.v1.KeyValue;
+import io.opentelemetry.proto.metrics.v1.HistogramDataPoint;
+import io.opentelemetry.proto.metrics.v1.Metric;
+import io.opentelemetry.proto.metrics.v1.NumberDataPoint;
+import io.opentelemetry.proto.metrics.v1.ResourceMetrics;
+import io.opentelemetry.proto.metrics.v1.ScopeMetrics;
+import io.opentelemetry.proto.trace.v1.ResourceSpans;
+import io.opentelemetry.proto.trace.v1.ScopeSpans;
+import io.opentelemetry.proto.trace.v1.Span;
+
+import java.time.Instant;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * Step 1 · 格式转换：OTLP protobuf → DataBuff 内存对象。
+ * <p>
+ * 全程保持对象传递，避免在此处序列化为 JSON/bytes；后续 enrich / 聚合 / fill 均直接操作对象。
+ */
+public final class OtelConverter {
+
+    private static final ObjectMapper METRIC_JSON = new ObjectMapper();
+    private static final DateTimeFormatter DATETIME = ApmTimeZones.WALL_CLOCK;
+    private static final char[] HEX = "0123456789abcdef".toCharArray();
+
+    /** OTLP ExportTraceServiceRequest → {@link DcSpan} 列表。 */
+    /** OTLP ExportTraceServiceRequest → {@link DcSpan} 列表。 */
+    public List<ConvertedTrace> convertTraces(ExportTraceServiceRequest request) {
+        List<ConvertedTrace> out = new ArrayList<>();
+        for (ResourceSpans resourceSpans : request.getResourceSpansList()) {
+            String serviceName = attribute(resourceSpans.getResource().getAttributesList(), "service.name");
+            if (serviceName == null || serviceName.isBlank()) {
+                continue;
+            }
+            String serviceKey = ServiceKeyUtil.of(serviceName);
+            String hostName = attribute(resourceSpans.getResource().getAttributesList(), "host.name");
+            if (hostName == null) {
+                hostName = "";
+            }
+            for (ScopeSpans scopeSpans : resourceSpans.getScopeSpansList()) {
+                for (Span span : scopeSpans.getSpansList()) {
+                    try {
+                        out.add(new ConvertedTrace(serviceKey, buildDcSpan(
+                                serviceName,
+                                serviceKey,
+                                hostName,
+                                resourceSpans.getResource().getAttributesList(),
+                                span)));
+                    } catch (IOException ignored) {
+                        // skip malformed span
+                    }
+                }
+            }
+        }
+        return out;
+    }
+
+    /** OTLP ExportMetricsServiceRequest → {@link OtlMetricLine} 列表。 */
+    /** OTLP ExportMetricsServiceRequest → {@link OtlMetricLine} 列表。 */
+    public List<ConvertedMetric> convertMetrics(ExportMetricsServiceRequest request) {
+        List<ConvertedMetric> out = new ArrayList<>();
+        int pointCount = 0;
+        for (ResourceMetrics resourceMetrics : request.getResourceMetricsList()) {
+            String serviceName = attribute(resourceMetrics.getResource().getAttributesList(), "service.name");
+            if (serviceName == null || serviceName.isBlank()) {
+                continue;
+            }
+            String serviceKey = ServiceKeyUtil.of(serviceName);
+            for (ScopeMetrics scopeMetrics : resourceMetrics.getScopeMetricsList()) {
+                for (Metric metric : scopeMetrics.getMetricsList()) {
+                    if (metric.hasSum()) {
+                        for (NumberDataPoint point : metric.getSum().getDataPointsList()) {
+                            pointCount++;
+                            logRawNumberPoint(serviceName, "sum", metric.getName(),
+                                    resourceMetrics.getResource().getAttributesList(), point);
+                            ConvertedMetric converted = new ConvertedMetric(serviceKey,
+                                    buildMetricLine(serviceName, serviceKey, resourceMetrics.getResource().getAttributesList(),
+                                            metric.getName(), point));
+                            out.add(converted);
+                            OtlpMetricDebugLogger.convertedLine(converted.line());
+                        }
+                    } else if (metric.hasGauge()) {
+                        for (NumberDataPoint point : metric.getGauge().getDataPointsList()) {
+                            pointCount++;
+                            logRawNumberPoint(serviceName, "gauge", metric.getName(),
+                                    resourceMetrics.getResource().getAttributesList(), point);
+                            ConvertedMetric converted = new ConvertedMetric(serviceKey,
+                                    buildMetricLine(serviceName, serviceKey, resourceMetrics.getResource().getAttributesList(),
+                                            metric.getName(), point));
+                            out.add(converted);
+                            OtlpMetricDebugLogger.convertedLine(converted.line());
+                        }
+                    } else if (metric.hasHistogram()) {
+                        for (HistogramDataPoint point : metric.getHistogram().getDataPointsList()) {
+                            pointCount++;
+                            Map<String, String> attrs = buildAttributeMap(
+                                    resourceMetrics.getResource().getAttributesList(), point.getAttributesList());
+                            OtlpMetricDebugLogger.rawOtlpPoint(
+                                    serviceName,
+                                    "histogram",
+                                    metric.getName(),
+                                    attrs,
+                                    "sum=" + point.getSum() + ",count=" + point.getCount());
+                            appendHistogramMetricLines(out, serviceKey, serviceName,
+                                    resourceMetrics.getResource().getAttributesList(), metric.getName(), point);
+                        }
+                    } else if (metric.hasExponentialHistogram()) {
+                        OtlpMetricDebugLogger.unsupportedInstrument(
+                                serviceName, metric.getName(), "exponential_histogram not supported");
+                    } else if (metric.hasSummary()) {
+                        OtlpMetricDebugLogger.unsupportedInstrument(
+                                serviceName, metric.getName(), "summary not supported");
+                    } else {
+                        OtlpMetricDebugLogger.unsupportedInstrument(
+                                serviceName, metric.getName(), "unknown instrument type");
+                    }
+                }
+            }
+        }
+        OtlpMetricDebugLogger.receivedBatch(request.getResourceMetricsCount(), pointCount);
+        return out;
+    }
+
+    private void logRawNumberPoint(
+            String serviceName,
+            String instrument,
+            String metricName,
+            List<KeyValue> resourceAttributes,
+            NumberDataPoint point) {
+        Map<String, String> attrs = buildAttributeMap(resourceAttributes, point.getAttributesList());
+        Object value = point.hasAsDouble() ? point.getAsDouble() : point.getAsInt();
+        OtlpMetricDebugLogger.rawOtlpPoint(serviceName, instrument, metricName, attrs, value);
+    }
+
+    private OtlMetricLine buildMetricLine(
+            String serviceName,
+            String serviceKey,
+            List<KeyValue> resourceAttributes,
+            String metricName,
+            NumberDataPoint point) {
+        long timeNanos = point.getTimeUnixNano() > 0 ? point.getTimeUnixNano() : System.nanoTime();
+        String serviceInstance = firstNonBlank(
+                attribute(point.getAttributesList(), "service.instance.id"),
+                attribute(resourceAttributes, "service.instance.id"));
+        String threadPoolName = attribute(point.getAttributesList(), "thread.pool.name");
+        String poolName = attribute(point.getAttributesList(), "pool.name");
+        if ((threadPoolName == null || threadPoolName.isBlank())
+                && poolName != null
+                && metricName.contains("thread")) {
+            threadPoolName = poolName;
+        }
+        return new OtlMetricLine(
+                timeNanos / 1_000_000L,
+                serviceKey,
+                serviceName,
+                metricName,
+                point.hasAsDouble() ? point.getAsDouble() : point.getAsInt(),
+                serviceInstance,
+                attribute(resourceAttributes, "host.name"),
+                threadPoolName,
+                attribute(point.getAttributesList(), "object.pool.name"),
+                attribute(point.getAttributesList(), "http.connection.pool.name"),
+                attribute(point.getAttributesList(), "db.connection.pool.name"),
+                poolName,
+                buildAttributeMeta(resourceAttributes, point.getAttributesList()));
+    }
+
+    private void appendHistogramMetricLines(
+            List<ConvertedMetric> out,
+            String serviceKey,
+            String serviceName,
+            List<KeyValue> resourceAttributes,
+            String metricName,
+            HistogramDataPoint point) {
+        Map<String, String> attributes = buildAttributeMap(resourceAttributes, point.getAttributesList());
+        for (JvmOtelMetricNormalizer.NormalizedMetric normalized
+                : JvmOtelMetricNormalizer.normalizeHistogram(metricName, attributes, point.getSum(), point.getCount())) {
+            long timeNanos = point.getTimeUnixNano() > 0 ? point.getTimeUnixNano() : System.nanoTime();
+            String serviceInstance = firstNonBlank(
+                    attribute(point.getAttributesList(), "service.instance.id"),
+                    attribute(resourceAttributes, "service.instance.id"));
+            out.add(new ConvertedMetric(serviceKey, new OtlMetricLine(
+                    timeNanos / 1_000_000L,
+                    serviceKey,
+                    serviceName,
+                    normalized.identifier(),
+                    normalized.value(),
+                    serviceInstance,
+                    attribute(resourceAttributes, "host.name"),
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    buildAttributeMeta(resourceAttributes, point.getAttributesList()))));
+            OtlpMetricDebugLogger.convertedLine(out.get(out.size() - 1).line());
+        }
+    }
+
+    private static String firstNonBlank(String... values) {
+        for (String value : values) {
+            if (value != null && !value.isBlank()) {
+                return value;
+            }
+        }
+        return null;
+    }
+
+    private DcSpan buildDcSpan(
+            String serviceName,
+            String serviceKey,
+            String hostName,
+            List<KeyValue> resourceAttributes,
+            Span span) throws IOException {
+        long start = span.getStartTimeUnixNano();
+        long end = span.getEndTimeUnixNano();
+        long duration = Math.max(0, end - start);
+        boolean errored = span.getStatus().getCode() == io.opentelemetry.proto.trace.v1.Status.StatusCode.STATUS_CODE_ERROR;
+        DcSpan dc = new DcSpan();
+        dc.minutes = toMinutesBucket(start);
+        dc.hours = toHoursBucket(start);
+        dc.serviceId = serviceKey;
+        dc.service = serviceName;
+        dc.serviceInstance = firstNonBlank(
+                attribute(span.getAttributesList(), "service.instance.id"),
+                attribute(resourceAttributes, "service.instance.id"));
+        String otelName = span.getName();
+        Map<String, String> spanAttributes = new LinkedHashMap<>();
+        collectAttributes(spanAttributes, span.getAttributesList());
+        dc.resource = otelName;
+        dc.name = TraceSpanNames.normalizeOtelName(otelName, spanAttributes);
+        dc.trace_id = hex(span.getTraceId());
+        dc.span_id = hex(span.getSpanId());
+        dc.parent_id = hex(span.getParentSpanId());
+        dc.is_parent = span.getParentSpanId().isEmpty() ? 1 : 0;
+        dc.start = start;
+        dc.end = end;
+        dc.duration = duration;
+        dc.startTime = DATETIME.format(Instant.ofEpochSecond(0, start));
+        dc.error = errored ? 1 : 0;
+        dc.slow = duration > 500_000_000L ? 1 : 0;
+        dc.hostName = hostName.isEmpty() ? "unknown" : hostName;
+        dc.host_id = dc.hostName;
+        dc.type = span.getKind().name();
+        dc.isIn = 0;
+        dc.isOut = 0;
+        dc.metaErrorType = attribute(span.getAttributesList(), "error.type");
+        boolean elasticsearchSpan = TraceSpanNames.isElasticsearchMeta(spanAttributes);
+        if (!elasticsearchSpan) {
+            applyHttpAttributes(dc, span.getAttributesList());
+        }
+        Map<String, String> metaAttributes = buildAttributeMap(resourceAttributes, span.getAttributesList());
+        dc.meta = OtelAttributeMaps.encode(metaAttributes);
+        OtelAttributeMaps.cache(dc, metaAttributes);
+        dc.metaPeerHostname = firstNonBlank(
+                attribute(span.getAttributesList(), "server.address"),
+                attribute(span.getAttributesList(), "net.peer.name"));
+        return dc;
+    }
+
+    private static String buildAttributeMeta(List<KeyValue> resourceAttributes, List<KeyValue> spanAttributes) {
+        return OtelAttributeMaps.encode(buildAttributeMap(resourceAttributes, spanAttributes));
+    }
+
+    private static Map<String, String> buildAttributeMap(List<KeyValue> resourceAttributes, List<KeyValue> spanAttributes) {
+        Map<String, String> meta = new LinkedHashMap<>();
+        collectAttributes(meta, resourceAttributes);
+        collectAttributes(meta, spanAttributes);
+        return meta;
+    }
+
+    private static void collectAttributes(Map<String, String> target, List<KeyValue> attributes) {
+        if (attributes == null) {
+            return;
+        }
+        for (KeyValue kv : attributes) {
+            String value = anyValue(kv.getValue());
+            if (value != null && !value.isBlank()) {
+                target.put(kv.getKey(), value.trim());
+            }
+        }
+    }
+
+    private static long toMinutesBucket(long startNanos) {
+        long epochSec = startNanos / 1_000_000_000L;
+        long minute = epochSec / 60;
+        return Long.parseLong(ApmTimeZones.formatBucket(minute * 60L, "yyyyMMddHHmm"));
+    }
+
+    private static long toHoursBucket(long startNanos) {
+        long epochSec = startNanos / 1_000_000_000L;
+        long hour = epochSec / 3600;
+        return Long.parseLong(ApmTimeZones.formatBucket(hour * 3600L, "yyyyMMddHH"));
+    }
+
+    private static String hex(com.google.protobuf.ByteString bytes) {
+        if (bytes == null || bytes.isEmpty()) {
+            return "";
+        }
+        char[] out = new char[bytes.size() * 2];
+        for (int i = 0; i < bytes.size(); i++) {
+            int value = bytes.byteAt(i) & 0xff;
+            out[i * 2] = HEX[value >>> 4];
+            out[i * 2 + 1] = HEX[value & 0x0f];
+        }
+        return new String(out);
+    }
+
+    private static String attribute(List<KeyValue> attributes, String key) {
+        for (KeyValue kv : attributes) {
+            if (key.equals(kv.getKey())) {
+                return anyValue(kv.getValue());
+            }
+        }
+        return null;
+    }
+
+    private static Integer intAttribute(List<KeyValue> attributes, String key) {
+        String value = attribute(attributes, key);
+        if (value == null) {
+            return null;
+        }
+        try {
+            return Integer.parseInt(value);
+        } catch (NumberFormatException e) {
+            return null;
+        }
+    }
+
+    /**
+     * Map legacy and stable HTTP semconv (v1.21+) onto {@link DcSpan} materialized fields so
+     * {@link DcSpanUtil#isHttpSpan} and service.http extraction work
+     * for SERVER inbound spans that only carry {@code http.request.method}/{@code http.route}.
+     */
+    private static void applyHttpAttributes(DcSpan dc, List<KeyValue> attributes) {
+        dc.metaHttpMethod = firstNonBlank(
+                attribute(attributes, "http.method"),
+                attribute(attributes, "http.request.method"));
+        dc.metaHttpStatusCode = firstIntAttribute(
+                attributes, "http.status_code", "http.response.status_code");
+        dc.metaHttpUrl = firstNonBlank(
+                attribute(attributes, "url.full"),
+                attribute(attributes, "http.url"),
+                attribute(attributes, "http.route"),
+                attribute(attributes, "url.path"));
+    }
+
+    private static Integer firstIntAttribute(List<KeyValue> attributes, String... keys) {
+        for (String key : keys) {
+            Integer value = intAttribute(attributes, key);
+            if (value != null) {
+                return value;
+            }
+        }
+        return null;
+    }
+
+    private static String anyValue(AnyValue value) {
+        if (value.hasStringValue()) {
+            return value.getStringValue();
+        }
+        if (value.hasIntValue()) {
+            return Long.toString(value.getIntValue());
+        }
+        if (value.hasBoolValue()) {
+            return Boolean.toString(value.getBoolValue());
+        }
+        return null;
+    }
+
+    public record ConvertedTrace(String serviceKey, DcSpan span) {
+    }
+
+    public record ConvertedMetric(String serviceKey, OtlMetricLine line) {
+    }
+}
