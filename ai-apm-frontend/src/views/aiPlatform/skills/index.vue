@@ -87,13 +87,11 @@
                   <span class="source-tag">{{ row.builtIn ? $t('modules.views.aiPlatform.skills.s_89e180d6') : $t('modules.views.aiPlatform.skills.s_f1d4ff50')  }}</span>
                 </template>
               </el-table-column>
-              <el-table-column :label="$t('modules.views.aiPlatform.experts.s_2b6bc0f2')" width="320" fixed="right">
+              <el-table-column :label="$t('modules.views.aiPlatform.experts.s_2b6bc0f2')" width="220" fixed="right">
                 <template slot-scope="{ row }">
                   <span class="action-link" @click="openEditor(row)">{{ $t('modules.views.hide.advancedConfig.s_95b351c8') }}</span>
                   <span class="action-link" @click="openFiles(row)">{{ $t('modules.views.aiPlatform.skills.s_2a0c4740') }}</span>
                   <span class="action-link" @click="showReferences(row)">{{ $t('modules.views.aiPlatform.skills.s_3b61c966') }}</span>
-                  <span class="action-link" @click="validateSkill(row)">{{ $t('modules.views.aiPlatform.skills.s_b7579706') }}</span>
-                  <span class="action-link" @click="toggleEnable(row)">{{ row.enabled ? $t('modules.views.aiPlatform.experts.s_5c56a889') : $t('modules.views.aiPlatform.experts.s_7854b52a')  }}</span>
                   <span v-if="!row.builtIn" class="action-link danger" @click="removeSkill(row)">{{ $t('modules.views.hide.advancedConfig.s_2f4aaddd') }}</span>
                 </template>
               </el-table-column>

@@ -37,7 +37,7 @@ public final class MetricQueryCatalog {
         if (cnt != null) {
             if (sumDuration != null) {
                 result.put(measurement + ".avgDuration", derived(
-                        row, measurement + ".avgDuration", "平均耗时", "ns", "纳秒",
+                        row, measurement + ".avgDuration", "平均耗时", "ms", "毫秒",
                         "sum(sumDuration)/sum(cnt)", sumDuration));
             }
             if (error != null) {

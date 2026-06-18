@@ -3257,6 +3257,11 @@ public final class MetricQueryBuilder {
             return jvmGcCounterSeriesSql(
                     database, table, fieldColumn, fromMillis, toMillis, extraFilters, intervalSec, aggs);
         }
+        String derivedExpr = derivedMetricValueExpr(fieldColumn);
+        if (derivedExpr != null) {
+            return derivedMetricSeriesSql(
+                    database, table, derivedExpr, fromMillis, toMillis, extraFilters, intervalSec);
+        }
         int bucketSec = Math.max(60, intervalSec);
         String column = MetricIdentifierParser.toFieldColumnName(fieldColumn);
         String agg = resolveFieldAggregation(fieldColumn, aggs);
@@ -3271,6 +3276,45 @@ public final class MetricQueryBuilder {
                 """.formatted(
                 metricBucketEpochSecSelect(bucketSec),
                 agg.formatted(column),
+                database,
+                table,
+                metricTsWhere(fromMillis, toMillis),
+                extraFilters == null ? "" : extraFilters);
+    }
+
+    private static String derivedMetricValueExpr(String fieldColumn) {
+        if (fieldColumn == null) {
+            return null;
+        }
+        return switch (fieldColumn) {
+            case "avgDuration" -> AVG_DURATION_MS_EXPR;
+            case "error.pct" -> "SUM(`error`) / NULLIF(SUM(`cnt`), 0) * 100";
+            case "success.pct" -> "(1 - SUM(`error`) / NULLIF(SUM(`cnt`), 0)) * 100";
+            case "slow.pct" -> "SUM(`slow`) / NULLIF(SUM(`cnt`), 0) * 100";
+            default -> null;
+        };
+    }
+
+    private static String derivedMetricSeriesSql(
+            String database,
+            String table,
+            String valueExpr,
+            long fromMillis,
+            long toMillis,
+            String extraFilters,
+            int intervalSec) {
+        int bucketSec = Math.max(60, intervalSec);
+        return """
+                SELECT %s AS epoch_sec,
+                       %s AS metric_value
+                FROM %s.`%s`
+                WHERE %s
+                %s
+                GROUP BY epoch_sec
+                ORDER BY epoch_sec ASC
+                """.formatted(
+                metricBucketEpochSecSelect(bucketSec),
+                valueExpr,
                 database,
                 table,
                 metricTsWhere(fromMillis, toMillis),
@@ -3371,10 +3415,25 @@ public final class MetricQueryBuilder {
 
     public static String metricFilterClause(String column, String operator, String value) {
         String col = MetricIdentifierParser.toColumnName(column);
-        if (operator != null && operator.equalsIgnoreCase("like")) {
-            return " AND `" + col + "` LIKE '%" + escapeLiteral(value) + "%' ";
+        String escaped = escapeLiteral(value == null ? "" : value);
+        return switch (normalizeMetricFilterOperator(operator)) {
+            case "!=" -> " AND `" + col + "` != '" + escaped + "' ";
+            case "LIKE" -> " AND `" + col + "` LIKE '%" + escaped + "%' ";
+            case "NOT LIKE" -> " AND `" + col + "` NOT LIKE '%" + escaped + "%' ";
+            default -> " AND `" + col + "` = '" + escaped + "' ";
+        };
+    }
+
+    private static String normalizeMetricFilterOperator(String operator) {
+        if (operator == null || operator.isBlank()) {
+            return "=";
         }
-        return " AND `" + col + "` = '" + escapeLiteral(value) + "' ";
+        return switch (operator.trim().toLowerCase(java.util.Locale.ROOT)) {
+            case "!=", "neq" -> "!=";
+            case "like" -> "LIKE";
+            case "notlike", "not_like", "not like" -> "NOT LIKE";
+            default -> "=";
+        };
     }
 
     public static String metricTopGroupsSql(
@@ -3404,6 +3463,11 @@ public final class MetricQueryBuilder {
             return jvmGcCounterTopGroupsSql(
                     database, table, fieldColumn, groupColumn, fromMillis, toMillis, extraFilters, limit);
         }
+        String derivedExpr = derivedMetricValueExpr(fieldColumn);
+        if (derivedExpr != null) {
+            return derivedMetricTopGroupsSql(
+                    database, table, derivedExpr, groupColumn, fromMillis, toMillis, extraFilters, limit);
+        }
         String column = MetricIdentifierParser.toFieldColumnName(fieldColumn);
         String group = MetricIdentifierParser.toColumnName(groupColumn);
         String agg = resolveFieldAggregation(fieldColumn, aggs);
@@ -3420,6 +3484,39 @@ public final class MetricQueryBuilder {
                 """.formatted(
                 group,
                 agg.formatted(column),
+                database,
+                table,
+                metricTsWhere(fromMillis, toMillis),
+                group,
+                group,
+                extraFilters == null ? "" : extraFilters,
+                group,
+                Math.max(1, Math.min(limit, 50)));
+    }
+
+    private static String derivedMetricTopGroupsSql(
+            String database,
+            String table,
+            String valueExpr,
+            String groupColumn,
+            long fromMillis,
+            long toMillis,
+            String extraFilters,
+            int limit) {
+        String group = MetricIdentifierParser.toColumnName(groupColumn);
+        return """
+                SELECT `%s` AS group_value,
+                       %s AS metric_total
+                FROM %s.`%s`
+                WHERE %s
+                  AND `%s` IS NOT NULL AND `%s` != ''
+                %s
+                GROUP BY `%s`
+                ORDER BY metric_total DESC
+                LIMIT %d
+                """.formatted(
+                group,
+                valueExpr,
                 database,
                 table,
                 metricTsWhere(fromMillis, toMillis),

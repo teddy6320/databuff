@@ -58,7 +58,8 @@ public class EventRulePipeline {
             EventRecord eventRecord = eventRecordFactory.fromEvaluation(
                     rule.id(), rule.ruleName(), result.service(), result, false, eventBucketAt);
             eventPersistence.persist(eventRecord);
-            eventAlarmOpener.openForEvent(eventRecord).ifPresent(responseExecutor::dispatch);
+            eventAlarmOpener.openForEvent(eventRecord)
+                    .ifPresent(alarm -> responseExecutor.dispatch(alarm, eventRecord));
         }
     }
 

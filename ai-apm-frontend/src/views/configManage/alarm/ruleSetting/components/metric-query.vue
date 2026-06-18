@@ -36,8 +36,8 @@
                 class="metric-custom-select metric-select"
               />
               <span
-                v-if="(allMetricInfos[value.metric] || {}).unit"
-                class="metric-custom-unit">{{ $t('modules.views.configManage.alarm.s_7b2d5f03', { value0: ((allMetricInfos[value.metric] || {}).unitCn || (allMetricInfos[value.metric] || {}).unit) | unitFilter }) }}</span>
+                v-if="displayMetricUnit(value.metric)"
+                class="metric-custom-unit">{{ $t('modules.views.configManage.alarm.s_7b2d5f03', { value0: displayMetricUnit(value.metric) | unitFilter }) }}</span>
             </div>
           </div>
 
@@ -106,6 +106,7 @@ import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
 import deepClone from 'lodash/cloneDeep';
 import MetricApi from '@/api/metric';
 import getUnitData from '@/utils/getUnitData';
+import { resolveAvgDurationUnit } from '../../metric-unit';
 import MetricCascader from '@/components/metric-type-cascader.vue';
 import ScrollSelect from '@/components/scroll-select.vue';
 import MetricSelect from '@/components/metric-select.vue';
@@ -203,7 +204,7 @@ export default class MetricQuery extends Vue {
   get metricUnit () {
     const firstQuery: any = Object.values(this.queryList)[0] || {}
     const metricInfo = this.allMetricInfos[firstQuery.metric] || {}
-    return metricInfo.unit || ''
+    return resolveAvgDurationUnit(firstQuery.metric, metricInfo.unit || '')
   }
   @Watch('metricUnit')
   private metricUnitChange(val: string) {
@@ -450,6 +451,16 @@ export default class MetricQuery extends Vue {
   }
 
   private metricTagValues: any = {}
+  private displayMetricUnit (metric: string) {
+    const info = this.allMetricInfos[metric] || {}
+    const rawUnit = info.unit || ''
+    const unit = resolveAvgDurationUnit(metric, rawUnit)
+    if (!unit) return ''
+    if (unit !== rawUnit) {
+      return unit
+    }
+    return info.unitCn || unit
+  }
   private metricTagLoadedHandle (data: any) {
     this.metricTagValues = { ...this.metricTagValues, ...data }
   }

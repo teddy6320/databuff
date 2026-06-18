@@ -1044,6 +1044,25 @@ class MetricQueryBuilderTest {
     }
 
     @Test
+    void buildsDerivedAvgDurationFieldSeriesSql() {
+        String sql = MetricQueryBuilder.metricFieldSeriesSql(
+                "databuff", "metric_service", "avgDuration", 0L, 3_600_000L, "", 60, "sum");
+        assertThat(sql).contains("metric_service");
+        assertThat(sql).contains("SUM(`sumDuration`) / NULLIF(SUM(`cnt`), 0) / 1000000");
+        assertThat(sql).contains("GROUP BY epoch_sec");
+        assertThat(sql).doesNotContain("`avgDuration`");
+    }
+
+    @Test
+    void buildsDerivedErrorPctTopGroupsSql() {
+        String sql = MetricQueryBuilder.metricTopGroupsSql(
+                "databuff", "metric_service", "error.pct", "service", 0L, 3_600_000L, "", 10, "sum");
+        assertThat(sql).contains("SUM(`error`) / NULLIF(SUM(`cnt`), 0) * 100");
+        assertThat(sql).contains("GROUP BY `service`");
+        assertThat(sql).doesNotContain("`error.pct`");
+    }
+
+    @Test
     void buildsCallSpanListSql() {
         String dstServiceId = PortalServiceIdResolver.normalize("demo-order");
         String sql = MetricQueryBuilder.callSpanListSql(
@@ -1113,5 +1132,17 @@ class MetricQueryBuilderTest {
         assertThat(sql).contains("get_json_string(`meta`, '$.\"root.resource\"')");
         assertThat(sql).contains("LIKE '%/methodA4%'");
         assertThat(sql).contains("LIKE '%/methodB7%'");
+    }
+
+    @Test
+    void buildsMetricFilterClauseForAlarmOperators() {
+        assertThat(MetricQueryBuilder.metricFilterClause("service", "=", "checkout"))
+                .isEqualTo(" AND `service` = 'checkout' ");
+        assertThat(MetricQueryBuilder.metricFilterClause("service", "!=", "checkout"))
+                .isEqualTo(" AND `service` != 'checkout' ");
+        assertThat(MetricQueryBuilder.metricFilterClause("service", "like", "check"))
+                .isEqualTo(" AND `service` LIKE '%check%' ");
+        assertThat(MetricQueryBuilder.metricFilterClause("service", "notLike", "slow"))
+                .isEqualTo(" AND `service` NOT LIKE '%slow%' ");
     }
 }

@@ -193,6 +193,7 @@ import deepClone from 'lodash/cloneDeep';
 import { orderBy, uniqBy } from 'lodash';
 import { StringIsEmpty } from '@/utils/common';
 import getUnitData from '@/utils/getUnitData';
+import { resolveAvgDurationUnit } from '../../metric-unit';
 import MetricQuery from './metric-query.vue';
 
 // 保存时转换成原始单位数值
@@ -453,6 +454,15 @@ export default class MonitorMetric extends Vue {
     this.configMapping = {}
     this.configError = {}
     this.configList.forEach(t => {
+      const metric = t.query?.A?.metric || ''
+      const normalizedUnit = resolveAvgDurationUnit(metric, t.unit)
+      if (normalizedUnit !== t.unit) {
+        t.unit = normalizedUnit
+        if (!t.view_unit || t.view_unit === 'ns') {
+          t.view_unit = 'ms'
+        }
+        t._scale = 1
+      }
       this.$set(this.configMapping, t.uuid, {})
       this.$set(this.configError, t.uuid, {})
       this.setMutationYoyHandle(t)
@@ -467,6 +477,8 @@ export default class MonitorMetric extends Vue {
     this.groupSelected = (query[metricKeys[0]] || {}).by || []
   }
   private metricUnitChangeHandle (config: any, unit: string, init = false) {
+    const metric = config.query?.A?.metric || ''
+    unit = resolveAvgDurationUnit(metric, unit)
     // 指标unit和scale
     const { original_short_name, family, scale_factor } = getUnitData(unit);
     const configItem = this.configMapping[config.uuid]
@@ -479,6 +491,8 @@ export default class MonitorMetric extends Vue {
         this.$set(config, 'view_unit', '%')
         this.$set(config, '_scale', 1 / scale_factor)
       }
+    } else if (init && unit && (!config.view_unit || config.view_unit === 'ns' && unit === 'ms')) {
+      this.$set(config, 'view_unit', original_short_name || unit)
     }
 
     if (unit.includes('/')) {

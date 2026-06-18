@@ -74,18 +74,9 @@ import { orderBy } from 'lodash';
 import MatchingCriteria from '@/components/matching-criteria/index.vue'
 import { toAsyncWait } from '@/utils/common';
 import MetricApi from '@/api/metric';
+import { alarmFilterSymbolList } from '../../filter-symbols';
 
-const symbolList = [
-  { label: i18n.t('modules.components.matching-criteria.s_4c35bf2e') as string, labelKey: 'modules.components.matching-criteria.s_4c35bf2e', value: '=', type: 'select' },
-  { label: i18n.t('modules.components.matching-criteria.s_14a8af58') as string, labelKey: 'modules.components.matching-criteria.s_14a8af58', value: '!=', type: 'select' },
-  { label: i18n.t('modules.components.matching-criteria.s_e13556bb') as string, labelKey: 'modules.components.matching-criteria.s_e13556bb', value: 'like' },
-  { label: i18n.t('modules.components.matching-criteria.s_da0291f4') as string, labelKey: 'modules.components.matching-criteria.s_da0291f4', value: 'notLike'},
-  { label: i18n.t('modules.views.configManage.alarm.s_af5c8737') as string, labelKey: 'modules.views.configManage.alarm.s_af5c8737', value: 'startWith' },
-  { label: i18n.t('modules.views.configManage.alarm.s_bd20bafe') as string, labelKey: 'modules.views.configManage.alarm.s_bd20bafe', value: 'endWith' },
-  { label: i18n.t('modules.views.configManage.alarm.s_2e576047') as string, labelKey: 'modules.views.configInstall.dataAccess.s_2e576047', value: 'regEx' },
-  { label: i18n.t('modules.components.matching-criteria.s_4af4af44') as string, labelKey: 'modules.components.matching-criteria.s_4af4af44', value: 'inList', type: 'select', multiple: true },
-  { label: i18n.t('modules.components.matching-criteria.s_33a76148') as string, labelKey: 'modules.components.matching-criteria.s_33a76148', value: 'notInList', type: 'select', multiple: true },
-]
+const symbolList = alarmFilterSymbolList
 
 const unwrapResponseData = (response: any) => {
   if (response && typeof response === 'object' && Object.prototype.hasOwnProperty.call(response, 'data')) {

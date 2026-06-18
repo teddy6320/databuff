@@ -126,10 +126,9 @@
                   <span class="action-link" @click="showReferences(row)">{{ $t('modules.views.metrics.list.s_607e7a4f') }}</span>
                 </template>
               </el-table-column>
-              <el-table-column :label="$t('modules.views.aiPlatform.experts.s_2b6bc0f2')" width="180" fixed="right">
+              <el-table-column :label="$t('modules.views.aiPlatform.experts.s_2b6bc0f2')" width="140" fixed="right">
                 <template slot-scope="{ row }">
                   <span v-if="scopeFilter === 'mcp'" class="action-link" @click="openEditor(row)">{{ $t('modules.views.hide.advancedConfig.s_95b351c8') }}</span>
-                  <span class="action-link" @click="toggleEnable(row)">{{ row.enabled ? $t('modules.views.aiPlatform.experts.s_5c56a889') : $t('modules.views.aiPlatform.experts.s_7854b52a')  }}</span>
                   <span v-if="!row.builtIn" class="action-link danger" @click="removeTool(row)">{{ $t('modules.views.hide.advancedConfig.s_2f4aaddd') }}</span>
                 </template>
               </el-table-column>
@@ -541,16 +540,6 @@ export default class AiPlatformTools extends Vue {
   private mcpTransport (row: AiToolDefinition) {
     const config = this.parseJson(row.configJson, {}) as any
     return config.transport || 'SSE'
-  }
-
-  private async toggleEnable (row: AiToolDefinition) {
-    const action = row.enabled ? AiPlatformApi.disableTool(row.toolId) : AiPlatformApi.enableTool(row.toolId)
-    const { error } = await toAsyncWait(action, false)
-    if (!error) {
-      this.loadData()
-    } else if (error.message !== 'interrupt') {
-      this.$message.error(error.message)
-    }
   }
 
   private removeTool (row: AiToolDefinition) {

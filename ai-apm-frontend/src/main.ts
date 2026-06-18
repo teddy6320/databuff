@@ -35,6 +35,7 @@ import './assets/styles/common.scss';
 
 Vue.config.silent = true
 setAppLocale(defaultLocale);
+
 locale.use(defaultLocale === 'zh-CN' ? elementZh : elementEn);
 Vue.use(Element, {
   i18n: (key: string, value: string) => i18n.t(key, value),

@@ -203,4 +203,26 @@ class MetricQueryServiceTest {
         assertThat(values.get(0)).isEqualTo(List.of(1_710_000_000_000L, 4.0));
         assertThat(values.get(1)).containsExactly(1_710_000_060_000L, null);
     }
+
+    @Test
+    void returnsServiceAvgDurationChartSeries() throws Exception {
+        ApmReadRepository reader = mock(ApmReadRepository.class);
+        when(reader.queryMetricSeries(anyString())).thenReturn(List.of(
+                new MetricSeriesPoint(1_710_000_000L, 12.5)));
+        MetricQueryService service = new MetricQueryService(reader, TestStorageSupport.storage());
+        List<java.util.Map<String, Object>> chart = service.metricChart(java.util.Map.of(
+                "start", 1_710_000_000L,
+                "end", 1_710_003_600L,
+                "query", java.util.Map.of("A", java.util.Map.of(
+                        "metric", "service.avgDuration",
+                        "aggs", "sum",
+                        "by", List.of(),
+                        "from", List.of(),
+                        "types", List.of()))));
+        assertThat(chart).hasSize(1);
+        verify(reader).queryMetricSeries(org.mockito.ArgumentMatchers.argThat(sql ->
+                sql.contains("metric_service")
+                        && sql.contains("SUM(`sumDuration`) / NULLIF(SUM(`cnt`), 0) / 1000000")
+                        && !sql.contains("`avgDuration`")));
+    }
 }

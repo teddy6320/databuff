@@ -87,11 +87,9 @@
                   <span :class="['status-tag', row.enabled ? 'is-on' : 'is-off']">{{ row.enabled ? $t('modules.views.aiPlatform.experts.s_7854b52a') : $t('modules.views.aiPlatform.experts.s_5c56a889')  }}</span>
                 </template>
               </el-table-column>
-              <el-table-column :label="$t('modules.views.aiPlatform.experts.s_2b6bc0f2')" width="290" fixed="right">
+              <el-table-column :label="$t('modules.views.aiPlatform.experts.s_2b6bc0f2')" width="200" fixed="right">
                 <template slot-scope="{ row }">
                   <span class="action-link" @click="openEditor(row)">{{ $t('modules.views.hide.advancedConfig.s_95b351c8') }}</span>
-                  <span class="action-link" @click="debugExpert(row)">{{ $t('modules.views.aiPlatform.experts.s_b7c0bfff') }}</span>
-                  <span class="action-link" @click="reloadExpert(row)">{{ $t('modules.views.aiPlatform.experts.s_aaeb5463') }}</span>
                   <span class="action-link" @click="toggleEnable(row)">{{ row.enabled ? $t('modules.views.aiPlatform.experts.s_5c56a889') : $t('modules.views.aiPlatform.experts.s_7854b52a')  }}</span>
                   <span v-if="!row.builtIn" class="action-link danger" @click="removeExpert(row)">{{ $t('modules.views.hide.advancedConfig.s_2f4aaddd') }}</span>
                 </template>

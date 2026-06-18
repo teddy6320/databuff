@@ -2,6 +2,7 @@ package com.databuff.apm.web.monitor.pipeline;
 
 import com.databuff.apm.web.monitor.Alarm;
 import com.databuff.apm.web.monitor.NotifyChannelService;
+import com.databuff.apm.web.monitor.policy.AlarmFilterConditionMatcher;
 import com.databuff.apm.web.monitor.policy.AlarmPolicySupport;
 import com.databuff.apm.web.monitor.policy.ResponsePolicyService;
 import org.slf4j.Logger;
@@ -31,10 +32,10 @@ public class AlarmResponseExecutor {
         this.notifyChannelService = notifyChannelService;
     }
 
-    public void dispatch(Alarm alarm) {
+    public void dispatch(Alarm alarm, EventRecord event) {
         notifyChannelService.notifyAlert(alarm);
         for (Map<String, Object> policy : enabledPolicies()) {
-            if (!matchesPolicy(policy, alarm)) {
+            if (!matchesPolicy(policy, alarm, event)) {
                 continue;
             }
             executeActions(policy, alarm);
@@ -49,24 +50,12 @@ public class AlarmResponseExecutor {
         return rows.stream().map(item -> AlarmPolicySupport.copyOf((Map<String, Object>) item)).toList();
     }
 
-    private static boolean matchesPolicy(Map<String, Object> policy, Alarm alarm) {
-        Object conditions = policy.get("respConditions");
-        if (!(conditions instanceof List<?> list) || list.isEmpty()) {
+    private static boolean matchesPolicy(Map<String, Object> policy, Alarm alarm, EventRecord event) {
+        Object filterConditions = policy.get("filterConditions");
+        if (!(filterConditions instanceof List<?> list) || list.isEmpty()) {
             return true;
         }
-        for (Object conditionObj : list) {
-            if (conditionObj instanceof Map<?, ?> condition) {
-                Object field = condition.get("field");
-                Object value = condition.get("value");
-                if ("service".equals(String.valueOf(field)) && alarm.service().equals(String.valueOf(value))) {
-                    return true;
-                }
-                if ("serviceId".equals(String.valueOf(field)) && alarm.service().equals(String.valueOf(value))) {
-                    return true;
-                }
-            }
-        }
-        return false;
+        return AlarmFilterConditionMatcher.matches(list, alarm, event);
     }
 
     @SuppressWarnings("unchecked")

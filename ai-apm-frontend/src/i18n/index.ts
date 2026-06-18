@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
+import elementZh from 'element-ui/lib/locale/lang/zh-CN';
+import elementEn from 'element-ui/lib/locale/lang/en';
 import zhCN from './locales/zh-CN';
 import enUS from './locales/en-US';
 
@@ -34,8 +36,8 @@ const i18n = new VueI18n({
   fallbackLocale: 'zh-CN',
   silentTranslationWarn: true,
   messages: {
-    'zh-CN': zhCN,
-    'en-US': enUS,
+    'zh-CN': { ...zhCN, ...elementZh },
+    'en-US': { ...enUS, ...elementEn },
   } as any,
 });
 

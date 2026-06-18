@@ -33,6 +33,7 @@
                 ref="filterCriteria"
                 :conditionData="settingForm.filterConditions"
                 :fieldData="fieldData"
+                :symbols="alarmFilterSymbolList"
                 :addMultipleText="$t('modules.views.configManage.alarm.s_c9ee9e43')"
                 :maxLevel="10"
                 :showView="true"
@@ -116,6 +117,7 @@ import { toAsyncWait } from '@/utils/common'
 import AlarmApi from '@/api/alarm';
 import MetricApi from '@/api/metric';
 import { buildAlarmListLocation } from '../alarm-routes';
+import { alarmFilterSymbolList } from '../filter-symbols';
 
 @Component({
   components: {
@@ -140,6 +142,8 @@ export default class ResponseSetting extends Vue {
   get _hasAlarmManageAuth () {
     return this.hasAlarmManageAuth(this.detail || {})
   }
+
+  private alarmFilterSymbolList = alarmFilterSymbolList
 
   private routerTimer: any = null;
 

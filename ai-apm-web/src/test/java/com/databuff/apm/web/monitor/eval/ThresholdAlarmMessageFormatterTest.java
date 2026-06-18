@@ -57,7 +57,7 @@ class ThresholdAlarmMessageFormatterTest {
         String eventMessage = formatter.thresholdMessage(
                 catalogRule("service.avgDuration", 100.0, null), 200.0, 100.0, "checkout", "checkout");
 
-        assertThat(eventMessage).isEqualTo("平均耗时的200纳秒值超过阈值100纳秒");
+        assertThat(eventMessage).isEqualTo("平均耗时的200毫秒值超过阈值100毫秒");
     }
 
     private static EventRule catalogRule(String metricId, double threshold) {
