@@ -56,7 +56,7 @@ kubectl rollout status deploy/ai-apm-ingest -n databuff
 集群拉取镜像困难时，在各节点执行（自动识别 amd64/arm64）：
 
 ```bash
-curl -fsSL http://192.168.50.140/databuff/ai-apm-k8s-download-images.sh | bash
+curl -fsSL https://databuff.ai/databuff/ai-apm-k8s-download-images.sh | bash
 
 # 或部署包内
 ./download-images.sh
@@ -66,19 +66,19 @@ k3s/containerd 节点：
 
 ```bash
 export IMAGE_LOAD_CMD=ctr
-curl -fsSL http://192.168.50.140/databuff/ai-apm-k8s-download-images.sh | bash
+curl -fsSL https://databuff.ai/databuff/ai-apm-k8s-download-images.sh | bash
 ```
 
 仅升级 ingest / web（强制重新下载，不更新 Doris / ZooKeeper）：
 
 ```bash
-curl -fsSL http://192.168.50.140/databuff/ai-apm-k8s-download-apm-images.sh | bash
+curl -fsSL https://databuff.ai/databuff/ai-apm-k8s-download-apm-images.sh | bash
 
 # 或部署包内
 ./download-apm-images.sh
 ```
 
-镜像包目录见 `env.sh` 中 `APM_IMAGES_PKG_BASE`（默认 `http://192.168.50.140/databuff/images`）。
+镜像包目录见 `env.sh` 中 `APM_IMAGES_PKG_BASE`（默认 `https://databuff.ai/databuff/images`）。
 
 ## 默认资源
 

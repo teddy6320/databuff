@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # DataBuff AI APM Demo 造数一键安装
 #
-#   curl -fsSL http://192.168.50.140/databuff/ai-apm-demo-install.sh | bash
+#   curl -fsSL https://databuff.ai/databuff/ai-apm-demo-install.sh | bash
 #
 # 环境变量:
 #   APM_PKG_BASE     部署包地址
@@ -12,8 +12,8 @@
 #   SKIP_START       1=仅下载解压不启动
 #
 # 指定版本:
-#   curl -fsSL .../ai-apm-demo-install.sh | bash -s -- --version 0.1.0
-#   APM_VERSION=0.1.0 curl -fsSL .../ai-apm-demo-install.sh | bash
+#   curl -fsSL .../ai-apm-demo-install.sh | bash -s -- --version 0.1.1
+#   APM_VERSION=0.1.1 curl -fsSL .../ai-apm-demo-install.sh | bash
 
 set -e
 

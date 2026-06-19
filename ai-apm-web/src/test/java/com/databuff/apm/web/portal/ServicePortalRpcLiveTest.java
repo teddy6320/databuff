@@ -13,7 +13,7 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/** Live Doris smoke test — run with {@code DORIS_LIVE=1 DORIS_FE_HOST=192.168.50.140 mvn -pl ai-apm-web test -Dtest=ServicePortalRpcLiveTest}. */
+/** Live Doris smoke test — run with {@code DORIS_LIVE=1 DORIS_FE_HOST=localhost mvn -pl ai-apm-web test -Dtest=ServicePortalRpcLiveTest}. */
 @EnabledIfEnvironmentVariable(named = "DORIS_LIVE", matches = "1")
 class ServicePortalRpcLiveTest {
 

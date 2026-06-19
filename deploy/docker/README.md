@@ -24,7 +24,7 @@ docker/
 `start.sh` / 一键安装脚本会按本机架构（amd64/arm64）从 `APM_IMAGES_PKG_BASE` 下载镜像包并 `docker load`：
 
 ```bash
-curl -fsSL http://192.168.50.140/databuff/ai-apm-install.sh | bash
+curl -fsSL https://databuff.ai/databuff/ai-apm-install.sh | bash
 ```
 
 ## 构建与发布

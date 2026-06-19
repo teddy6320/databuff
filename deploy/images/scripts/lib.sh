@@ -18,14 +18,15 @@ export APM_K8S_DEMO_SRC="${APM_K8S_SRC}/demo"
 
 project_version() {
   awk '
-    /<artifactId>databuff-ai-apm<\/artifactId>/ { in_project=1 }
-    in_project && /<version>/ {
+    /<revision>/ {
       line=$0
-      sub(/.*<version>/, "", line)
-      sub(/<\/version>.*/, "", line)
+      sub(/.*<revision>/, "", line)
+      sub(/<\/revision>.*/, "", line)
       gsub(/[[:space:]]/, "", line)
-      print line
-      exit
+      if (line != "") {
+        print line
+        exit
+      }
     }
   ' "${APM_REPO_ROOT}/pom.xml"
 }

@@ -2,10 +2,10 @@
 # DataBuff AI APM Demo 造数 K8s 一键安装（manifest 使用 databuffhub/* 短名镜像）
 #
 # 用法:
-#   curl -fsSL http://192.168.50.140/databuff/ai-apm-demo-k8s-install.sh | bash
+#   curl -fsSL https://databuff.ai/databuff/ai-apm-demo-k8s-install.sh | bash
 #
 # 环境变量:
-#   APM_PKG_BASE        部署包下载地址 (默认 http://192.168.50.140/databuff)
+#   APM_PKG_BASE        部署包下载地址 (默认 https://databuff.ai/databuff)
 #   APM_INSTALL_DIR     安装目录 (默认 /opt/databuff-ai-apm-demo-k8s)
 #   APM_VERSION         指定版本号 (默认从 ${APM_PKG_BASE}/VERSION 读取最新版)
 #   APM_NAMESPACE       K8s 命名空间 (默认 databuff)
@@ -15,8 +15,8 @@
 #   KUBECONFIG          kubeconfig 路径（未设置时自动尝试常见路径）
 #
 # 指定版本:
-#   curl -fsSL .../ai-apm-demo-k8s-install.sh | bash -s -- --version 0.1.0
-#   APM_VERSION=0.1.0 curl -fsSL .../ai-apm-demo-k8s-install.sh | bash
+#   curl -fsSL .../ai-apm-demo-k8s-install.sh | bash -s -- --version 0.1.1
+#   APM_VERSION=0.1.1 curl -fsSL .../ai-apm-demo-k8s-install.sh | bash
 
 set -euo pipefail
 

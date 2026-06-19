@@ -1,37 +1,42 @@
 # K8s 安装部署
 
-**环境依赖：** kubectl、Kubernetes 集群
+在 Kubernetes 集群里跑起 DataBuff：Doris、Ingest、Web 按顺序自动部署。
 
-## 1 安装 databuff-ai-apm 平台
+## 1. 准备环境
 
-默认安装最新版（从 `${APM_PKG_BASE}/VERSION` 读取）：
+- Kubernetes 集群
+- kubectl 可访问集群
+
+## 2. 安装平台
 
 ```bash
-curl -fsSL http://192.168.50.140/databuff/ai-apm-k8s-install.sh | bash
+curl -fsSL https://databuff.ai/databuff/ai-apm-k8s-install.sh | bash
 ```
 
-指定版本：
+安装完成后，终端会输出 Web UI、命名空间和访问方式。
+
+指定版本安装：
 
 ```bash
-curl -fsSL http://192.168.50.140/databuff/ai-apm-k8s-install.sh | bash -s -- --version 0.1.0
+curl -fsSL https://databuff.ai/databuff/ai-apm-k8s-install.sh | bash -s -- --version 0.1.1
 # 或
-APM_VERSION=0.1.0 curl -fsSL http://192.168.50.140/databuff/ai-apm-k8s-install.sh | bash
+APM_VERSION=0.1.1 curl -fsSL https://databuff.ai/databuff/ai-apm-k8s-install.sh | bash
 ```
 
-打开上述 Web UI 即可进入平台。
+## 3. 安装 Demo（可选）
 
-## 2 安装 demo 应用（可选）
-
-和平台在同一个 K8s 集群上：
+让 Demo 应用向平台上报 Trace，快速看到链路和拓扑。
 
 ```bash
-curl -fsSL http://192.168.50.140/databuff/ai-apm-demo-k8s-install.sh | bash
+curl -fsSL https://databuff.ai/databuff/ai-apm-demo-k8s-install.sh | bash
 ```
 
-## 3 平台使用
+## 4. 启用 AI
 
 配置管理 → 模型配置，输入 API Key 即可：
 
 ![配置 API Key](../images/set-api-key.png)
 
-开启 AI + APM 之旅。
+现在可以直接问：
+
+> 哪些服务错误率最高？

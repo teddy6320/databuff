@@ -215,8 +215,8 @@ detect_internal_size_probe_base() {
     printf '%s\n' "${APM_SIZE_PROBE_BASE%/}"
     return 0
   fi
-  if curl -fsSL --max-time 3 "${APM_INTERNAL_SIZE_PROBE_BASE:-http://192.168.50.140/databuff}/VERSION" >/dev/null 2>&1; then
-    printf '%s\n' "${APM_INTERNAL_SIZE_PROBE_BASE:-http://192.168.50.140/databuff}"
+  if curl -fsSL --max-time 3 "${APM_INTERNAL_SIZE_PROBE_BASE:-https://databuff.ai/databuff}/VERSION" >/dev/null 2>&1; then
+    printf '%s\n' "${APM_INTERNAL_SIZE_PROBE_BASE:-https://databuff.ai/databuff}"
     return 0
   fi
   return 1

@@ -2,7 +2,7 @@
 # DataBuff AI APM Kubernetes 一键安装（kubectl 直装，脚本控制启动顺序）
 #
 # 用法:
-#   curl -fsSL http://192.168.50.140/databuff/ai-apm-k8s-install.sh | bash
+#   curl -fsSL https://databuff.ai/databuff/ai-apm-k8s-install.sh | bash
 #
 # 安装包内:
 #   install.sh  卸载后全新安装
@@ -10,11 +10,11 @@
 #   stop.sh     停止服务（缩容至 0）
 #
 # 安装前建议在各节点执行:
-#   curl -fsSL http://192.168.50.140/databuff/ai-apm-k8s-download-images.sh | bash
+#   curl -fsSL https://databuff.ai/databuff/ai-apm-k8s-download-images.sh | bash
 # 或部署包内 ./download-images.sh
 #
 # 环境变量:
-#   APM_PKG_BASE        部署包下载地址 (默认 http://192.168.50.140/databuff)
+#   APM_PKG_BASE        部署包下载地址 (默认 https://databuff.ai/databuff)
 #   APM_INSTALL_DIR     安装目录 (默认 /opt/databuff-ai-apm-k8s)
 #   APM_VERSION         指定版本号 (默认从 ${APM_PKG_BASE}/VERSION 读取最新版)
 #   APM_NAMESPACE       K8s 命名空间 (默认 databuff)
@@ -28,8 +28,8 @@
 #   DORIS_VERSION       Doris 镜像版本 (默认读安装包 DORIS_VERSION 或 pom.xml 中 doris.version)
 #
 # 指定版本:
-#   curl -fsSL .../ai-apm-k8s-install.sh | bash -s -- --version 0.1.0
-#   APM_VERSION=0.1.0 curl -fsSL .../ai-apm-k8s-install.sh | bash
+#   curl -fsSL .../ai-apm-k8s-install.sh | bash -s -- --version 0.1.1
+#   APM_VERSION=0.1.1 curl -fsSL .../ai-apm-k8s-install.sh | bash
 
 set -euo pipefail
 

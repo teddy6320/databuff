@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.databuff.apm</groupId>
         <artifactId>databuff-ai-apm</artifactId>
-        <version>0.1.0-SNAPSHOT</version>
+        <version>${revision}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>ai-apm-web</artifactId>

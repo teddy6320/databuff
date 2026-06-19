@@ -1,26 +1,29 @@
 # Docker 安装部署
 
-**环境依赖：** docker、docker-compose
+5 分钟跑起 DataBuff：平台、存储、Ingest 一条命令完成。
 
-## 1 安装 databuff-ai-apm 平台
+## 1. 准备环境
 
-默认安装最新版（从 `${APM_PKG_BASE}/VERSION` 读取）：
+- Docker
+- Docker Compose
+
+## 2. 安装平台
 
 ```bash
-curl -fsSL http://192.168.50.140/databuff/ai-apm-install.sh | bash
+curl -fsSL https://databuff.ai/databuff/ai-apm-install.sh | bash
 ```
 
-指定版本：
+安装完成后，终端会输出 Web UI、账号和 OTLP 地址。
+
+指定版本安装：
 
 ```bash
-curl -fsSL http://192.168.50.140/databuff/ai-apm-install.sh | bash -s -- --version 0.1.0
+curl -fsSL https://databuff.ai/databuff/ai-apm-install.sh | bash -s -- --version 0.1.1
 # 或
-APM_VERSION=0.1.0 curl -fsSL http://192.168.50.140/databuff/ai-apm-install.sh | bash
+APM_VERSION=0.1.1 curl -fsSL https://databuff.ai/databuff/ai-apm-install.sh | bash
 ```
 
 ![安装成功](../images/docker-install-success.png)
-
-打开上述 Web UI 即可进入平台。
 
 常用命令：
 
@@ -30,20 +33,20 @@ docker-compose up -d
 docker-compose down
 ```
 
-平台固定容器名：`ai-apm-web`、`ai-apm-ingest`、`ai-apm-doris-fe`、`ai-apm-doris-be`。
+## 3. 安装 Demo（可选）
 
-## 2 安装 demo 应用（可选）
-
-和平台在同一台主机上：
+让 Demo 应用持续上报 Trace，打开平台就能看到链路和拓扑。
 
 ```bash
-curl -fsSL http://192.168.50.140/databuff/ai-apm-demo-install.sh | bash
+curl -fsSL https://databuff.ai/databuff/ai-apm-demo-install.sh | bash
 ```
 
-## 3 平台使用
+## 4. 启用 AI
 
 配置管理 → 模型配置，输入 API Key 即可：
 
 ![配置 API Key](../images/set-api-key.png)
 
-开启 AI + APM 之旅。
+现在可以直接问：
+
+> order-service 为什么变慢了？

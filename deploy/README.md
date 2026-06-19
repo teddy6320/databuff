@@ -18,8 +18,8 @@ Demo 源码位于仓库根目录 [`ai-apm-demo/`](../ai-apm-demo/)。
 |------|------|
 | [`images/build-images.sh`](images/build-images.sh) | 编译 jar → 构建 **databuffhub/** 镜像 → 导出 amd/arm 离线包并上传 |
 | [`images/upload-infra-images.sh`](images/upload-infra-images.sh) | 拉取 **Doris FE/BE、ZooKeeper** 多架构镜像 → 导出 tar → 上传到镜像包目录 |
-| [`docker/build-docker.sh`](docker/build-docker.sh) | 打 Docker 部署包 + install 脚本 → **SCP 上传到 databuff-site（140）** |
-| [`k8s/build-k8s.sh`](k8s/build-k8s.sh) | 打 Helm / K8s 部署包 + install 脚本 → **SCP 上传到 databuff-site（140）** |
+| [`docker/build-docker.sh`](docker/build-docker.sh) | 打 Docker 部署包 + install 脚本 → **SCP 上传到 databuff-site** |
+| [`k8s/build-k8s.sh`](k8s/build-k8s.sh) | 打 Helm / K8s 部署包 + install 脚本 → **SCP 上传到 databuff-site** |
 | [`k8s/download-images.sh`](k8s/download-images.sh) | 按本机架构从镜像包目录下载 K8s 所需镜像并 `docker load` / `ctr import` |
 | [`k8s/download-apm-images.sh`](k8s/download-apm-images.sh) | 仅强制更新 ingest / web 两个镜像包 |
 
@@ -27,8 +27,8 @@ Demo 源码位于仓库根目录 [`ai-apm-demo/`](../ai-apm-demo/)。
 
 | 内容 | 地址 | 脚本 |
 |------|------|------|
-| 离线镜像包（`.tar`，databuffhub/*） | `http://192.168.50.140/databuff/images/` | `build-images.sh` / `upload-infra-images.sh` |
-| 部署包（tar.gz + install.sh） | `http://192.168.50.140/databuff/` | `build-docker.sh` / `build-k8s.sh` |
+| 离线镜像包（`.tar`，databuffhub/*） | `https://databuff.ai/databuff/images/` | `build-images.sh` / `upload-infra-images.sh` |
+| 部署包（tar.gz + install.sh） | `https://databuff.ai/databuff/` | `build-docker.sh` / `build-k8s.sh` |
 
 ### 发布流程
 
@@ -58,28 +58,28 @@ Docker / K8s 安装脚本会**自动识别 amd64/arm64**，从镜像包目录下
 
 ```bash
 # 安装最新版（默认）
-curl -fsSL http://192.168.50.140/databuff/ai-apm-install.sh | bash
+curl -fsSL https://databuff.ai/databuff/ai-apm-install.sh | bash
 
 # 安装指定版本
-curl -fsSL http://192.168.50.140/databuff/ai-apm-install.sh | bash -s -- --version 0.1.0
-APM_VERSION=0.1.0 curl -fsSL http://192.168.50.140/databuff/ai-apm-install.sh | bash
+curl -fsSL https://databuff.ai/databuff/ai-apm-install.sh | bash -s -- --version 0.1.1
+APM_VERSION=0.1.1 curl -fsSL https://databuff.ai/databuff/ai-apm-install.sh | bash
 ```
 
 ```bash
 # Docker 主栈
-curl -fsSL http://192.168.50.140/databuff/ai-apm-install.sh | bash
+curl -fsSL https://databuff.ai/databuff/ai-apm-install.sh | bash
 
 # K8s（各节点先导入镜像，再安装）
 ./download-images.sh          # 部署包内
-curl -fsSL http://192.168.50.140/databuff/ai-apm-k8s-download-images.sh | bash
-curl -fsSL http://192.168.50.140/databuff/ai-apm-k8s-install.sh | bash
+curl -fsSL https://databuff.ai/databuff/ai-apm-k8s-download-images.sh | bash
+curl -fsSL https://databuff.ai/databuff/ai-apm-k8s-install.sh | bash
 
 # K8s 仅升级 ingest / web 镜像（各节点强制重新导入）
-curl -fsSL http://192.168.50.140/databuff/ai-apm-k8s-download-apm-images.sh | bash
+curl -fsSL https://databuff.ai/databuff/ai-apm-k8s-download-apm-images.sh | bash
 
 # Demo 造数
-curl -fsSL http://192.168.50.140/databuff/ai-apm-demo-install.sh | bash
-curl -fsSL http://192.168.50.140/databuff/ai-apm-demo-k8s-install.sh | bash
+curl -fsSL https://databuff.ai/databuff/ai-apm-demo-install.sh | bash
+curl -fsSL https://databuff.ai/databuff/ai-apm-demo-k8s-install.sh | bash
 ```
 
 详见 [`k8s/README.md`](k8s/README.md)、[`docker/README.md`](docker/README.md)。

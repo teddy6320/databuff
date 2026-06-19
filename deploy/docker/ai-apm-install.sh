@@ -1,22 +1,22 @@
 #!/usr/bin/env bash
 # DataBuff AI APM 一键安装（Doris + ingest + web）
 #
-#   curl -fsSL http://192.168.50.140/databuff/ai-apm-install.sh | bash
-#   curl -fsSL http://192.168.50.140/databuff/ai-apm-install.sh | bash -s -- --pull-images
+#   curl -fsSL https://databuff.ai/databuff/ai-apm-install.sh | bash
+#   curl -fsSL https://databuff.ai/databuff/ai-apm-install.sh | bash -s -- --pull-images
 #
 # start.sh 会按本机架构从 ${APM_PKG_BASE}/${APM_VERSION}/images 与 infra/images 下载镜像包并 docker load。
 # 本地已有对应版本镜像时默认跳过下载；加 --pull-images 强制重新下载。
 #
 # 环境变量:
-#   APM_PKG_BASE       部署包地址 (默认 http://192.168.50.140/databuff)
+#   APM_PKG_BASE       部署包地址 (默认 https://databuff.ai/databuff)
 #   APM_INSTALL_DIR    安装目录 (默认 /opt/databuff-ai-apm)
 #   APM_VERSION        指定版本号 (默认从 ${APM_PKG_BASE}/VERSION 读取最新版)
 #   SKIP_START         1=仅下载解压不启动
 #   FORCE_PULL_IMAGES  1=强制重新下载镜像（同 --pull-images）
 #
 # 指定版本:
-#   curl -fsSL .../ai-apm-install.sh | bash -s -- --version 0.1.0
-#   APM_VERSION=0.1.0 curl -fsSL .../ai-apm-install.sh | bash
+#   curl -fsSL .../ai-apm-install.sh | bash -s -- --version 0.1.1
+#   APM_VERSION=0.1.1 curl -fsSL .../ai-apm-install.sh | bash
 
 set -e
 

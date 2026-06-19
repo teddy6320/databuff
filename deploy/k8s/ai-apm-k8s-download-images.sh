@@ -2,14 +2,14 @@
 # 各 K8s 节点导入离线镜像（ingest / web / demo / Doris / ZooKeeper，databuffhub/* 短名）。
 #
 # 用法:
-#   curl -fsSL http://192.168.50.140/databuff/ai-apm-k8s-download-images.sh | bash
-#   export IMAGE_LOAD_CMD=ctr; curl -fsSL http://192.168.50.140/databuff/ai-apm-k8s-download-images.sh | bash
+#   curl -fsSL https://databuff.ai/databuff/ai-apm-k8s-download-images.sh | bash
+#   export IMAGE_LOAD_CMD=ctr; curl -fsSL https://databuff.ai/databuff/ai-apm-k8s-download-images.sh | bash
 #
 # 部署包内:
 #   ./download-images.sh
 #
 # 环境变量:
-#   APM_PKG_BASE         部署包下载地址 (默认 http://192.168.50.140/databuff)
+#   APM_PKG_BASE         部署包下载地址 (默认 https://databuff.ai/databuff)
 #   APM_IMAGES_PKG_BASE  版本镜像包目录 (默认 ${APM_PKG_BASE}/${APM_VERSION}/images)
 #   APM_INFRA_IMAGES_PKG_BASE  infra 镜像包目录 (默认 ${APM_PKG_BASE}/infra/images)
 #   APM_VERSION          指定版本号 (默认从 ${APM_PKG_BASE}/VERSION 读取最新版)
@@ -17,8 +17,8 @@
 #   FORCE_PULL_IMAGES=1  强制重新下载（忽略本地已有镜像）
 #
 # 指定版本:
-#   curl -fsSL .../ai-apm-k8s-download-images.sh | bash -s -- --version 0.1.0
-#   APM_VERSION=0.1.0 curl -fsSL .../ai-apm-k8s-download-images.sh | bash
+#   curl -fsSL .../ai-apm-k8s-download-images.sh | bash -s -- --version 0.1.1
+#   APM_VERSION=0.1.1 curl -fsSL .../ai-apm-k8s-download-images.sh | bash
 
 set -euo pipefail
 

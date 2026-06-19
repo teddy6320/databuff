@@ -2,12 +2,12 @@
 # 各 K8s 节点强制更新 ingest / web / demo 离线镜像包（databuffhub/* 短名）。
 #
 # 用法:
-#   curl -fsSL http://192.168.50.140/databuff/ai-apm-k8s-download-apm-images.sh | bash
-#   export IMAGE_LOAD_CMD=ctr; curl -fsSL http://192.168.50.140/databuff/ai-apm-k8s-download-apm-images.sh | bash
+#   curl -fsSL https://databuff.ai/databuff/ai-apm-k8s-download-apm-images.sh | bash
+#   export IMAGE_LOAD_CMD=ctr; curl -fsSL https://databuff.ai/databuff/ai-apm-k8s-download-apm-images.sh | bash
 #
 # 指定版本:
-#   curl -fsSL .../ai-apm-k8s-download-apm-images.sh | bash -s -- --version 0.1.0
-#   APM_VERSION=0.1.0 curl -fsSL .../ai-apm-k8s-download-apm-images.sh | bash
+#   curl -fsSL .../ai-apm-k8s-download-apm-images.sh | bash -s -- --version 0.1.1
+#   APM_VERSION=0.1.1 curl -fsSL .../ai-apm-k8s-download-apm-images.sh | bash
 #
 # 部署包内:
 #   ./download-apm-images.sh
