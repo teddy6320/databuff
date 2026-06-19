@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="README.md">中文</a>
+  &nbsp;|&nbsp;
+  <a href="README_en.md">English</a>
+</p>
+
 # DataBuff 文档
 
 国产开源 AI 原生 OpenTelemetry APM。

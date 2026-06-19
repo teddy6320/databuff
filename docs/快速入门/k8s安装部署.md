@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="k8s安装部署.md">中文</a>
+  &nbsp;|&nbsp;
+  <a href="k8s安装部署_en.md">English</a>
+</p>
+
 # K8s 安装部署
 
 在 Kubernetes 集群里跑起 DataBuff：Doris、Ingest、Web 按顺序自动部署。

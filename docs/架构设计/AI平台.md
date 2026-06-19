@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="AI平台.md">中文</a>
+  &nbsp;|&nbsp;
+  <a href="AI平台_en.md">English</a>
+</p>
+
 # 架构设计 · AI 平台
 
 ## 设计初衷

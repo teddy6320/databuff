@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="外部MCP集成.md">中文</a>
+  &nbsp;|&nbsp;
+  <a href="外部MCP集成_en.md">English</a>
+</p>
+
 # 使用手册 · 外部 MCP 集成
 
 把外部 MCP 服务挂到 AI 专家上，对话里就能调用 SkyWalking、Prometheus、Zabbix 等能力。

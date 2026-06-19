@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="docker安装部署.md">中文</a>
+  &nbsp;|&nbsp;
+  <a href="docker安装部署_en.md">English</a>
+</p>
+
 # Docker 安装部署
 
 5 分钟跑起 DataBuff：平台、存储、Ingest 一条命令完成。
