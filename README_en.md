@@ -6,7 +6,9 @@
   <img src="ai-apm-frontend/public/img/logo_wordmark.svg" alt="Databuff" height="32" align="middle" />
 </p>
 
-<h3>Open Source · AI Native OpenTelemetry APM</h3>
+<h3>Open Source · AI-Native OpenTelemetry APM</h3>
+
+<p><strong>Ask one question in plain English — AI agents query metrics, traces, and topology together, then tell you what broke.</strong></p>
 
 <p align="center">
   <a href="docs/README_en.md">Documentation</a>
@@ -21,10 +23,29 @@
 <br/>
 
 <p align="center">
+  <img src="docs/images/databuff-demo-en.gif" alt="DataBuff demo: AI chat, services, topology" width="880" />
+</p>
+<p align="center"><sub>AI multi-agent troubleshooting · Service health · Call graph topology — English UI</sub></p>
+
+<br/>
+
+<p align="center">
   <img src="docs/images/feature-pillars-en.png" alt="OpenTelemetry APM and AI Native capabilities" width="880" />
 </p>
 
-<br/>
+---
+
+<h2 align="center">Why DataBuff?</h2>
+
+| | **DataBuff** | SigNoz | Datadog |
+|---|:---:|:---:|:---:|
+| AI multi-agent root cause | ✅ Built-in | ❌ | Add-on |
+| OpenTelemetry native | ✅ | ✅ | Partial |
+| Self-host · 5 min Docker | ✅ `curl \| bash` | ✅ | ❌ SaaS |
+| Distributed tracing + topology | ✅ | ✅ | ✅ |
+| Open source | ✅ Apache 2.0 | ✅ | ❌ |
+
+> **One-liner:** Open-source APM where an **AI brain** dispatches metric, trace, and inspection experts — not another chat box on top of dashboards.
 
 ---
 
@@ -130,7 +151,7 @@ curl -fsSL https://databuff.ai/databuff/ai-apm-k8s-download-images.sh | bash
 </details>
 
 <p align="center">
-  Open <code>http://YOUR_HOST:27403</code> · Add your API key in model settings to enable AI
+  Open <code>http://YOUR_HOST:27403</code> · Default login <code>admin</code> / <code>Databuff@123</code> · Add your API key in model settings to enable AI
   <br/>
 </p>
 
